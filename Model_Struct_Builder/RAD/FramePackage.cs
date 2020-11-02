@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -15,29 +16,36 @@ namespace Model_Struct_Builder.RAD
         /// </summary>
         Assembly targetDll;
         /// <summary>
-        /// 包的完整名字
-        /// </summary>
-        string fullName;
-        /// <summary>
-        /// 包的路径
-        /// </summary>
-        string path;
-        /// <summary>
         /// 包名，后有.dll
         /// </summary>
         string name;
 
-        public FramePackage(string path, string name)
+        public FramePackage(string name)
         {
-            fullName = path + "/" + name;
-            this.path = path;
             this.name = name;
-            targetDll = Assembly.LoadFile(path + "/" + name);
+            if (Directory.Exists(AppController.GetInstence().appPath + "Package/" + name + ".dll"))
+            {
+                targetDll = Assembly.LoadFile(AppController.GetInstence().appPath + "Package/" + name + ".dll");
+            }
+            else if (Directory.Exists(AppController.GetInstence().appPath + "Frame/" + FrameController.GetInstence().frameName + "/Package/" + name + ".dll"))
+            {
+                targetDll = Assembly.LoadFile(AppController.GetInstence().appPath + "Frame/" + FrameController.GetInstence().frameName + "/Package/" + name + ".dll");
+            }
+            else
+            {
+                targetDll = Assembly.LoadFile("D:/OfficialProject/Model_Struct_Builder/BasicLib/bin/Debug/BasicLib.dll");
+            }
         }
 
         public Control GetElement(string elementName)
         {
-            Type t = targetDll.GetType(elementName);
+            Type[] allT = targetDll.GetTypes();
+            foreach (Type test in allT)
+            {
+                Console.WriteLine(test.FullName);
+            }
+
+            Type t = targetDll.GetType(name + "." + elementName);
             return (Control)Activator.CreateInstance(t);
         }
     }

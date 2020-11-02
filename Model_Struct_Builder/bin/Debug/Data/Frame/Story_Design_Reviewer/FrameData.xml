@@ -7,7 +7,8 @@
   <FrameInfo>
     <ID></ID>
     <!--模板的编号，每一个模板对应独立的编号-->
-    <Language>CN<CN/><EN/></Language>
+    <Language>CN<CN/><EN/>
+    </Language>
   </FrameInfo>
 
   <Load>
@@ -18,8 +19,8 @@
       </Language>
     </Xml>
     <Package>
-      <BasicLibrary>BasicLibrary</BasicLibrary>
-      <FrameStandard>FrameStandard</FrameStandard>
+      <BasicLib>BasicLib</BasicLib>
+      <!--FrameStandard>FrameStandard</FrameStandard-->
     </Package>
   </Load>
 
@@ -27,18 +28,18 @@
     <!--事件的页面-->
     <Event>
       <Package>App</Package>
-      <Type>EmptyDocument</Type>
+      <Type>EmptyPanel</Type>
       <DockType>Document</DockType>
       <Content>
 
         <Diagram>
-          <Package>BasicLibrary</Package>
+          <Package>BasicLib</Package>
           <Type>DiagramWithRuler</Type>
           <DockType>Document</DockType>
         </Diagram>
 
         <Node>
-          <Package>BasicLibrary</Package>
+          <Package>BasicLib</Package>
           <Type>NodeList</Type>
           <DockType>Anchorable</DockType>
         </Node>
@@ -47,21 +48,26 @@
     </Event>
     <SimpleEvent>
       <Package>App</Package>
-      <Type>EmptyDocument</Type>
+      <Type>EmptyPanel</Type>
       <DockType>Document</DockType>
       <Content>
-        <SimpleEvent_Diagram>
-          <Package>BasicLibrary</Package>
+        <Diagram>
+          <Package>BasicLib</Package>
           <Type>StandardDiagram</Type>
           <DockType>Document</DockType>
-        </SimpleEvent_Diagram>
+        </Diagram>
         <Node>
-          <Package> BasicLibrary</Package>
+          <Package>BasicLib</Package>
           <Type>NodeList</Type>
           <DockType>Anchorable</DockType>
         </Node>
       </Content>
     </SimpleEvent>
+    <Attribute>
+      <Package>BasicLib</Package>
+      <Type>NodeList</Type>
+      <DockType>Anchorable</DockType>
+    </Attribute>
   </Page>
 
   <!--模板的所有元素。

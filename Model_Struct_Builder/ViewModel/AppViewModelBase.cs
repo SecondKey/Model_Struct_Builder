@@ -1,5 +1,4 @@
 ﻿using GalaSoft.MvvmLight;
-using Model_Struct_Builder.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;

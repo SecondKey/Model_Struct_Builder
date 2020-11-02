@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model_Struct_Builder.Controller
+namespace Model_Struct_Builder
 {
     public struct FramePanelStruct
     {
@@ -82,11 +82,25 @@ namespace Model_Struct_Builder.Controller
                 }
             }
 
+            foreach (var package in mainFrameData.GetAllElementContent("Load", "Package"))
+            {
+                allPackage.Add(package.Value, new FramePackage(package.Key));
+            }
+
             MsgCenter.SendMsg(new MsgBase(AllAppMsg.FrameLoadComplete));
         }
         #endregion
 
         #region Data
+        #region ControlObject
+        public object GetFrameObject(string package, string elementName)
+        {
+            Console.WriteLine(allPackage["BasicLib"]);
+            Console.WriteLine(package);
+            return allPackage[package].GetElement(elementName);
+        }
+        #endregion
+
         #region FrameLanguage
         /// <summary>
         /// 框架的语言
@@ -118,24 +132,23 @@ namespace Model_Struct_Builder.Controller
         }
         void GetTempleteText<T>(MsgBase msg)
         {
-            Console.WriteLine(FrameLanguage);
             FrameDataText = allFrameData["FrameText_" + FrameLanguage].GetAllElementContent();
         }
         #endregion
 
         #region PanelStruct
-        private List<FramePanelStruct> mainPanel = new List<FramePanelStruct>();
+        private List<FramePanelStruct> panelStruct = new List<FramePanelStruct>();
 
-        public List<FramePanelStruct> MainPanel
+        public List<FramePanelStruct> PanelStruct
         {
-            get { return mainPanel; }
+            get { return panelStruct; }
         }
         /// <summary>
         /// 开始加载页面结构
         /// </summary>
         void StartLoadPanelStruct<T>(MsgBase msg)
         {
-            LoadPanelStruct(mainPanel, "Page");
+            LoadPanelStruct(panelStruct, "Page");
             MsgCenter.SendMsg(new MsgBase(AllAppMsg.PanelStructLoadComplete));
         }
         /// <summary>
@@ -170,7 +183,7 @@ namespace Model_Struct_Builder.Controller
         #region DebugTools
         void StartShowStruct<T>(MsgBase msg)
         {
-            ShowStruct(mainPanel, "");
+            ShowStruct(PanelStruct, "");
         }
 
         void ShowStruct(List<FramePanelStruct> target, string t)

@@ -1,5 +1,4 @@
 ﻿using GalaSoft.MvvmLight;
-using Model_Struct_Builder.Controller;
 using Model_Struct_Builder.RAD;
 using System;
 using System.Collections.Generic;
@@ -72,8 +71,6 @@ namespace Model_Struct_Builder
                 }
             }
             MsgCenter.SendMsg(new MsgBase(AllAppMsg.AppLoadComplete));
-
-            MsgCenter.SendMsg(new MsgString(AllAppMsg.LoadFrame, "Story_Design_Reviewer"));
         }
         #endregion
 

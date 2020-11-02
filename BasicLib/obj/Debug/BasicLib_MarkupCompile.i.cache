@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-3-430634730
+41261431917
 
-7-1613335637
+8-229256604
 14-1142759668
-Side\NodeList.xaml;Panel\StandardDiagram.xaml;UserControl1.xaml;
+Panel\DiagramWithRuler.xaml;Side\NodeList.xaml;Panel\StandardDiagram.xaml;UserControl1.xaml;
 
-False
+True
 

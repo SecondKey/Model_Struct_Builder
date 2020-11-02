@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CN>
+  <Page_Event>事件</Page_Event>
+  <Page_Diagram>关系图</Page_Diagram>
+  <Page_Node>节点</Page_Node>
+  <Page_SimpleEvent>简单事件</Page_SimpleEvent>
+  <Page_Attribute>属性</Page_Attribute>
+
+
   <!--基础的文本,直接显示在页面上-->
   <CommonSystem_Time>时间</CommonSystem_Time>
 

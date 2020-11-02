@@ -17,3 +17,5 @@ D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Side\NodeList.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Panel\StandardDiagram.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Side\NodeList.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Panel\StandardDiagram.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Panel\DiagramWithRuler.g.cs
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Panel\DiagramWithRuler.baml

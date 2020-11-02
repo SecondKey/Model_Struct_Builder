@@ -23,7 +23,7 @@
                 </MenuItem>
                 <MenuItem x:Name="Menu_Edit"  Header="{Binding AppDataText[Menu_Edit]}" />
                 <MenuItem x:Name="Menu_Project"  Header="{Binding AppDataText[Menu_Project]}" />
-                <MenuItem x:Name="Menu_View" Header="{Binding AppDataText[Menu_View]}" IsEnabled="{Binding TemplateData.LoadConplete}"/>
+                <MenuItem x:Name="Menu_View" Header="{Binding AppDataText[Menu_View]}" IsEnabled="False"/>
             </Menu>
             <ToolBarTray DockPanel.Dock="Top" Background="White">
                 <ToolBar Style="{DynamicResource MainToolBarStyle}">
@@ -38,8 +38,30 @@
 
             <!--#endregion-->
 
-            <avalon:DockingManager x:Name="DockManager" 
-                           AnchorablesSource="{Binding}">
+            <avalon:DockingManager>
+                
+                <avalon:DockingManager.Theme>
+                    <avalon:GenericTheme/>
+                </avalon:DockingManager.Theme>
+
+                <avalon:LayoutRoot>
+                    <avalon:LayoutPanel>
+                        <avalon:LayoutDocumentPaneGroup>
+                            <avalon:LayoutDocumentPane x:Name="DocumentPane">
+                                
+                            </avalon:LayoutDocumentPane>
+                        </avalon:LayoutDocumentPaneGroup>
+
+                        <avalon:LayoutAnchorablePaneGroup>
+                            <avalon:LayoutAnchorablePane x:Name="AnchorablePane">
+                                
+                            </avalon:LayoutAnchorablePane>
+                        </avalon:LayoutAnchorablePaneGroup>
+                    </avalon:LayoutPanel>
+                </avalon:LayoutRoot>
+            </avalon:DockingManager>
+            
+            <!--<avalon:DockingManager x:Name="DockManager">
                 <avalon:DockingManager.Theme>
                     <avalon:GenericTheme/>
                 </avalon:DockingManager.Theme>
@@ -86,7 +108,7 @@
                         </avalon:LayoutAnchorablePaneGroup>
                     </avalon:LayoutPanel>
                 </avalon:LayoutRoot>
-            </avalon:DockingManager>
+            </avalon:DockingManager>-->
         </DockPanel>
     </Grid>
 </Window>

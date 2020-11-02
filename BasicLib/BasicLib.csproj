@@ -51,6 +51,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Panel\DiagramWithRuler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Side\NodeList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -63,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Panel\DiagramWithRuler.xaml.cs">
+      <DependentUpon>DiagramWithRuler.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Side\NodeList.xaml.cs">
       <DependentUpon>NodeList.xaml</DependentUpon>
     </Compile>
