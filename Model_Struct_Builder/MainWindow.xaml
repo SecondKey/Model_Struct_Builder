@@ -1,0 +1,92 @@
+﻿<Window x:Class="Model_Struct_Builder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalon="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:blib="clr-namespace:BasicLib;assembly=BasicLib"
+        xmlns:local="clr-namespace:Model_Struct_Builder"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+    <Window.Resources>
+        <avalon:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Window.Resources>
+
+    <Grid Background="{StaticResource MainBackGroundColor}">
+        <DockPanel LastChildFill="True" >
+            <!--#region 菜单 工具 状态 -->
+            <Menu DockPanel.Dock="Top">
+                <MenuItem x:Name="Menu_File" Header="{Binding AppDataText[Menu_File]}">
+                    <MenuItem x:Name="Menu_File_New" Header="{Binding AppDataText[Menu_File_New]}" />
+                    <MenuItem x:Name="Menu_File_Open" Header="{Binding AppDataText[Menu_File_Open]}" />
+                </MenuItem>
+                <MenuItem x:Name="Menu_Edit"  Header="{Binding AppDataText[Menu_Edit]}" />
+                <MenuItem x:Name="Menu_Project"  Header="{Binding AppDataText[Menu_Project]}" />
+                <MenuItem x:Name="Menu_View" Header="{Binding AppDataText[Menu_View]}" IsEnabled="{Binding TemplateData.LoadConplete}"/>
+            </Menu>
+            <ToolBarTray DockPanel.Dock="Top" Background="White">
+                <ToolBar Style="{DynamicResource MainToolBarStyle}">
+                    <Button Background="Black"></Button>
+                    <Button Background="Black"></Button>
+                </ToolBar>
+                <ToolBar Style="{DynamicResource MainToolBarStyle}"/>
+            </ToolBarTray>
+            <StatusBar DockPanel.Dock="Bottom">
+                <Label HorizontalAlignment="Left" Content="{Binding AppDataText[Test]}"/>
+            </StatusBar>
+
+            <!--#endregion-->
+
+            <avalon:DockingManager x:Name="DockManager" 
+                           AnchorablesSource="{Binding}">
+                <avalon:DockingManager.Theme>
+                    <avalon:GenericTheme/>
+                </avalon:DockingManager.Theme>
+
+                <avalon:LayoutRoot x:Name="Root">
+                    <avalon:LayoutPanel x:Name="Panel">
+                        <avalon:LayoutDocumentPaneGroup x:Name="DocumentGroup">
+                            <avalon:LayoutDocumentPane x:Name="DocumentPane">
+                                <avalon:LayoutDocument Title="事件" ContentId="document">
+                                    <avalon:DockingManager >
+                                        <avalon:LayoutRoot>
+                                            <avalon:LayoutPanel>
+                                                <avalon:LayoutAnchorablePaneGroup DockMinWidth="160" DockWidth="160">
+                                                    <avalon:LayoutAnchorablePane>
+                                                        <avalon:LayoutAnchorable Title="节点" AutoHideMinWidth="160">
+                                                            <blib:NodeList ElementList="{Binding TestList}"></blib:NodeList>
+                                                        </avalon:LayoutAnchorable>
+                                                    </avalon:LayoutAnchorablePane>
+                                                </avalon:LayoutAnchorablePaneGroup>
+                                                <avalon:LayoutDocumentPaneGroup >
+                                                    <avalon:LayoutDocumentPane>
+                                                        <avalon:LayoutDocument Title="过程">
+                                                            <blib:StandardDiagram/>
+                                                        </avalon:LayoutDocument>
+                                                        <avalon:LayoutDocument Title="属性">
+
+                                                        </avalon:LayoutDocument>
+                                                    </avalon:LayoutDocumentPane>
+                                                </avalon:LayoutDocumentPaneGroup>
+                                            </avalon:LayoutPanel>
+                                        </avalon:LayoutRoot>
+                                    </avalon:DockingManager>
+                                </avalon:LayoutDocument>
+                            </avalon:LayoutDocumentPane>
+                        </avalon:LayoutDocumentPaneGroup>
+
+                        <avalon:LayoutAnchorablePaneGroup x:Name="LeftAnchorableGroup" DockWidth="300">
+                            <avalon:LayoutAnchorablePane x:Name="LeftPane">
+                                <avalon:LayoutAnchorable x:Name="Solution" Title="解决方案" ContentId="Solution"/>
+                                <avalon:LayoutAnchorable x:Name="Solution1" Title="解决方案" ContentId="Solution"/>
+                                <avalon:LayoutAnchorable Title="属性" ContentId="Property"/>
+                            </avalon:LayoutAnchorablePane>
+
+                        </avalon:LayoutAnchorablePaneGroup>
+                    </avalon:LayoutPanel>
+                </avalon:LayoutRoot>
+            </avalon:DockingManager>
+        </DockPanel>
+    </Grid>
+</Window>

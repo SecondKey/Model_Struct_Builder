@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FrameData>
+  <!--模板的基础属性
+  是否使用中心时间轴
+  是否需要错误列表
+  -->
+  <FrameInfo>
+    <ID></ID>
+    <!--模板的编号，每一个模板对应独立的编号-->
+    <Language>CN<CN/><EN/></Language>
+  </FrameInfo>
+
+  <Load>
+    <Xml>
+      <Language>
+        <CN>FrameText_CN</CN>
+        <EN>FrameText_EN</EN>
+      </Language>
+    </Xml>
+    <Package>
+      <BasicLibrary>BasicLibrary</BasicLibrary>
+      <FrameStandard>FrameStandard</FrameStandard>
+    </Package>
+  </Load>
+
+  <Page>
+    <!--事件的页面-->
+    <Event>
+      <Package>App</Package>
+      <Type>EmptyDocument</Type>
+      <DockType>Document</DockType>
+      <Content>
+
+        <Diagram>
+          <Package>BasicLibrary</Package>
+          <Type>DiagramWithRuler</Type>
+          <DockType>Document</DockType>
+        </Diagram>
+
+        <Node>
+          <Package>BasicLibrary</Package>
+          <Type>NodeList</Type>
+          <DockType>Anchorable</DockType>
+        </Node>
+
+      </Content>
+    </Event>
+    <SimpleEvent>
+      <Package>App</Package>
+      <Type>EmptyDocument</Type>
+      <DockType>Document</DockType>
+      <Content>
+        <SimpleEvent_Diagram>
+          <Package>BasicLibrary</Package>
+          <Type>StandardDiagram</Type>
+          <DockType>Document</DockType>
+        </SimpleEvent_Diagram>
+        <Node>
+          <Package> BasicLibrary</Package>
+          <Type>NodeList</Type>
+          <DockType>Anchorable</DockType>
+        </Node>
+      </Content>
+    </SimpleEvent>
+  </Page>
+
+  <!--模板的所有元素。
+  元素是基本单位，应主要对应一种节点。
+  其他节点同样可以包含该元素，但不应使用同一种表示形式。
+  （连接并不包含在其中）-->
+  <Element>
+    <!--事件，包含一个事件时间轴，可以包含其他事件，独立事件和特殊事件。
+    主时间轴是一个事件，同时主时间轴起一个锚定作用。-->
+    <Event>
+
+    </Event>
+    <!--独立事件，是一个事件的最小单位，没有时间轴，是事件发生的具体时间，
+    角色需要有动机，角色间需要有关系，要有事件总结-->
+    <SingleEvent>
+
+    </SingleEvent>
+    <!--特殊事件，同样也是事件的基本单位，但只包含一个单独的角色。
+    角色可以没有动机，也没有发生的关系，仅用于对错误进行修正。
+    不推荐使用-->
+    <SpecialEvent>
+
+    </SpecialEvent>
+    <!--角色，包含角色的属性，与其他角色或阵营的关系等-->
+    <Role>
+
+    </Role>
+    <!--阵营-->
+    <Camp>
+
+    </Camp>
+    <!--物品-->
+    <Items>
+
+    </Items>
+    <!--地点-->
+    <Place>
+
+    </Place>
+  </Element>
+
+  <!--体系，体系可以作为属性添加的节点或者连接上，
+    需要在体系中定义默认的inspect显示模式，
+    在inspect中，体系的属性会显示在元素的基本属性中-->
+  <Attribute>
+    <!--默认体系，已添加到具体的节点上。
+    默认体系允许修改，但不允许添加和删除
+    一般来说，默认体系和框架的主要功能直接相关-->
+    <Common>
+      <Time>
+
+      </Time>
+    </Common>
+    <!--其他体系，可能要用到的，可以自行添加删除
+    其他的体系和框架的主要功能相关性较小或无关-->
+    <Other>
+
+    </Other>
+  </Attribute>
+
+
+  <!--模板的工作区域，分为页面和节点-->
+  <WorkingArea>
+
+    <!--页面规定了工作区中共有多少种页面
+    每个页面中应该包含有多种
+    当节点有多种表示形式时，未特殊说明时将使用全部的该类型节点
+    
+    当一个页面被指定为Diagram族的元素时，
+    应为其指定可用的连接的类型-->
+    <Page>
+
+      <!--基础的事件，所有不包含时间轴的事件的页面-->
+      <SimpleEvent type="StandardDiagram">
+
+      </SimpleEvent>
+      <!--地图，-->
+      <Map type="Map">
+
+      </Map>
+      <!--角色-->
+      <Role type="Multiple">
+
+      </Role>
+      <!--物品-->
+      <Items type="List">
+
+      </Items>
+      <!--体系-->
+      <System type="List">
+
+      </System>
+    </Page>
+
+
+    <!--页面中的节点
+    在信息上：一个节点应该包含一个或多个元素的信息以及节点的含义
+    在结构上：一个节点应该包含指向他的节点和他指向的节点的信息，以及他们中间连接的信息
+    如果连接结构被设置成元素的形式，节点应该可以直接访问该元素（引用）
+    -->
+    <Node>
+      <!--事件族节点-->
+      <Event>
+        <EventNode>
+
+        </EventNode>
+        <SingleEvent>
+
+        </SingleEvent>
+        <SpecialEvent>
+
+        </SpecialEvent>
+      </Event>
+      <!--角色族节点-->
+      <Role>
+        <Role>
+
+        </Role>
+      </Role>
+      <!--地图族节点-->
+      <Map>
+        <Position>
+
+        </Position>
+      </Map>
+    </Node>
+
+
+    <!--页面中的连接
+    在关系上：连接应包含他可以接受的起始目标，可以到达的目标，以及自身所包含的信息
+    在自身：连接应包含自身的样式，自身的连接性质
+    -->
+    <Link>
+      <Event>
+        <LinkToRuler>
+          <Start>
+
+          </Start>
+          <Target>
+
+          </Target>
+          <Info>
+
+          </Info>
+        </LinkToRuler>
+      </Event>
+    </Link>
+  </WorkingArea>
+
+</FrameData>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppData>
+  <Informatino>
+  </Informatino>
+
+  <Settings>
+    <Language>JP</Language>
+    <LayOut>
+      <ErrorPage_Width>250</ErrorPage_Width>
+
+      <InspectePage_Width>250</InspectePage_Width>
+    </LayOut>
+
+    <AppColor>
+      <MainColor>#FFFFFF</MainColor>
+    </AppColor>
+  </Settings>
+
+  <Load>
+    <Language>
+      <EN>AppText_EN</EN>
+      <CN>AppText_CN</CN>
+      <JP>AppText_JP</JP>
+    </Language>
+  </Load>
+</AppData>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CN>
+  <!--基础的文本,直接显示在页面上-->
+  <CommonSystem_Time>时间</CommonSystem_Time>
+
+  <!--如果模板包含错误信息及提示，写在这里-->
+  <ErrorPage_Tab_Error>错误</ErrorPage_Tab_Error>
+  <ErrorPage_Tab_Conflict>冲突</ErrorPage_Tab_Conflict>
+  <ErrorPage_Tab_Prompt>提示</ErrorPage_Tab_Prompt>
+  <ErrorPage_Tab_TODO>代办</ErrorPage_Tab_TODO>
+
+  <ErrorText_ErrorPath>错误位置：</ErrorText_ErrorPath>
+
+  <Error_LostMotivation>
+    <ErrorText>角色行为缺少动机：</ErrorText>
+    <Element>角色：</Element>
+    <End>的行为缺少必要的动机！</End>
+  </Error_LostMotivation>
+</CN>
