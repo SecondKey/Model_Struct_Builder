@@ -45,7 +45,7 @@ namespace Model_Struct_Builder.RAD
             {
                 e = e.Element(parameters[i]);
             }
-            return e.Attribute(parameters[parameters.Length - 1]).Value;
+            return ToolsCenter.FormattingString(e.Attribute(parameters[parameters.Length - 1]).Value);
         }
 
         public string GetContent(params string[] parameters)
@@ -55,7 +55,7 @@ namespace Model_Struct_Builder.RAD
             {
                 e = e.Element(parameters[i]);
             }
-            return e.Value.ToString();
+            return ToolsCenter.FormattingString(e.Value.ToString());
         }
 
         public Dictionary<string, string> GetOneElementsAllProperty(params string[] parameters)
@@ -68,7 +68,7 @@ namespace Model_Struct_Builder.RAD
             }
             foreach (var property in e.Attributes())
             {
-                tmp.Add(property.Name.ToString(), property.Value);
+                tmp.Add(ToolsCenter.FormattingString(property.Name.ToString()), ToolsCenter.FormattingString(property.Value));
             }
             return tmp;
         }
@@ -87,7 +87,7 @@ namespace Model_Struct_Builder.RAD
                 {
                     continue;
                 }
-                tmp.Add(property.Name.ToString(), property.Value);
+                tmp.Add(ToolsCenter.FormattingString(property.Name.ToString()), ToolsCenter.FormattingString(property.Value));
             }
             return tmp;
         }
@@ -102,7 +102,7 @@ namespace Model_Struct_Builder.RAD
             }
             foreach (var property in e.Elements())
             {
-                tmp.Add(property.Name.ToString());
+                tmp.Add(ToolsCenter.FormattingString(property.Name.ToString()));
             }
             return tmp;
         }
@@ -120,9 +120,9 @@ namespace Model_Struct_Builder.RAD
                 Dictionary<string, string> tmp1 = new Dictionary<string, string>();
                 foreach (var p1 in property.Elements())
                 {
-                    tmp1.Add(p1.Name.ToString(), p1.Value);
+                    tmp1.Add(ToolsCenter.FormattingString(p1.Name.ToString()), ToolsCenter.FormattingString(p1.Value));
                 }
-                tmp.Add(property.Name.ToString(), tmp1);
+                tmp.Add(ToolsCenter.FormattingString(property.Name.ToString()), tmp1);
             }
             return tmp;
         }

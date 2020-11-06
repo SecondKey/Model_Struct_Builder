@@ -9,25 +9,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
-    <Window.Resources>
-        <avalon:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
-    </Window.Resources>
 
     <Grid Background="{StaticResource MainBackGroundColor}">
-        <DockPanel LastChildFill="True" >
+        <DockPanel LastChildFill="True">
             <!--#region 菜单 工具 状态 -->
             <Menu DockPanel.Dock="Top">
                 <MenuItem x:Name="Menu_File" Header="{Binding AppDataText[Menu_File]}">
-                    <MenuItem x:Name="Menu_File_New" Header="{Binding AppDataText[Menu_File_New]}" />
-                    <MenuItem x:Name="Menu_File_Open" Header="{Binding AppDataText[Menu_File_Open]}" />
+                    <MenuItem x:Name="Menu_Edit_CN" Header="{Binding AppDataText[Menu_File_New]}"/>
+                    <MenuItem x:Name="Menu_Edit_EN" Header="{Binding AppDataText[Menu_File_New]}"/>
                 </MenuItem>
-                <MenuItem x:Name="Menu_Edit"  Header="{Binding AppDataText[Menu_Edit]}" />
+                <MenuItem x:Name="Menu_Edit"  Header="{Binding AppDataText[Menu_Edit]}" >
+                    <MenuItem x:Name="Menu_File_New" Header="CN"  Command="{Binding ChangeLanguageCommand}" CommandParameter="CN"/>
+                    <MenuItem x:Name="Menu_File_Open" Header="EN"  Command="{Binding ChangeLanguageCommand}" CommandParameter="EN" />
+                </MenuItem>
                 <MenuItem x:Name="Menu_Project"  Header="{Binding AppDataText[Menu_Project]}" />
                 <MenuItem x:Name="Menu_View" Header="{Binding AppDataText[Menu_View]}" IsEnabled="False"/>
             </Menu>
             <ToolBarTray DockPanel.Dock="Top" Background="White">
                 <ToolBar Style="{DynamicResource MainToolBarStyle}">
-                    <Button Background="Black"></Button>
+                    <Button>测试</Button>
                     <Button Background="Black"></Button>
                 </ToolBar>
                 <ToolBar Style="{DynamicResource MainToolBarStyle}"/>
@@ -38,13 +38,20 @@
 
             <!--#endregion-->
 
-            <avalon:DockingManager>
+            <!--#region Dock-->
+
+            <local:EmptyDockingManager x:Name="DockingBase">
+            </local:EmptyDockingManager>
+
+            <!--#region Old -->
+
+            <!--<avalon:DockingManager>
                 
                 <avalon:DockingManager.Theme>
                     <avalon:GenericTheme/>
                 </avalon:DockingManager.Theme>
 
-                <avalon:LayoutRoot>
+                <avalon:LayoutRoot x:Name="Root">
                     <avalon:LayoutPanel>
                         <avalon:LayoutDocumentPaneGroup>
                             <avalon:LayoutDocumentPane x:Name="DocumentPane">
@@ -59,8 +66,8 @@
                         </avalon:LayoutAnchorablePaneGroup>
                     </avalon:LayoutPanel>
                 </avalon:LayoutRoot>
-            </avalon:DockingManager>
-            
+            </avalon:DockingManager>-->
+
             <!--<avalon:DockingManager x:Name="DockManager">
                 <avalon:DockingManager.Theme>
                     <avalon:GenericTheme/>
@@ -109,6 +116,8 @@
                     </avalon:LayoutPanel>
                 </avalon:LayoutRoot>
             </avalon:DockingManager>-->
+            <!--#endregion-->
+            <!--#endregion-->
         </DockPanel>
     </Grid>
 </Window>

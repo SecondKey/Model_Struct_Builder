@@ -4,27 +4,12 @@
 
   <Window_Name>MainWindow</Window_Name>
 
-  <Menu_File>菜单</Menu_File>
-  <Menu_File_New>新建</Menu_File_New>
-  <Menu_File_Open>打开</Menu_File_Open>
-  <Menu_Edit>编辑</Menu_Edit>
-  <Menu_Project>项目</Menu_Project>
-  <Menu_View>视图</Menu_View>
+  <Menu_File>File</Menu_File>
+  <Menu_File_New>New</Menu_File_New>
+  <Menu_File_Open>Open</Menu_File_Open>
+  <Menu_Edit>Edit</Menu_Edit>
+  <Menu_Project>Project</Menu_Project>
+  <Menu_View>View</Menu_View>
+  <Menu_View_Window>Window</Menu_View_Window>
 
-
-
-
-  <WorkingArea_Title_TimeShaft>时间轴</WorkingArea_Title_TimeShaft>
-  <WorkingArea_Title_Event>事件</WorkingArea_Title_Event>
-  <WorkingArea_Title_Map>地图</WorkingArea_Title_Map>
-  <WorkingArea_Title_Role>人物/阵营</WorkingArea_Title_Role>
-  <WorkingArea_Title_AttributeAndThing>属性/物品/其他</WorkingArea_Title_AttributeAndThing>
-  <WorkingArea_TimeLine_EventNode>事件节点</WorkingArea_TimeLine_EventNode>
-
-
-  <InspectCommon_Hierarchy>层级</InspectCommon_Hierarchy>
-  <InspectCommon_Contain>包含</InspectCommon_Contain>
-
-  <InspectEvent_EventName>事件：</InspectEvent_EventName>
-  <InspectEvent_EventInfo>事件信息</InspectEvent_EventInfo>
 </EN>

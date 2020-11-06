@@ -1,10 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CN>
+  <!--布局窗口名称-->
   <Page_Event>事件</Page_Event>
-  <Page_Diagram>关系图</Page_Diagram>
-  <Page_Node>节点</Page_Node>
+  <Page_Event_Diagram>事件关系</Page_Event_Diagram>
+  <Page_Event_Node>节点</Page_Event_Node>
+
   <Page_SimpleEvent>简单事件</Page_SimpleEvent>
+  <Page_SimpleEvent_Diagram>简单事件关系</Page_SimpleEvent_Diagram>
+  <Page_SimpleEvent_Node>节点</Page_SimpleEvent_Node>
+
+  <Page_TestEvent1>测试事件</Page_TestEvent1>
+  <Page_TestEvent1_Diagram>关系</Page_TestEvent1_Diagram>
+
+  <Page_TestEvent2>测试事件</Page_TestEvent2>
+  <Page_TestEvent2_Diagram>关系</Page_TestEvent2_Diagram>
+
   <Page_Attribute>属性</Page_Attribute>
+
+
+
+
 
 
   <!--基础的文本,直接显示在页面上-->

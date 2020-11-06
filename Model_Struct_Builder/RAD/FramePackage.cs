@@ -23,11 +23,11 @@ namespace Model_Struct_Builder.RAD
         public FramePackage(string name)
         {
             this.name = name;
-            if (Directory.Exists(AppController.GetInstence().appPath + "Package/" + name + ".dll"))
+            if (File.Exists(AppController.GetInstence().appPath + "Package/" + name + ".dll"))
             {
                 targetDll = Assembly.LoadFile(AppController.GetInstence().appPath + "Package/" + name + ".dll");
             }
-            else if (Directory.Exists(AppController.GetInstence().appPath + "Frame/" + FrameController.GetInstence().frameName + "/Package/" + name + ".dll"))
+            else if (File.Exists(AppController.GetInstence().appPath + "Frame/" + FrameController.GetInstence().frameName + "/Package/" + name + ".dll"))
             {
                 targetDll = Assembly.LoadFile(AppController.GetInstence().appPath + "Frame/" + FrameController.GetInstence().frameName + "/Package/" + name + ".dll");
             }

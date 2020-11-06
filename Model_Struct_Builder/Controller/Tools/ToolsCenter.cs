@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Model_Struct_Builder
 {
-    class ToolsCenter
+    public class ToolsCenter
     {
+        public static string FormattingString(string t)
+        {
+            return t.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "");
+        }
+
         /// <summary>
         /// 将一个或一些数据连接到一个数组后面
         /// </summary>

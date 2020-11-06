@@ -4,11 +4,17 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                     xmlns:local="clr-namespace:Model_Struct_Builder"
+                    xmlns:avalon="http://schemas.xceed.com/wpf/xaml/avalondock"
                     xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" 
                     >
+
+    <!--#region Tools -->
+    <local:ActiveDocumentConverter x:Key="ActiveDocumentConverter"/>
+    <avalon:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    <!--#endregion-->
+
     <!--#region StaticTempelte -->
     <!--#region Brush -->
-
     <SolidColorBrush x:Key="MainBackGroundColor" Color="#F1EDED"/>
     <SolidColorBrush x:Key="MainBorderBrush" Color="#ACACAC"/>
 

@@ -1,0 +1,62 @@
+﻿<avalon:DockingManager x:Class="Model_Struct_Builder.EmptyDockingManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Model_Struct_Builder"
+             xmlns:avalon="http://schemas.xceed.com/wpf/xaml/avalondock"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             AnchorablesSource="{Binding Windows}" 
+             DocumentsSource="{Binding Pages}"
+             ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource ActiveDocumentConverter}}">
+
+    <avalon:DockingManager.Resources>
+        <avalon:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </avalon:DockingManager.Resources>
+    <avalon:DockingManager.LayoutItemTemplate>
+        <DataTemplate>
+            <Border BorderBrush="Black" BorderThickness="0,0.3,0,0" Margin="-3">
+                <local:LayoutPanel Margin="3" PanelInfo="{Binding PanelInfo}"/>
+            </Border>
+        </DataTemplate>
+    </avalon:DockingManager.LayoutItemTemplate>
+
+    <avalon:DockingManager.LayoutItemContainerStyleSelector>
+        <local:PanelStyleSelector>
+            <local:PanelStyleSelector.WindowStyle>
+                <Style TargetType="{x:Type avalon:LayoutAnchorableItem}">
+                    <Setter Property="Title" Value="{Binding Model.Title}"/>
+                    <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"/>
+                    <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                    <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
+                    <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
+                </Style>
+            </local:PanelStyleSelector.WindowStyle>
+            <local:PanelStyleSelector.PageStyle>
+                <Style TargetType="{x:Type avalon:LayoutItem}">
+                    <Setter Property="Title" Value="{Binding Model.Title}"/>
+                    <Setter Property="ToolTip" Value="{Binding Model.FilePath}"/>
+                    <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}"/>
+                    <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+                    <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                </Style>
+            </local:PanelStyleSelector.PageStyle>
+        </local:PanelStyleSelector>
+    </avalon:DockingManager.LayoutItemContainerStyleSelector>
+
+    <avalon:DockingManager.LayoutUpdateStrategy>
+        <local:LayoutInitializer/>
+    </avalon:DockingManager.LayoutUpdateStrategy>
+
+    <avalon:LayoutRoot>
+        <avalon:LayoutPanel>
+            <avalon:LayoutDocumentPaneGroup>
+                <avalon:LayoutDocumentPane></avalon:LayoutDocumentPane>
+            </avalon:LayoutDocumentPaneGroup>
+            <avalon:LayoutAnchorablePaneGroup>
+                <avalon:LayoutAnchorablePane></avalon:LayoutAnchorablePane>
+            </avalon:LayoutAnchorablePaneGroup>
+        </avalon:LayoutPanel>
+    </avalon:LayoutRoot>
+</avalon:DockingManager>

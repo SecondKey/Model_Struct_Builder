@@ -7,7 +7,10 @@
   <FrameInfo>
     <ID></ID>
     <!--模板的编号，每一个模板对应独立的编号-->
-    <Language>CN<CN/><EN/>
+    <Language>
+      CN
+      <CN/>
+      <EN/>
     </Language>
   </FrameInfo>
 
@@ -29,44 +32,73 @@
     <Event>
       <Package>App</Package>
       <Type>EmptyPanel</Type>
-      <DockType>Document</DockType>
+      <DockType>Page</DockType>
       <Content>
-
-        <Diagram>
+        <!--事件的关系图-->
+        <Event_Diagram>
           <Package>BasicLib</Package>
           <Type>DiagramWithRuler</Type>
-          <DockType>Document</DockType>
-        </Diagram>
-
-        <Node>
+          <DockType>Page</DockType>
+        </Event_Diagram>
+        <!--事件的节点-->
+        <Event_Node>
           <Package>BasicLib</Package>
           <Type>NodeList</Type>
-          <DockType>Anchorable</DockType>
-        </Node>
-
+          <DockType>Window</DockType>
+        </Event_Node>
       </Content>
     </Event>
+    <!--简单事件-->
     <SimpleEvent>
       <Package>App</Package>
       <Type>EmptyPanel</Type>
-      <DockType>Document</DockType>
+      <DockType>Page</DockType>
       <Content>
-        <Diagram>
+        <!--简单事件的关系图-->
+        <SimpleEvent_Diagram>
           <Package>BasicLib</Package>
           <Type>StandardDiagram</Type>
-          <DockType>Document</DockType>
-        </Diagram>
-        <Node>
+          <DockType>Page</DockType>
+        </SimpleEvent_Diagram>
+        <!--简单事件的节点-->
+        <SimpleEvent_Node>
           <Package>BasicLib</Package>
           <Type>NodeList</Type>
-          <DockType>Anchorable</DockType>
-        </Node>
+          <DockType>Window</DockType>
+        </SimpleEvent_Node>
       </Content>
     </SimpleEvent>
+
+    <TestEvent1>
+      <Package>App</Package>
+      <Type>EmptyPanel</Type>
+      <DockType>Page</DockType>
+      <Content>
+        <TestEvent1_Diagram>
+          <Package>BasicLib</Package>
+          <Type>StandardDiagram</Type>
+          <DockType>Page</DockType>
+        </TestEvent1_Diagram>
+      </Content>
+    </TestEvent1>
+
+    <TestEvent2>
+      <Package>App</Package>
+      <Type>EmptyPanel</Type>
+      <DockType>Page</DockType>
+      <Content>
+        <TestEvent2_Diagram>
+          <Package>BasicLib</Package>
+          <Type>StandardDiagram</Type>
+          <DockType>Page</DockType>
+        </TestEvent2_Diagram>
+      </Content>
+    </TestEvent2>
+    <!--事件的属性-->
     <Attribute>
       <Package>BasicLib</Package>
       <Type>NodeList</Type>
-      <DockType>Anchorable</DockType>
+      <DockType>Window</DockType>
     </Attribute>
   </Page>
 

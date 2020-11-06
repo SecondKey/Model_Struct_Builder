@@ -91,16 +91,40 @@
     </ApplicationDefinition>
     <Compile Include="Controller\AppController.cs" />
     <Compile Include="Controller\FrameController.cs" />
-    <Compile Include="Controller\ToolsCenter.cs" />
+    <Compile Include="Controller\Tools\MsgProperty.cs" />
+    <Compile Include="Controller\Tools\ObservableBool.cs" />
+    <Compile Include="Controller\Tools\ObservableDictionary.cs" />
+    <Compile Include="Controller\Tools\ToolsCenter.cs" />
+    <Compile Include="Layout\LayoutPanel.xaml.cs">
+      <DependentUpon>LayoutPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\EmptyDockingManager.xaml.cs">
+      <DependentUpon>EmptyDockingManager.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interface\iFrameSystem.cs" />
+    <Compile Include="Layout\ViewModel\DockingManagerViewModel.cs" />
+    <Compile Include="Layout\Tools\LayoutInitializer.cs" />
+    <Compile Include="Layout\ViewModel\LayoutPageViewModel.cs" />
+    <Compile Include="Layout\ViewModel\LayoutPanelViewModelBase.cs" />
+    <Compile Include="Layout\ViewModel\LayoutWindowViewModel.cs" />
+    <Compile Include="Layout\Tools\PanelStyleSelector.cs" />
     <Compile Include="RAD\FramePackage.cs" />
     <Compile Include="RAD\iRData.cs" />
     <Compile Include="RAD\RXml.cs" />
     <Compile Include="ResourcesDictionaryEvents.cs" />
+    <Compile Include="Layout\Tools\ActiveDocumentConverter.cs" />
     <Compile Include="ViewModel\AppViewModelBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="AppDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Layout\LayoutPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Layout\EmptyDockingManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,12 +197,22 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Frame\Story_Design_Reviewer\Package\" />
-    <Folder Include="Data\Package\" />
     <Folder Include="Data\Template\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\Frame\Story_Design_Reviewer\Language\EN.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Package\Aga.Diagrams.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Package\BasicLib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Package\BasicLib.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

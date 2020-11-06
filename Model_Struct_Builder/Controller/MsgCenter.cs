@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +27,8 @@ namespace Model_Struct_Builder
         #region Frame
         LoadFrame,//加载以一个框架 string 框架名称
         FrameLoadComplete,//框架加载完成
+
+        ShowHideWindow,//显示或隐藏窗口
 
         PanelStructLoadComplete,//页面结构加载完成
         #endregion
@@ -93,6 +96,28 @@ namespace Model_Struct_Builder
         public MsgString(AllAppMsg msg, string parameter) : base(msg)
         {
             this.parameter = parameter;
+        }
+    }
+
+    public class MsgVar<T> : MsgBase
+    {
+        public T parameter;
+
+        public MsgVar(AllAppMsg msg, T parameter) : base(msg)
+        {
+            this.parameter = parameter;
+        }
+    }
+
+    public class msgVarKv<T, Y> : MsgBase
+    {
+        public T p1;
+        public Y p2;
+
+        public msgVarKv(AllAppMsg msg, T p1, Y p2) : base(msg)
+        {
+            this.p1 = p1;
+            this.p2 = p2;
         }
     }
 }

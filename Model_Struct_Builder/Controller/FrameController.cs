@@ -95,8 +95,6 @@ namespace Model_Struct_Builder
         #region ControlObject
         public object GetFrameObject(string package, string elementName)
         {
-            Console.WriteLine(allPackage["BasicLib"]);
-            Console.WriteLine(package);
             return allPackage[package].GetElement(elementName);
         }
         #endregion
@@ -183,7 +181,7 @@ namespace Model_Struct_Builder
         #region DebugTools
         void StartShowStruct<T>(MsgBase msg)
         {
-            ShowStruct(PanelStruct, "");
+            //ShowStruct(PanelStruct, "");
         }
 
         void ShowStruct(List<FramePanelStruct> target, string t)

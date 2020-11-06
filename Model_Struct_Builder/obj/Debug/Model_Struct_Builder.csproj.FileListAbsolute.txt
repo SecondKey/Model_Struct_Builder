@@ -44,3 +44,10 @@ D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Lang
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Frame\Story_Design_Reviewer\Language\CN.xml
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Frame\Story_Design_Reviewer\FrameData.xml
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Frame\Story_Design_Reviewer\Language\EN.xml
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Package\Aga.Diagrams.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Package\BasicLib.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Package\BasicLib.pdb
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\LayoutPanel.g.cs
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\EmptyDockingManager.g.cs
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\LayoutPanel.baml
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\EmptyDockingManager.baml
