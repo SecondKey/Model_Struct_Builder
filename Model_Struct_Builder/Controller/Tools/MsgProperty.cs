@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Model_Struct_Builder
 {
+    /// <summary>
+    /// 允许发送set消息的属性
+    /// </summary>
+    /// <typeparam name="T">参数的类型</typeparam>
     public class MsgProperty<T>
     {
         AllAppMsg msg;
@@ -41,7 +45,12 @@ namespace Model_Struct_Builder
         }
     }
 
-    public class MsgKVProperty<T, Y>:ObservableObject
+    /// <summary>
+    /// 允许发送set消息的key，value属性
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="Y"></typeparam>
+    public class MsgKVProperty<T, Y> : ObservableObject
     {
         AllAppMsg msg;
         public MsgKVProperty(AllAppMsg msg)

@@ -108,6 +108,7 @@
     <Compile Include="Layout\ViewModel\LayoutPanelViewModelBase.cs" />
     <Compile Include="Layout\ViewModel\LayoutWindowViewModel.cs" />
     <Compile Include="Layout\Tools\PanelStyleSelector.cs" />
+    <Compile Include="RAD\FileFolder.cs" />
     <Compile Include="RAD\FramePackage.cs" />
     <Compile Include="RAD\iRData.cs" />
     <Compile Include="RAD\RXml.cs" />
@@ -196,8 +197,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\Frame\Story_Design_Reviewer\Layout\" />
     <Folder Include="Data\Frame\Story_Design_Reviewer\Package\" />
-    <Folder Include="Data\Template\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\Frame\Story_Design_Reviewer\Language\EN.xml">
@@ -213,6 +214,11 @@
     </None>
     <None Include="Data\Package\BasicLib.pdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Settings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

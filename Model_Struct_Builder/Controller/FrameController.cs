@@ -70,7 +70,7 @@ namespace Model_Struct_Builder
         /// </summary>
         void LoadTemplate<T>(MsgBase msg)
         {
-            MsgString tmpMsg = (MsgString)msg;
+            MsgVar<string> tmpMsg = (MsgVar<string>)msg;
             frameName = tmpMsg.parameter;
 
             mainFrameData = new RXml(AppController.GetInstence().appPath + "Frame/" + frameName, "FrameData.xml");
@@ -178,6 +178,20 @@ namespace Model_Struct_Builder
         #endregion
         #endregion
 
+        #region Layout
+
+        public void SaveFrameLayout(string layoutName)
+        {
+
+        }
+
+        public void LoadFrameLayout(string layoutName)
+        {
+
+        }
+
+        #endregion
+
         #region DebugTools
         void StartShowStruct<T>(MsgBase msg)
         {
@@ -186,15 +200,16 @@ namespace Model_Struct_Builder
 
         void ShowStruct(List<FramePanelStruct> target, string t)
         {
-            foreach (FramePanelStruct panel in target)
-            {
-                Console.WriteLine(t + panel.name + "+" + panel.package + "+" + panel.type + "+" + panel.dockType);
-                if (panel.content != null)
-                {
-                    ShowStruct(panel.content, t + panel.name + "_");
-                }
-            }
+            //foreach (FramePanelStruct panel in target)
+            //{
+            //    Console.WriteLine(t + panel.name + "+" + panel.package + "+" + panel.type + "+" + panel.dockType);
+            //    if (panel.content != null)
+            //    {
+            //        ShowStruct(panel.content, t + panel.name + "_");
+            //    }
+            //}
         }
+
         #endregion
     }
 }

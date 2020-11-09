@@ -8,6 +8,12 @@
   <Page_SimpleEvent_Diagram>Diagram</Page_SimpleEvent_Diagram>
   <Page_SimpleEvent_Node>Node</Page_SimpleEvent_Node>
 
+  <Page_TestEvent1>TestEvent1</Page_TestEvent1>
+  <Page_TestEvent1_Diagram>Page_TestEvent1_Diagram</Page_TestEvent1_Diagram>
+
+  <Page_TestEvent2>Page_TestEvent2</Page_TestEvent2>
+  <Page_TestEvent2_Diagram>Page_TestEvent2_Diagram</Page_TestEvent2_Diagram>
+
   <Page_Attribute>Attribute</Page_Attribute>
 
 

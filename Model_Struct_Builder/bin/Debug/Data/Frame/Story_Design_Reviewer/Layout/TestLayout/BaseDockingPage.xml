@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayoutRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RootPanel Orientation="Horizontal">
+    <LayoutDocumentPaneGroup Orientation="Horizontal">
+      <LayoutDocumentPane Id="fcbee940-6396-43cb-89ac-b3fc2d87e82f">
+        <LayoutDocument Title="Event" ContentId="Event" LastActivationTimeStamp="11/10/2020 01:36:27" />
+        <LayoutDocument Title="SimpleEvent" ContentId="SimpleEvent" LastActivationTimeStamp="11/10/2020 01:36:27" />
+        <LayoutDocument Title="Page_TestEvent2" IsSelected="True" IsLastFocusedDocument="True" ContentId="TestEvent2" LastActivationTimeStamp="11/10/2020 01:36:34" />
+      </LayoutDocumentPane>
+    </LayoutDocumentPaneGroup>
+    <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="340">
+      <LayoutAnchorablePane DockWidth="340">
+        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Attribute" IsSelected="True" ContentId="Attribute" />
+      </LayoutAnchorablePane>
+    </LayoutAnchorablePaneGroup>
+  </RootPanel>
+  <TopSide />
+  <RightSide />
+  <LeftSide />
+  <BottomSide />
+  <FloatingWindows>
+    <LayoutFloatingWindow xsi:type="LayoutDocumentFloatingWindow">
+      <RootDocument Title="TestEvent1" IsSelected="True" ContentId="TestEvent1" FloatingLeft="726" FloatingTop="549" FloatingWidth="438" FloatingHeight="336" LastActivationTimeStamp="11/10/2020 01:36:33" PreviousContainerId="fcbee940-6396-43cb-89ac-b3fc2d87e82f" PreviousContainerIndex="2" />
+    </LayoutFloatingWindow>
+  </FloatingWindows>
+  <Hidden />
+</LayoutRoot>

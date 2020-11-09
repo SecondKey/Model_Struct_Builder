@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace Model_Struct_Builder
 {
+    /// <summary>
+    /// 杂七杂八的工具类
+    /// </summary>
     public class ToolsCenter
     {
+        /// <summary>
+        /// 删除一个字符串中所有的制表符等
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public static string FormattingString(string t)
         {
             return t.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "");

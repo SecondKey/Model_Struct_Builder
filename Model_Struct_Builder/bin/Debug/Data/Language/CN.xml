@@ -11,5 +11,6 @@
   <Menu_Project>项目</Menu_Project>
   <Menu_View>视图</Menu_View>
   <Menu_View_Window>窗口</Menu_View_Window>
-
+  <Menu_View_Save>保存布局</Menu_View_Save>
+  <Menu_View_Load>加载布局</Menu_View_Load>
 </CN>

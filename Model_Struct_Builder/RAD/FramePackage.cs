@@ -9,6 +9,9 @@ using System.Windows.Controls;
 
 namespace Model_Struct_Builder.RAD
 {
+    /// <summary>
+    /// DLL包加载器
+    /// </summary>
     class FramePackage
     {
         /// <summary>
@@ -37,16 +40,14 @@ namespace Model_Struct_Builder.RAD
             }
         }
 
+        /// <summary>
+        /// 包中的一个组件
+        /// </summary>
+        /// <param name="elementName">组件名</param>
         public Control GetElement(string elementName)
         {
-            Type[] allT = targetDll.GetTypes();
-            foreach (Type test in allT)
-            {
-                Console.WriteLine(test.FullName);
-            }
-
-            Type t = targetDll.GetType(name + "." + elementName);
-            return (Control)Activator.CreateInstance(t);
+            Type t = targetDll.GetType(name + "." + elementName);//获取组件的类型
+            return (Control)Activator.CreateInstance(t);//根据类型实例化对象
         }
     }
 }

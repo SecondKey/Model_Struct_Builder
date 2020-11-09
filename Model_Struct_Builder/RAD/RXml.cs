@@ -7,6 +7,9 @@ using System.Xml.Linq;
 
 namespace Model_Struct_Builder.RAD
 {
+    /// <summary>
+    /// 读Xml类，提供读取xml内容功能
+    /// </summary>
     public class RXml : iRData
     {
         public RXml(string path, string name)

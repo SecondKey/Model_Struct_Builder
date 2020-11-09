@@ -4,16 +4,7 @@
   </Informatino>
 
   <Settings>
-    <Language>JP</Language>
-    <LayOut>
-      <ErrorPage_Width>250</ErrorPage_Width>
-
-      <InspectePage_Width>250</InspectePage_Width>
-    </LayOut>
-
-    <AppColor>
-      <MainColor>#FFFFFF</MainColor>
-    </AppColor>
+    <Language>CN</Language>
   </Settings>
 
   <Load>

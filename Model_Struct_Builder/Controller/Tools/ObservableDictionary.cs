@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 
 namespace Model_Struct_Builder
 {
+    /// <summary>
+    /// ObservableCollection的字典版
+    /// </summary>
     public class ObservableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, INotifyCollectionChanged, INotifyPropertyChanged
     {
         public ObservableDictionary()
             : base()
         { }
 
+        
         private int _index;
         public event NotifyCollectionChangedEventHandler CollectionChanged;
         public event PropertyChangedEventHandler PropertyChanged;

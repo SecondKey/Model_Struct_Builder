@@ -12,19 +12,22 @@
 
     <Grid Background="{StaticResource MainBackGroundColor}">
         <DockPanel LastChildFill="True">
-            <!--#region 菜单 工具 状态 -->
+
             <Menu DockPanel.Dock="Top">
-                <MenuItem x:Name="Menu_File" Header="{Binding AppDataText[Menu_File]}">
-                    <MenuItem x:Name="Menu_Edit_CN" Header="{Binding AppDataText[Menu_File_New]}"/>
-                    <MenuItem x:Name="Menu_Edit_EN" Header="{Binding AppDataText[Menu_File_New]}"/>
+                <MenuItem x:Name="Menu_File" Header="{Binding App.AppDataText[Menu_File]}">
                 </MenuItem>
-                <MenuItem x:Name="Menu_Edit"  Header="{Binding AppDataText[Menu_Edit]}" >
+                <MenuItem x:Name="Menu_Edit"  Header="{Binding App.AppDataText[Menu_Edit]}" >
                     <MenuItem x:Name="Menu_File_New" Header="CN"  Command="{Binding ChangeLanguageCommand}" CommandParameter="CN"/>
                     <MenuItem x:Name="Menu_File_Open" Header="EN"  Command="{Binding ChangeLanguageCommand}" CommandParameter="EN" />
                 </MenuItem>
-                <MenuItem x:Name="Menu_Project"  Header="{Binding AppDataText[Menu_Project]}" />
-                <MenuItem x:Name="Menu_View" Header="{Binding AppDataText[Menu_View]}" IsEnabled="False"/>
+                <MenuItem x:Name="Menu_Project"  Header="{Binding App.AppDataText[Menu_Project]}" />
+                <MenuItem x:Name="Menu_View" Header="{Binding App.AppDataText[Menu_View]}" IsEnabled="False">
+                    <MenuItem x:Name="Menu_View_Window" Header="{Binding App.AppDataText[Menu_View_Window]}"/>
+                    <MenuItem x:Name="Menu_View_Load" Header="{Binding App.AppDataText[Menu_View_Load]}" Command="{Binding LoadLayout}"/>
+                    <MenuItem x:Name="Menu_View_Save" Header="{Binding App.AppDataText[Menu_View_Save]}" Command="{Binding SaveLayout}"/>
+                </MenuItem>
             </Menu>
+
             <ToolBarTray DockPanel.Dock="Top" Background="White">
                 <ToolBar Style="{DynamicResource MainToolBarStyle}">
                     <Button>测试</Button>
@@ -32,16 +35,12 @@
                 </ToolBar>
                 <ToolBar Style="{DynamicResource MainToolBarStyle}"/>
             </ToolBarTray>
+
             <StatusBar DockPanel.Dock="Bottom">
-                <Label HorizontalAlignment="Left" Content="{Binding AppDataText[Test]}"/>
+                <Label HorizontalAlignment="Left" Content="{Binding App.AppDataText[Test]}"/>
             </StatusBar>
 
-            <!--#endregion-->
-
-            <!--#region Dock-->
-
-            <local:EmptyDockingManager x:Name="DockingBase">
-            </local:EmptyDockingManager>
+            <local:EmptyDockingManager x:Name="BaseDockingPage"/>
 
             <!--#region Old -->
 
@@ -116,7 +115,6 @@
                     </avalon:LayoutPanel>
                 </avalon:LayoutRoot>
             </avalon:DockingManager>-->
-            <!--#endregion-->
             <!--#endregion-->
         </DockPanel>
     </Grid>

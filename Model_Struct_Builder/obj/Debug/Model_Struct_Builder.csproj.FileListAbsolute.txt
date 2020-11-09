@@ -51,3 +51,4 @@ D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\La
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\EmptyDockingManager.g.cs
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\LayoutPanel.baml
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\EmptyDockingManager.baml
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Settings.xml

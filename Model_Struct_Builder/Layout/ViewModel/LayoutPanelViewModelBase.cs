@@ -7,12 +7,14 @@ using System.Windows.Media;
 
 namespace Model_Struct_Builder
 {
+    /// <summary>
+    /// 页面 的VM
+    /// </summary>
     class LayoutPanelViewModelBase : AppViewModelBase
     {
         public LayoutPanelViewModelBase(FramePanelStruct targetStruct)
         {
             panelInfo = targetStruct;
-            name = panelInfo.name;
         }
 
         #region PanelInfo
@@ -35,41 +37,17 @@ namespace Model_Struct_Builder
         /// <summary>
         /// panel的类型，在设置时根据类型来创建内容
         /// </summary>
-        private string name;
         public string Name
         {
-            get { return name; }
-            private set
-            {
-                name = value;
-                RaisePropertyChanged(() => Name);
-            }
+            get { return PanelInfo.name; }
         }
         #endregion
 
         #region Title
         public string Title
         {
-            get { return FrameController.GetInstence().FrameDataText["Page_" + name]; }
+            get { return FrameController.GetInstence().FrameDataText["Page_" + Name]; }
         }
-        #endregion
-
-        #region ContentId
-
-        private string _contentId = null;
-        public string ContentId
-        {
-            get { return _contentId; }
-            set
-            {
-                if (_contentId != value)
-                {
-                    _contentId = value;
-                    RaisePropertyChanged("ContentId");
-                }
-            }
-        }
-
         #endregion
 
         #region IsSelected

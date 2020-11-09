@@ -9,6 +9,9 @@ using System.Windows.Media;
 
 namespace Model_Struct_Builder
 {
+    /// <summary>
+    /// 页面/页 的VM
+    /// </summary>
     class LayoutPageViewModel : LayoutPanelViewModelBase
     {
         static ImageSourceConverter ISC = new ImageSourceConverter();
@@ -26,6 +29,5 @@ namespace Model_Struct_Builder
             }
         }
         #endregion
-
     }
 }

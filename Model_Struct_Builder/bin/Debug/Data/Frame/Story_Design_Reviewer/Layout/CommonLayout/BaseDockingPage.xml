@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayoutRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RootPanel Orientation="Horizontal">
+    <LayoutDocumentPaneGroup Orientation="Horizontal">
+      <LayoutDocumentPane>
+        <LayoutDocument Title="简单事件" ContentId="SimpleEvent" LastActivationTimeStamp="11/10/2020 03:27:32" />
+        <LayoutDocument Title="事件" IsSelected="True" IsLastFocusedDocument="True" ContentId="Event" LastActivationTimeStamp="11/10/2020 03:27:36" />
+        <LayoutDocument Title="测试事件" ContentId="TestEvent1" LastActivationTimeStamp="11/10/2020 03:16:17" />
+        <LayoutDocument Title="测试事件" ContentId="TestEvent2" LastActivationTimeStamp="11/10/2020 03:16:18" />
+      </LayoutDocumentPane>
+    </LayoutDocumentPaneGroup>
+    <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="238">
+      <LayoutAnchorablePane>
+        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="属性" IsSelected="True" ContentId="Attribute" LastActivationTimeStamp="11/10/2020 03:16:12" />
+      </LayoutAnchorablePane>
+    </LayoutAnchorablePaneGroup>
+  </RootPanel>
+  <TopSide />
+  <RightSide />
+  <LeftSide />
+  <BottomSide />
+  <FloatingWindows />
+  <Hidden />
+</LayoutRoot>

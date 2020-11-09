@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Model_Struct_Builder
 {
+    /// <summary>
+    /// 用于快速访问Controller
+    /// </summary>
     public class AppViewModelBase : ViewModelBase
     {
         public AppController App
@@ -17,16 +20,6 @@ namespace Model_Struct_Builder
         public FrameController Frame
         {
             get { return FrameController.GetInstence(); }
-        }
-
-        public Dictionary<string, string> AppDataText
-        {
-            get { return AppController.GetInstence().AppDataText; }
-        }
-
-        public Dictionary<string, string> FrameDataText
-        {
-            get { return FrameController.GetInstence().FrameDataText; }
         }
     }
 }

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Model_Struct_Builder
 {
+    /// <summary>
+    /// 页面/窗口 的VM
+    /// </summary>
     class LayoutWindowViewModel : LayoutPanelViewModelBase
     {
         public LayoutWindowViewModel(FramePanelStruct targetStruct) : base(targetStruct)
@@ -28,7 +31,9 @@ namespace Model_Struct_Builder
         public bool IsVisible
         {
             get
-            { return ViewModelLocator.instence.Main.PageActionList[Name].P2Property; }
+            { 
+                return ViewModelLocator.instence.Main.PageActionList[Name].P2Property;
+            }
             set
             {
                 if (ViewModelLocator.instence.Main.PageActionList[Name].P2Property != value)

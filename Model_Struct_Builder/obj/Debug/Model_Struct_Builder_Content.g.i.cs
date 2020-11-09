@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/frame/story_design_reviewer/package/basiclib.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/settings.xml")]
 
 

@@ -24,7 +24,7 @@ using Xceed.Wpf.AvalonDock.Layout;
 namespace Model_Struct_Builder
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// 程序的开始
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -32,59 +32,91 @@ namespace Model_Struct_Builder
         {
             InitializeComponent();
 
-            MsgCenter.RegistSelf(this, AllAppMsg.PanelStructLoadComplete, StartLoadPanelStruct<MsgBase>);
-            MsgCenter.SendMsg(new MsgString(AllAppMsg.LoadFrame, "Story_Design_Reviewer"));
+            MsgCenter.RegistSelf(this, AllAppMsg.PanelStructLoadComplete, StartLoadPanel<MsgBase>);//注册-页面结构加载完成
+            MsgCenter.RegistSelf(this, AllAppMsg.PanelCreateOver, LoadPanelOver<MsgBase>);//注册-页面加载完成
+
+            MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadFrame, "Story_Design_Reviewer"));//发送-加载框架--Test
         }
 
-        void StartLoadPanelStruct<T>(MsgBase msg)
+        /// <summary>
+        /// 开始加载页面
+        /// </summary>
+        /// <param name="msg"></param>
+        void StartLoadPanel<T>(MsgBase msg)
         {
-            Menu_View.IsEnabled = true;
-            Menu_View.Items.Clear();
-            ViewModelLocator.instence.Main.PageActionList.Clear();
-            LoadMenu(Menu_View, FrameController.GetInstence().PanelStruct);
-            LoadPanel();
+            Menu_View.IsEnabled = true;//加载页面布局后，启用布局菜单项
+
+            Menu_View_Window.Items.Clear();//清空原本窗口菜单
+            ViewModelLocator.instence.Main.PageActionList.Clear();//清空原本窗口显示列表
+
+            LoadMenu(Menu_View_Window, FrameController.GetInstence().PanelStruct);//加载菜单项
+            LoadPanel();//加载页面
         }
 
+        /// <summary>
+        /// 递归加载菜单
+        /// </summary>
+        /// <param name="item">父级菜单项</param>
+        /// <param name="panelStruct">菜单项列表</param>
         void LoadMenu(MenuItem item, List<FramePanelStruct> panelStruct)
         {
             foreach (FramePanelStruct tmp in panelStruct)
             {
-                if (tmp.content != null)
+                if (tmp.content != null)//如果该菜单项还有包含的菜单，递归加载子菜单项
                 {
-                    MenuItem i = new MenuItem();
-                    BindingOperations.SetBinding(i, MenuItem.HeaderProperty, new Binding()
+                    MenuItem i = new MenuItem();//新建菜单项i
+                    BindingOperations.SetBinding(i, MenuItem.HeaderProperty, new Binding()//绑定菜单项的Header
                     {
-                        Path = new PropertyPath("FrameDataText[Page_" + tmp.name + "]")
+                        Path = new PropertyPath("Frame.FrameDataText[Page_" + tmp.name + "]")
                     });
-                    LoadMenu(i, tmp.content);
-                    item.Items.Add(i);
+                    LoadMenu(i, tmp.content);//递归加载i的子菜单项
+                    item.Items.Add(i);//将i添加到父级菜单项中
                 }
-                else if (tmp.dockType == "Window")
+                else if (tmp.dockType == "Window")//如果菜单项布局类型是Window，为菜单项添加关闭打开页面的功能（Page类型默认不允许关闭，所以没有菜单项）
                 {
-                    MenuItem i = new MenuItem();
-                    BindingOperations.SetBinding(i, MenuItem.HeaderProperty, new Binding()
+                    MenuItem i = new MenuItem();//新建菜单项i
+                    BindingOperations.SetBinding(i, MenuItem.HeaderProperty, new Binding()//绑定菜单项的Header
                     {
-                        Path = new PropertyPath("FrameDataText[Page_" + tmp.name + "]")
+                        Path = new PropertyPath("Frame.FrameDataText[Page_" + tmp.name + "]")
                     });
-                    ViewModelLocator.instence.Main.PageActionList.Add(tmp.name,new MsgKVProperty<string, bool>(AllAppMsg.ShowHideWindow, tmp.name, true));
-                    BindingOperations.SetBinding(i, MenuItem.IsCheckedProperty, new Binding()
+                    ViewModelLocator.instence.Main.PageActionList.Add(tmp.name, new MsgKVProperty<string, bool>(AllAppMsg.ShowHideWindow, tmp.name, true));//在窗口显示列表中新增一项
+                    BindingOperations.SetBinding(i, MenuItem.IsCheckedProperty, new Binding()//绑定IsChecked属性到窗口显示列表
                     {
                         Path = new PropertyPath("PageActionList[" + tmp.name + "].SenderP2Property"),
                         Mode = BindingMode.TwoWay
                     });
-                    i.IsCheckable = true;
-                    item.Items.Add(i);
+                    i.IsCheckable = true;//指定菜单项是可选项
+                    item.Items.Add(i);//将i添加到父级菜单项中
                 }
             }
         }
 
+        /// <summary>
+        /// 加载页面
+        /// BaseDockingPage是布局的根元素
+        /// </summary>
         void LoadPanel()
         {
-            DockingManagerViewModel vm = new DockingManagerViewModel(FrameController.GetInstence().PanelStruct);
-            DockingBase.DataContext = vm;
+            DockingManagerViewModel vm = new DockingManagerViewModel("BaseDockingPage", FrameController.GetInstence().PanelStruct);//创建DockingManagerViewModel实例
+            BaseDockingPage.DataContext = vm;//设置BaseDockingPage的ViewModel
         }
 
-        //#region LoadPanel
+        /// <summary>
+        /// 页面加载完成
+        /// </summary>
+        /// <param name="msg">如果当前加载完成的页面是main</param>
+        void LoadPanelOver<T>(MsgBase msg)
+        {
+            MsgVar<string> tmpMsg = (MsgVar<string>)msg;
+            if (tmpMsg.parameter == "BaseDockingPage")
+            {
+                Console.WriteLine("加载完成"); 
+                MsgCenter.UnRegistSelf(this, AllAppMsg.PanelCreateOver);//注销消息接收
+                //ViewModelLocator.instence.Main.LoadLayoutMethod();
+            }
+        }
+
+        #region OldLoadPanel
         //void StartLoadPanelStruct<T>(MsgBase msg)
         //{
         //    Menu_View.IsEnabled = true;
@@ -188,24 +220,7 @@ namespace Model_Struct_Builder
 
         //    LoadPanel(layoutDocumentPane, layoutAnchorablePane, panelStruct);
         //}
-        //#endregion
+        #endregion
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (Root.Hidden != null)
-        //    {
-        //        while (Root.Hidden.Count > 0)
-        //        {
-        //            Root.Hidden[0].Show();//调用show方法，恢复窗体显示。
-        //        }
-        //    }
-        //}
-
-
-
-        void cb_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            MessageBox.Show("响应自定义命令MyCommand");
-        }
     }
 }
