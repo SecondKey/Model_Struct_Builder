@@ -37,10 +37,19 @@ namespace Model_Struct_Builder
                 if (!Directory.Exists(s))
                 {
                     Directory.CreateDirectory(s);
-                    Console.WriteLine(t);
                 }
             }
             return s;
+        }
+
+        public static bool HasFolder(params string[] path)
+        {
+            string s = "";
+            foreach (string p in path)
+            {
+                s += path + "/";
+            }
+            return Directory.Exists(s);
         }
 
         //public static string CreateFile(string fileName, params string[] path)

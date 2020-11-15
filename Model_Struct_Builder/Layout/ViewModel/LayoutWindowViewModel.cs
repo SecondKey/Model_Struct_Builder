@@ -13,7 +13,7 @@ namespace Model_Struct_Builder
     /// </summary>
     class LayoutWindowViewModel : LayoutPanelViewModelBase
     {
-        public LayoutWindowViewModel(FramePanelStruct targetStruct) : base(targetStruct)
+        public LayoutWindowViewModel(string parentName, FramePanelStruct targetStruct) : base(parentName,targetStruct)
         {
             MsgCenter.RegistSelf(this, AllAppMsg.ShowHideWindow, ChangeVisible<MsgBase>);
         }
@@ -31,7 +31,7 @@ namespace Model_Struct_Builder
         public bool IsVisible
         {
             get
-            { 
+            {
                 return ViewModelLocator.instence.Main.PageActionList[Name].P2Property;
             }
             set

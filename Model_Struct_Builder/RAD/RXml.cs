@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Model_Struct_Builder.RAD
+namespace Model_Struct_Builder
 {
     /// <summary>
     /// 读Xml类，提供读取xml内容功能

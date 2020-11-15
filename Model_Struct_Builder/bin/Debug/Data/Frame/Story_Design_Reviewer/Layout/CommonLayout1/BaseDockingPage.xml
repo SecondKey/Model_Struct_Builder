@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LayoutRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <RootPanel Orientation="Horizontal">
-    <LayoutDocumentPaneGroup Orientation="Horizontal" DockWidth="0.822045152722444*">
-      <LayoutDocumentPane Id="bc3b0620-9d81-4487-9688-53c2dd756717">
-        <LayoutDocument Title="事件" ContentId="Event" LastActivationTimeStamp="11/10/2020 03:36:30" />
-        <LayoutDocument Title="测试事件" IsSelected="True" ContentId="TestEvent1" LastActivationTimeStamp="11/10/2020 03:36:49" />
+    <LayoutDocumentPaneGroup Orientation="Horizontal" DockWidth="0.806108897742364*">
+      <LayoutDocumentPane>
+        <LayoutDocument Title="事件" ContentId="Event" LastActivationTimeStamp="11/10/2020 15:19:43" />
+        <LayoutDocument Title="简单事件" ContentId="SimpleEvent" LastActivationTimeStamp="11/10/2020 15:19:53" />
+        <LayoutDocument Title="测试事件" ContentId="TestEvent1" LastActivationTimeStamp="11/10/2020 15:19:53" />
+        <LayoutDocument Title="测试事件" IsSelected="True" IsLastFocusedDocument="True" ContentId="TestEvent2" LastActivationTimeStamp="11/10/2020 15:19:53" />
       </LayoutDocumentPane>
     </LayoutDocumentPaneGroup>
-    <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="159">
-      <LayoutAnchorablePane DockWidth="159">
+    <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="171">
+      <LayoutAnchorablePane DockWidth="171">
         <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="属性" IsSelected="True" ContentId="Attribute" />
       </LayoutAnchorablePane>
     </LayoutAnchorablePaneGroup>
@@ -17,13 +19,6 @@
   <RightSide />
   <LeftSide />
   <BottomSide />
-  <FloatingWindows>
-    <LayoutFloatingWindow xsi:type="LayoutDocumentFloatingWindow">
-      <RootDocument Title="测试事件" IsSelected="True" IsLastFocusedDocument="True" ContentId="TestEvent2" FloatingLeft="1103" FloatingTop="131" FloatingWidth="753" FloatingHeight="336" LastActivationTimeStamp="11/10/2020 03:36:57" PreviousContainerId="bc3b0620-9d81-4487-9688-53c2dd756717" PreviousContainerIndex="3" />
-    </LayoutFloatingWindow>
-    <LayoutFloatingWindow xsi:type="LayoutDocumentFloatingWindow">
-      <RootDocument Title="简单事件" IsSelected="True" ContentId="SimpleEvent" FloatingLeft="192" FloatingTop="575" FloatingWidth="753" FloatingHeight="336" LastActivationTimeStamp="11/10/2020 03:36:55" PreviousContainerId="bc3b0620-9d81-4487-9688-53c2dd756717" PreviousContainerIndex="1" />
-    </LayoutFloatingWindow>
-  </FloatingWindows>
+  <FloatingWindows />
   <Hidden />
 </LayoutRoot>

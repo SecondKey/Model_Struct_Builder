@@ -31,11 +31,7 @@ namespace Model_Struct_Builder
         public MainWindow()
         {
             InitializeComponent();
-
-            MsgCenter.RegistSelf(this, AllAppMsg.PanelStructLoadComplete, StartLoadPanel<MsgBase>);//注册-页面结构加载完成
-            MsgCenter.RegistSelf(this, AllAppMsg.PanelCreateOver, LoadPanelOver<MsgBase>);//注册-页面加载完成
-
-            MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadFrame, "Story_Design_Reviewer"));//发送-加载框架--Test
+            MsgCenter.RegistSelf(this, AllAppMsg.AllPanelStructLoadComplete, StartLoadPanel<MsgBase>);
         }
 
         /// <summary>
@@ -97,24 +93,12 @@ namespace Model_Struct_Builder
         /// </summary>
         void LoadPanel()
         {
-            DockingManagerViewModel vm = new DockingManagerViewModel("BaseDockingPage", FrameController.GetInstence().PanelStruct);//创建DockingManagerViewModel实例
-            BaseDockingPage.DataContext = vm;//设置BaseDockingPage的ViewModel
+            DockingManagerViewModel vm = new DockingManagerViewModel("BaseDocking", FrameController.GetInstence().PanelStruct);//创建DockingManagerViewModel实例
+            EmptyDockingManager BaseDocking = new EmptyDockingManager();
+            BaseDocking.DataContext = vm;//设置BaseDockingPage的ViewModel
+            WorkingArea.Children.Add(BaseDocking);
         }
 
-        /// <summary>
-        /// 页面加载完成
-        /// </summary>
-        /// <param name="msg">如果当前加载完成的页面是main</param>
-        void LoadPanelOver<T>(MsgBase msg)
-        {
-            MsgVar<string> tmpMsg = (MsgVar<string>)msg;
-            if (tmpMsg.parameter == "BaseDockingPage")
-            {
-                Console.WriteLine("加载完成"); 
-                MsgCenter.UnRegistSelf(this, AllAppMsg.PanelCreateOver);//注销消息接收
-                //ViewModelLocator.instence.Main.LoadLayoutMethod();
-            }
-        }
 
         #region OldLoadPanel
         //void StartLoadPanelStruct<T>(MsgBase msg)

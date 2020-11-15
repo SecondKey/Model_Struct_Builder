@@ -16,7 +16,7 @@ namespace Model_Struct_Builder
     {
         static ImageSourceConverter ISC = new ImageSourceConverter();
 
-        public LayoutPageViewModel(FramePanelStruct targetStruct) : base(targetStruct)
+        public LayoutPageViewModel(string parentName, FramePanelStruct targetStruct) : base( parentName,targetStruct)
         {
         }
 

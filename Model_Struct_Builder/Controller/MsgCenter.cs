@@ -6,6 +6,7 @@ using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Model_Struct_Builder
 {
@@ -18,11 +19,20 @@ namespace Model_Struct_Builder
         #endregion
 
         #region App
+
+        #region Load
         LoadApp,//加载应用程序数据
         AppLoadComplete,//加载应用程序数据完成
+        #endregion
 
+        #region Settings
         ChangeLanguage,//App切换了语言
+        #endregion
 
+        #region ToolsAndOthers
+        TestVMTVMsg,
+        ViewModelToView,//viewModel通过消息控制view执行方法，详见MsgCenter_VMTV
+        #endregion 
         #endregion
 
         #region Frame
@@ -35,10 +45,13 @@ namespace Model_Struct_Builder
 
         LoadFrame,//加载以一个框架 string 框架名称
         FrameLoadComplete,//框架加载完成
-        PanelStructLoadComplete,//页面结构加载完成
-        PanelLoadConplete,//页面加载完成
+        AllPanelStructLoadComplete,//页面结构加载完成
 
-        PanelCreateOver,//页面创建完成
+        PanelCreateComplete,//一个页面加载完成
+        PanelLoadChild,//页面开始加载自己的内容
+        PanelChildLoadComplete,//一个页面加载完成 string，加载完成页面的名字
+
+
         #endregion
 
         #region Project
@@ -101,6 +114,7 @@ namespace Model_Struct_Builder
                 }
             }
         }
+
         /// <summary>
         /// 注销一个消息
         /// </summary>
@@ -110,6 +124,22 @@ namespace Model_Struct_Builder
         {
             Messenger.Default.Unregister<MsgBase>(target, msg);
         }
+
+        #region VMTV
+        public static void ViewRegistVMTV(object target, Dictionary<string, Action> actionDic)
+        {
+            Messenger.Default.Register(target, AllAppMsg.ViewModelToView, new Action<MsgBase>((m) =>
+            {
+                MsgVarKv<string, string> tmpMsg = (MsgVarKv<string, string>)m;
+                FrameworkElement element = target as FrameworkElement;
+                AppViewModelBase vm = element.DataContext as AppViewModelBase;
+                if (tmpMsg.parameter == vm.viewModelName)
+                {
+                    actionDic[tmpMsg.p1].Invoke();
+                }
+            }), true);
+        }
+        #endregion
     }
 
     /// <summary>
@@ -142,15 +172,14 @@ namespace Model_Struct_Builder
     /// <summary>
     /// 带有两个参数的消息
     /// </summary>
-    public class msgVarKv<T, Y> : MsgBase
+    public class MsgVarKv<T, Y> : MsgVar<T>
     {
-        public T p1;
-        public Y p2;
+        public Y p1;
 
-        public msgVarKv(AllAppMsg msg, T p1, Y p2) : base(msg)
+        public MsgVarKv(AllAppMsg msg, T parameter, Y p1) : base(msg, parameter)
         {
+            this.parameter = parameter;
             this.p1 = p1;
-            this.p2 = p2;
         }
     }
 }

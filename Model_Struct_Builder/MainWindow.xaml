@@ -26,6 +26,10 @@
                     <MenuItem x:Name="Menu_View_Load" Header="{Binding App.AppDataText[Menu_View_Load]}" Command="{Binding LoadLayout}"/>
                     <MenuItem x:Name="Menu_View_Save" Header="{Binding App.AppDataText[Menu_View_Save]}" Command="{Binding SaveLayout}"/>
                 </MenuItem>
+                <MenuItem Header="测试">
+                    <MenuItem Header="加载框架" Command="{Binding LoadFrame}"/>
+                    <MenuItem Header="加载事件布局" Command="{Binding LoadEventLayout}"/>
+                </MenuItem>
             </Menu>
 
             <ToolBarTray DockPanel.Dock="Top" Background="White">
@@ -40,8 +44,8 @@
                 <Label HorizontalAlignment="Left" Content="{Binding App.AppDataText[Test]}"/>
             </StatusBar>
 
-            <local:EmptyDockingManager x:Name="BaseDockingPage"/>
-
+            <Grid Name="WorkingArea"/>
+            <!--<local:EmptyDockingManager x:Name="BaseDockingPage"/>-->
             <!--#region Old -->
 
             <!--<avalon:DockingManager>

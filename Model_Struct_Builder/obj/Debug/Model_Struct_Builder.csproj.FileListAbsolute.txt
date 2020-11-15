@@ -51,4 +51,14 @@ D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\La
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\EmptyDockingManager.g.cs
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\LayoutPanel.baml
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Layout\EmptyDockingManager.baml
-D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Settings.xml
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Xceed.Wpf.AvalonDock.pdb
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll

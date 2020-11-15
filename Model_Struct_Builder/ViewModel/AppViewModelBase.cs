@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace Model_Struct_Builder
 {
@@ -12,6 +13,12 @@ namespace Model_Struct_Builder
     /// </summary>
     public class AppViewModelBase : ViewModelBase
     {
+        public string viewModelName;
+        public AppViewModelBase()
+        {
+
+        }
+
         public AppController App
         {
             get { return AppController.GetInstence(); }
@@ -20,6 +27,11 @@ namespace Model_Struct_Builder
         public FrameController Frame
         {
             get { return FrameController.GetInstence(); }
+        }
+
+        public void ViewFunction(string t)
+        {
+            MsgCenter.SendMsg(new MsgVarKv<string, string>(AllAppMsg.ViewModelToView, viewModelName, t));
         }
     }
 }

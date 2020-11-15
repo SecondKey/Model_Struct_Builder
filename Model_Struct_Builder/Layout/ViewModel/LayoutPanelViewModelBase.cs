@@ -12,12 +12,16 @@ namespace Model_Struct_Builder
     /// </summary>
     class LayoutPanelViewModelBase : AppViewModelBase
     {
-        public LayoutPanelViewModelBase(FramePanelStruct targetStruct)
+        public LayoutPanelViewModelBase(string parentName,FramePanelStruct targetStruct)
         {
+            this.parentName = parentName;
+            viewModelName = targetStruct.name;
             panelInfo = targetStruct;
         }
 
         #region PanelInfo
+        public string parentName;
+
         /// <summary>
         /// panel类型所在的包
         /// </summary>
@@ -33,6 +37,14 @@ namespace Model_Struct_Builder
         }
         #endregion
 
+        #region Create
+        public void LoadContene()
+        {
+            ViewFunction("CreateContent");
+        }
+        #endregion
+
+        #region Binding
         #region Name
         /// <summary>
         /// panel的类型，在设置时根据类型来创建内容
@@ -49,9 +61,10 @@ namespace Model_Struct_Builder
             get { return FrameController.GetInstence().FrameDataText["Page_" + Name]; }
         }
         #endregion
+        #endregion
 
+        #region State
         #region IsSelected
-
         private bool _isSelected = false;
         public bool IsSelected
         {
@@ -65,11 +78,9 @@ namespace Model_Struct_Builder
                 }
             }
         }
-
         #endregion
 
         #region IsActive
-
         private bool _isActive = false;
         public bool IsActive
         {
@@ -83,7 +94,7 @@ namespace Model_Struct_Builder
                 }
             }
         }
-
+        #endregion
         #endregion
     }
 }

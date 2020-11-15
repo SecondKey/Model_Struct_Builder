@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aga.Diagrams">
-      <HintPath>C:\Users\22782\Desktop\dllPackage\Aga.Diagrams.dll</HintPath>
-    </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
@@ -68,9 +65,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Xceed.Wpf.AvalonDock">
-      <HintPath>C:\Users\22782\Desktop\dllPackage\Xceed.Wpf.AvalonDock.dll</HintPath>
-    </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
       <HintPath>C:\Users\22782\Desktop\dllPackage\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
     </Reference>
@@ -111,6 +105,8 @@
     <Compile Include="RAD\FileFolder.cs" />
     <Compile Include="RAD\FramePackage.cs" />
     <Compile Include="RAD\iRData.cs" />
+    <Compile Include="RAD\iWData.cs" />
+    <Compile Include="RAD\RWXml.cs" />
     <Compile Include="RAD\RXml.cs" />
     <Compile Include="ResourcesDictionaryEvents.cs" />
     <Compile Include="Layout\Tools\ActiveDocumentConverter.cs" />
@@ -175,6 +171,10 @@
       <Project>{063f4215-2d50-4d60-aec0-7a4a1ffc7283}</Project>
       <Name>BasicLib</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\22782\Desktop\Xceed.Wpf.AvalonDock\Xceed.Wpf.AvalonDock.csproj">
+      <Project>{db81988f-e0f2-45a0-a1fd-8c37f3d35244}</Project>
+      <Name>Xceed.Wpf.AvalonDock</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\AppData.xml">
@@ -214,11 +214,6 @@
     </None>
     <None Include="Data\Package\BasicLib.pdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\Settings.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

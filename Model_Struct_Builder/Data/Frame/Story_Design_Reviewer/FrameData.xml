@@ -48,7 +48,7 @@
         </Event_Node>
       </Content>
     </Event>
-    <!--简单事件-->
+    
     <SimpleEvent>
       <Package>App</Package>
       <Type>EmptyPanel</Type>

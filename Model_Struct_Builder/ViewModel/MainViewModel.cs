@@ -1,5 +1,6 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -11,6 +12,12 @@ namespace Model_Struct_Builder
     /// </summary>
     public class MainViewModel : AppViewModelBase
     {
+        public MainViewModel()
+        {
+            viewModelName = "Main";
+            MsgCenter.RegistSelf(this, AllAppMsg.PanelChildLoadComplete, LoadPanelOver<MsgBase>);
+        }
+
         #region View
         ObservableDictionary<string, MsgKVProperty<string, bool>> pageActionList = new ObservableDictionary<string, MsgKVProperty<string, bool>>();
         /// <summary>
@@ -24,6 +31,19 @@ namespace Model_Struct_Builder
             {
                 pageActionList = value;
                 RaisePropertyChanged(() => PageActionList);
+            }
+        }
+
+        /// <summary>
+        /// 页面加载完成
+        /// </summary>
+        /// <param name="msg">如果当前加载完成的页面是main</param>
+        void LoadPanelOver<T>(MsgBase msg)
+        {
+            MsgVar<string> tmpMsg = (MsgVar<string>)msg;
+            if (tmpMsg.parameter == "BaseDocking")
+            {
+                Console.WriteLine(123);
             }
         }
         #endregion
@@ -59,7 +79,7 @@ namespace Model_Struct_Builder
         {
             get
             {
-                return new RelayCommand(() => { MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.SaveLayout, "CommonLayout1")); });
+                return new RelayCommand(() => { MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.SaveLayout, "Common")); });
             }
         }
 
@@ -69,7 +89,30 @@ namespace Model_Struct_Builder
             {
                 kv.Value.SenderP2Property = true;
             }
-            MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadLayout, "CommonLayout1"));
+        }
+        #endregion
+
+        #region Test
+        public RelayCommand LoadFrame
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadFrame, "Story_Design_Reviewer"));//发送-加载框架--Test
+                });
+            }
+        }
+
+        public RelayCommand LoadEventLayout
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadLayout, "Event"));//发送-加载框架--Test
+                });
+            }
         }
         #endregion
     }

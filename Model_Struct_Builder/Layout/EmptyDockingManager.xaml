@@ -17,7 +17,7 @@
     <avalon:DockingManager.LayoutItemTemplate>
         <DataTemplate>
             <Border BorderBrush="Black" BorderThickness="0,0.3,0,0" Margin="-3">
-                <local:LayoutPanel Margin="3" PanelInfo="{Binding PanelInfo,UpdateSourceTrigger=PropertyChanged}"/>
+                <local:LayoutPanel Margin="3"/>
             </Border>
         </DataTemplate>
     </avalon:DockingManager.LayoutItemTemplate>
@@ -37,9 +37,9 @@
                 <Style TargetType="{x:Type avalon:LayoutItem}">
                     <Setter Property="ContentId" Value="{Binding Model.Name}"/>
                     <Setter Property="Title" Value="{Binding Model.Title}"/>
-                    <Setter Property="ToolTip" Value="{Binding Model.FilePath}"/>
+                    <!--<Setter Property="ToolTip" Value="{Binding Model.FilePath}"/>
+                    <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>-->
                     <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}"/>
-                    <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
                 </Style>
             </local:PanelStyleSelector.PageStyle>
         </local:PanelStyleSelector>

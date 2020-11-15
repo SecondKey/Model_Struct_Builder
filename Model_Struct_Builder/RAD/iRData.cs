@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model_Struct_Builder.RAD
+namespace Model_Struct_Builder
 {
     /// <summary>
     /// 用于访问只读文件的接口

@@ -22,7 +22,9 @@ namespace Model_Struct_Builder
         /// <summary>
         /// 程序中心数据，包括版本等
         /// </summary>
-        public RXml mainAppData;
+        public RWXml mainAppData;
+
+
         /// <summary>
         /// 程序的全部数据
         /// </summary>
@@ -62,7 +64,7 @@ namespace Model_Struct_Builder
         /// </summary>
         void LoadAppData<T>(MsgBase msg)
         {
-            mainAppData = new RXml(appPath, "AppData.xml");
+            mainAppData = new RWXml(appPath, "AppData.xml");
             foreach (var path in mainAppData.GetDoubleLayerElements("Load"))
             {
                 foreach (var file in path.Value)
@@ -75,6 +77,25 @@ namespace Model_Struct_Builder
         #endregion
 
         #region Data
+
+        #region DataText
+        private Dictionary<string, string> appDataText;
+        public Dictionary<string, string> AppDataText
+        {
+            get { return appDataText; }
+            set
+            {
+                appDataText = value;
+                RaisePropertyChanged(() => AppDataText);
+            }
+        }
+        void GetDataText<T>(MsgBase msg)
+        {
+            AppDataText = AllAppData["AppText_" + Language].GetAllElementContent();
+        }
+        #endregion
+
+        #region Settgins
 
         #region Language
         private string language;
@@ -94,23 +115,39 @@ namespace Model_Struct_Builder
         }
         #endregion
 
-        #region DataText
-        private Dictionary<string, string> appDataText;
-        public Dictionary<string, string> AppDataText
+        #region Layout
+        private string layout;
+        public string Layout
         {
-            get { return appDataText; }
+            get
+            {
+                if (string.IsNullOrEmpty(FrameController.GetInstence().frameName))
+                {
+                    return null;
+                }
+                if (string.IsNullOrEmpty(layout))
+                {
+                    if (FileFolder.HasFolder(appPath, "Frame", FrameController.GetInstence().frameName, "Layout", "Last"))
+                    {
+                        layout = "Last";
+                    }
+                    else
+                    {
+                        layout = "Common";
+                    }
+                }
+                return layout;
+            }
             set
             {
-                appDataText = value;
-                RaisePropertyChanged(() => AppDataText);
+                layout = value;
             }
-        }
-        void GetDataText<T>(MsgBase msg)
-        {
-            AppDataText = AllAppData["AppText_" + Language].GetAllElementContent();
         }
         #endregion
 
         #endregion
+        #endregion
+
+        public List<string> NowLoadPage = new List<string>();
     }
 }

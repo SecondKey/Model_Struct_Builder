@@ -53,7 +53,6 @@ namespace Model_Struct_Builder
             {
                 { AllAppMsg.LoadFrame,new Action<MsgBase>[]{ LoadTemplate<MsgBase> } },
                 { AllAppMsg.FrameLoadComplete,new Action<MsgBase>[]{ GetTempleteText<MsgBase>, StartLoadPanelStruct<MsgBase>} },
-                { AllAppMsg.PanelStructLoadComplete,new Action<MsgBase>[]{ StartShowStruct<MsgBase> } },
             });
         }
         public static FrameController GetInstence()
@@ -147,7 +146,7 @@ namespace Model_Struct_Builder
         void StartLoadPanelStruct<T>(MsgBase msg)
         {
             LoadPanelStruct(panelStruct, "Page");
-            MsgCenter.SendMsg(new MsgBase(AllAppMsg.PanelStructLoadComplete));
+            MsgCenter.SendMsg(new MsgBase(AllAppMsg.AllPanelStructLoadComplete));
         }
         /// <summary>
         /// 递归加载页面结构
@@ -193,22 +192,22 @@ namespace Model_Struct_Builder
         #endregion
 
         #region DebugTools
-        void StartShowStruct<T>(MsgBase msg)
-        {
-            //ShowStruct(PanelStruct, "");
-        }
+        //void StartShowStruct<T>(MsgBase msg)
+        //{
+        //    //ShowStruct(PanelStruct, "");
+        //}
 
-        void ShowStruct(List<FramePanelStruct> target, string t)
-        {
-            //foreach (FramePanelStruct panel in target)
-            //{
-            //    Console.WriteLine(t + panel.name + "+" + panel.package + "+" + panel.type + "+" + panel.dockType);
-            //    if (panel.content != null)
-            //    {
-            //        ShowStruct(panel.content, t + panel.name + "_");
-            //    }
-            //}
-        }
+        //void ShowStruct(List<FramePanelStruct> target, string t)
+        //{
+        //    foreach (FramePanelStruct panel in target)
+        //    {
+        //        Console.WriteLine(t + panel.name + "+" + panel.package + "+" + panel.type + "+" + panel.dockType);
+        //        if (panel.content != null)
+        //        {
+        //            ShowStruct(panel.content, t + panel.name + "_");
+        //        }
+        //    }
+        //}
 
         #endregion
     }
