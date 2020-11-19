@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayoutRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RootPanel Orientation="Horizontal">
+    <LayoutAnchorablePaneGroup Orientation="Vertical" DockWidth="170">
+      <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="170" DockHeight="0.630616446651326*" FloatingWidth="200" FloatingHeight="336" FloatingLeft="35" FloatingTop="243">
+        <LayoutAnchorablePane Id="ff769e97-a706-4750-84eb-edc28aa22664" FloatingWidth="200" FloatingHeight="336" FloatingLeft="35" FloatingTop="243" />
+      </LayoutAnchorablePaneGroup>
+      <LayoutAnchorablePane Id="272bb897-900a-4f2c-8f2c-b8e3e758cba4" DockWidth="188" DockHeight="1.36938355334867*" FloatingWidth="200" FloatingHeight="336" FloatingLeft="8" FloatingTop="315">
+        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="事件节点" IsSelected="True" ContentId="Event_Node" FloatingLeft="8" FloatingTop="315" FloatingWidth="200" FloatingHeight="336" LastActivationTimeStamp="11/17/2020 23:26:49" />
+      </LayoutAnchorablePane>
+    </LayoutAnchorablePaneGroup>
+    <LayoutPanel Orientation="Horizontal">
+      <LayoutDocumentPaneGroup Orientation="Horizontal">
+        <LayoutDocumentPane>
+          <LayoutDocument Title="事件" IsSelected="True" IsLastFocusedDocument="True" ContentId="Event" LastActivationTimeStamp="11/17/2020 23:55:55" />
+          <LayoutDocument Title="简单事件" ContentId="SimpleEvent" LastActivationTimeStamp="11/17/2020 23:26:46" />
+          <LayoutDocument Title="测试事件" ContentId="TestEvent1" LastActivationTimeStamp="11/17/2020 23:26:45" />
+          <LayoutDocument Title="测试事件" ContentId="TestEvent2" />
+        </LayoutDocumentPane>
+      </LayoutDocumentPaneGroup>
+    </LayoutPanel>
+    <LayoutAnchorablePane Id="b81c2465-e384-4944-ad33-b825b59810f1" DockWidth="169">
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="属性" IsSelected="True" ContentId="Attribute" LastActivationTimeStamp="11/16/2020 08:22:56" />
+    </LayoutAnchorablePane>
+  </RootPanel>
+  <TopSide />
+  <RightSide />
+  <LeftSide />
+  <BottomSide />
+  <FloatingWindows />
+  <Hidden>
+    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="简单事件节点" IsSelected="True" ContentId="SimpleEvent_Node" FloatingLeft="35" FloatingTop="243" FloatingWidth="200" FloatingHeight="336" LastActivationTimeStamp="11/17/2020 23:55:55" PreviousContainerId="ff769e97-a706-4750-84eb-edc28aa22664" PreviousContainerIndex="0" />
+  </Hidden>
+  <UserVisible>
+    <Attribute>True</Attribute>
+    <Event_Node>True</Event_Node>
+    <SimpleEvent_Node>True</SimpleEvent_Node>
+  </UserVisible>
+</LayoutRoot>

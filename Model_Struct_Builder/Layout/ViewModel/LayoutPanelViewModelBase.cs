@@ -10,23 +10,20 @@ namespace Model_Struct_Builder
     /// <summary>
     /// 页面 的VM
     /// </summary>
-    class LayoutPanelViewModelBase : AppViewModelBase
+    public class LayoutPanelViewModelBase : AppViewModelBase
     {
-        public LayoutPanelViewModelBase(string parentName,FramePanelStruct targetStruct)
+        public LayoutPanelViewModelBase(PanelInfo info)
         {
-            this.parentName = parentName;
-            viewModelName = targetStruct.name;
-            panelInfo = targetStruct;
+            viewModelName = info.name;
+            panelInfo = info;
         }
 
         #region PanelInfo
-        public string parentName;
-
         /// <summary>
         /// panel类型所在的包
         /// </summary>
-        private FramePanelStruct panelInfo;
-        public FramePanelStruct PanelInfo
+        private PanelInfo panelInfo;
+        public PanelInfo PanelInfo
         {
             get { return panelInfo; }
             private set

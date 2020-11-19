@@ -1,6 +1,10 @@
 ﻿
 FD:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\App.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\AppDictionary.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\Controls\InputLine.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\Controls\InputDropDown.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\Controls\DropDown.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\Window\DialogueWindow.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\Layout\LayoutPanel.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\Layout\EmptyDockingManager.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\MainWindow.xaml;;

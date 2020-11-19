@@ -12,11 +12,11 @@ namespace Model_Struct_Builder
     /// <summary>
     /// 页面/页 的VM
     /// </summary>
-    class LayoutPageViewModel : LayoutPanelViewModelBase
+    public class LayoutPageViewModel : LayoutPanelViewModelBase
     {
         static ImageSourceConverter ISC = new ImageSourceConverter();
 
-        public LayoutPageViewModel(string parentName, FramePanelStruct targetStruct) : base( parentName,targetStruct)
+        public LayoutPageViewModel(PanelInfo targetStruct) : base(targetStruct)
         {
         }
 

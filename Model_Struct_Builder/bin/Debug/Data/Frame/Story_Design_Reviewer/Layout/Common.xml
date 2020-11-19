@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayoutRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RootPanel Orientation="Horizontal">
+    <LayoutAnchorablePane DockWidth="188" FloatingWidth="200" FloatingHeight="336" FloatingLeft="8" FloatingTop="315">
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="简单事件节点" IsSelected="True" ContentId="SimpleEvent_Node" FloatingLeft="88" FloatingTop="319" FloatingWidth="200" FloatingHeight="336" LastActivationTimeStamp="11/16/2020 08:22:58" PreviousContainerId="b81c2465-e384-4944-ad33-b825b59810f1" PreviousContainerIndex="1" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="事件节点" ContentId="Event_Node" FloatingLeft="8" FloatingTop="315" FloatingWidth="200" FloatingHeight="336" LastActivationTimeStamp="11/16/2020 08:22:55" PreviousContainerId="b81c2465-e384-4944-ad33-b825b59810f1" PreviousContainerIndex="0" />
+    </LayoutAnchorablePane>
+    <LayoutPanel Orientation="Horizontal" DockWidth="1.08072916666667*">
+      <LayoutDocumentPaneGroup Orientation="Horizontal">
+        <LayoutDocumentPane>
+          <LayoutDocument Title="事件" IsSelected="True" IsLastFocusedDocument="True" ContentId="Event" LastActivationTimeStamp="11/16/2020 08:22:50" />
+          <LayoutDocument Title="简单事件" ContentId="SimpleEvent" />
+          <LayoutDocument Title="测试事件" ContentId="TestEvent1" />
+          <LayoutDocument Title="测试事件" ContentId="TestEvent2" />
+        </LayoutDocumentPane>
+      </LayoutDocumentPaneGroup>
+    </LayoutPanel>
+    <LayoutAnchorablePane Id="b81c2465-e384-4944-ad33-b825b59810f1" DockWidth="169">
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="属性" IsSelected="True" ContentId="Attribute" LastActivationTimeStamp="11/16/2020 08:22:56" />
+    </LayoutAnchorablePane>
+  </RootPanel>
+  <TopSide />
+  <RightSide />
+  <LeftSide />
+  <BottomSide />
+  <FloatingWindows />
+  <Hidden /> 
+  <UserVisible>
+    <Attribute>True</Attribute>
+    <Event_Node>True</Event_Node>
+    <SimpleEvent_Node>True</SimpleEvent_Node>
+  </UserVisible>
+</LayoutRoot>

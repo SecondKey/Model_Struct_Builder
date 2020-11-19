@@ -97,6 +97,7 @@ namespace Model_Struct_Builder
                 MsgCenter.SendMsg(new MsgVar<KeyValuePair<T, Y>>(msg, new KeyValuePair<T, Y>(p1, p2)));
             }
         }
+
         public Y P2Property
         {
             get { return p2; }

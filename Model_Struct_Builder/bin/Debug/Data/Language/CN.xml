@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CN>
+  <!--general-->
   <Test>测试</Test>
+  <OK>确定</OK>
+  <Cancel>取消</Cancel>
 
   <Window_Name>MainWindow</Window_Name>
   <!--menu-->

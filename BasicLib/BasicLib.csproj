@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Model_Struct_Builder\Data\Package\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aga.Diagrams">
-      <HintPath>C:\Users\22782\Desktop\dllPackage\Aga.Diagrams.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -51,15 +48,33 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Panel\DiagramWithRuler.xaml">
+    <Compile Include="Page\ViewModel\DiagramWithRulerViewModel.cs" />
+    <Compile Include="Page\ViewModel\StandardDiagramViewModel.cs" />
+    <Compile Include="Window\ContentInspect.xaml.cs">
+      <DependentUpon>ContentInspect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Node\CommonNode.xaml.cs">
+      <DependentUpon>CommonNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\ViewModel\ContentInspectViewModel.cs" />
+    <Compile Include="Window\ViewModel\NodeListViewModel.cs" />
+    <Page Include="Window\ContentInspect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Side\NodeList.xaml">
+    <Page Include="Node\CommonNode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Panel\StandardDiagram.xaml">
+    <Page Include="Page\DiagramWithRuler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\NodeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\StandardDiagram.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -67,13 +82,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Panel\DiagramWithRuler.xaml.cs">
+    <Compile Include="Page\DiagramWithRuler.xaml.cs">
       <DependentUpon>DiagramWithRuler.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Side\NodeList.xaml.cs">
+    <Compile Include="Window\NodeList.xaml.cs">
       <DependentUpon>NodeList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Panel\StandardDiagram.xaml.cs">
+    <Compile Include="Page\StandardDiagram.xaml.cs">
       <DependentUpon>StandardDiagram.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl1.xaml.cs">
@@ -104,6 +119,23 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Link\" />
+    <Folder Include="Node\ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aga.Diagrams\Aga.Diagrams.csproj">
+      <Project>{988e94fb-0936-4b88-acb9-4f9ce80c8ac3}</Project>
+      <Name>Aga.Diagrams</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model_Struct_Builder\Model_Struct_Builder.csproj">
+      <Project>{db665e3d-fec6-43e4-8622-1fead70343c8}</Project>
+      <Name>Model_Struct_Builder</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\22782\Desktop\Xceed.Wpf.AvalonDock\Xceed.Wpf.AvalonDock.csproj">
+      <Project>{db81988f-e0f2-45a0-a1fd-8c37f3d35244}</Project>
+      <Name>Xceed.Wpf.AvalonDock</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

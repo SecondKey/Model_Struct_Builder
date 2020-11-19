@@ -41,26 +41,63 @@ namespace Model_Struct_Builder
             }
             return s;
         }
+        public static string CreateFile(string fileName, params string[] path)
+        {
+            string s = "";
+            foreach (string t in path)
+            {
+                s += t + "/";
+                if (!Directory.Exists(s))
+                {
+                    Directory.CreateDirectory(s);
+                }
+            }
+            s += fileName;
+            if (!File.Exists(s))
+            {
+                File.Create(s);
+            }
+            return s;
+        }
 
         public static bool HasFolder(params string[] path)
         {
             string s = "";
             foreach (string p in path)
             {
-                s += path + "/";
+                s += p + "/";
             }
             return Directory.Exists(s);
         }
 
-        //public static string CreateFile(string fileName, params string[] path)
-        //{
-        //    string s = "";
+        public static bool HasFile(string fileName, params string[] path)
+        {
+            string s = "";
+            foreach (string p in path)
+            {
+                s += p + "/";
+            }
+            s += fileName;
+            Console.WriteLine(s);
+            Console.WriteLine(File.Exists(s));
+            return File.Exists(s);
+        }
 
-        //    foreach (string t in path)
-        //    {
+        public static List<string> GetAllFileName(params string[] path)
+        {
+            List<string> tmp = new List<string>();
+            string s = "";
+            foreach (string p in path)
+            {
+                s += p + "/";
+            }
+            DirectoryInfo root = new DirectoryInfo(s);
+            foreach (FileInfo f in root.GetFiles())
+            {
+                tmp.Add(Path.GetFileNameWithoutExtension(f.Name));
+            }
+            return tmp;
+        }
 
-        //    }
-        //    return s;
-        //}
     }
 }

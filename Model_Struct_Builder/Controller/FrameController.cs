@@ -1,5 +1,4 @@
 ﻿using GalaSoft.MvvmLight;
-using Model_Struct_Builder.Interface;
 using Model_Struct_Builder.RAD;
 using System;
 using System.Collections.Generic;
@@ -9,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Model_Struct_Builder
 {
-    public struct FramePanelStruct
+    public struct PanelInfo
     {
         public string name;
         public string package;
         public string type;
-        public string dockType;
-        public List<FramePanelStruct> content;
+        public List<string> link;
     }
+
 
     public class FrameController : ObservableObject
     {
@@ -96,6 +95,11 @@ namespace Model_Struct_Builder
         {
             return allPackage[package].GetElement(elementName);
         }
+
+        public object GetFrameObject(string package, string elementName, string property)
+        {
+            return allPackage[package].GetElement(elementName, property);
+        }
         #endregion
 
         #region FrameLanguage
@@ -134,61 +138,65 @@ namespace Model_Struct_Builder
         #endregion
 
         #region PanelStruct
-        private List<FramePanelStruct> panelStruct = new List<FramePanelStruct>();
+        private Dictionary<string, PanelInfo> allPage = new Dictionary<string, PanelInfo>();
+        public Dictionary<string, PanelInfo> AllPage { get { return allPage; } }
 
-        public List<FramePanelStruct> PanelStruct
-        {
-            get { return panelStruct; }
-        }
+        private Dictionary<string, PanelInfo> allWindow = new Dictionary<string, PanelInfo>();
+        public Dictionary<string, PanelInfo> AllWindow { get { return allWindow; } }
+
         /// <summary>
         /// 开始加载页面结构
         /// </summary>
         void StartLoadPanelStruct<T>(MsgBase msg)
         {
-            LoadPanelStruct(panelStruct, "Page");
-            MsgCenter.SendMsg(new MsgBase(AllAppMsg.AllPanelStructLoadComplete));
-        }
-        /// <summary>
-        /// 递归加载页面结构
-        /// </summary>
-        void LoadPanelStruct(List<FramePanelStruct> targetList, params string[] path)
-        {
-            foreach (string page in mainFrameData.GetOneElementsAllContent(path))
+            foreach (string page in mainFrameData.GetOneElementsAllContent("Panel", "Page"))
             {
-                FramePanelStruct t = new FramePanelStruct()
+                PanelInfo tmpPage = new PanelInfo()
                 {
                     name = page,
-                    package = mainFrameData.GetContent(ToolsCenter.ConnectArray(path, page, "Package")),
-                    type = mainFrameData.GetContent(ToolsCenter.ConnectArray(path, page, "Type")),
-                    dockType = mainFrameData.GetContent(ToolsCenter.ConnectArray(path, page, "DockType")),
+                    package = mainFrameData.GetContent("Panel", "Page", page, "Package"),
+                    type = mainFrameData.GetContent("Panel", "Page", page, "Type"),
                 };
-                if (mainFrameData.HasElement(ToolsCenter.ConnectArray(path, page, "Content")))
+                if (mainFrameData.HasElement("Panel", "Page", page, "Link"))
                 {
-                    t.content = new List<FramePanelStruct>();
-                    LoadPanelStruct(t.content, ToolsCenter.ConnectArray(path, page, "Content"));
+                    tmpPage.link = new List<string>();
+                    foreach (string l in mainFrameData.GetOneElementsAllContent("Panel", "Page", page, "Link"))
+                    {
+                        tmpPage.link.Add(l);
+                    }
                 }
                 else
                 {
-                    t.content = null;
+                    tmpPage.link = null;
                 }
-                targetList.Add(t);
+                allPage.Add(page, tmpPage);
             }
+            foreach (string window in mainFrameData.GetOneElementsAllContent("Panel", "Window"))
+            {
+                PanelInfo tmpWindow = new PanelInfo()
+                {
+                    name = window,
+                    package = mainFrameData.GetContent("Panel", "Window", window, "Package"),
+                    type = mainFrameData.GetContent("Panel", "Window", window, "Type"),
+                };
+                if (mainFrameData.HasElement("Panel", "Window", window, "Link"))
+                {
+                    tmpWindow.link = new List<string>();
+                    foreach (string l in mainFrameData.GetOneElementsAllContent("Panel", "Window", window, "Link"))
+                    {
+                        tmpWindow.link.Add(l);
+                    }
+                }
+                else
+                {
+                    tmpWindow.link = null;
+                }
+                allWindow.Add(window, tmpWindow);
+            }
+            MsgCenter.SendMsg(new MsgBase(AllAppMsg.AllPanelStructLoadComplete));
         }
+
         #endregion
-        #endregion
-
-        #region Layout
-
-        public void SaveFrameLayout(string layoutName)
-        {
-
-        }
-
-        public void LoadFrameLayout(string layoutName)
-        {
-
-        }
-
         #endregion
 
         #region DebugTools
@@ -209,6 +217,44 @@ namespace Model_Struct_Builder
         //    }
         //}
 
+        #endregion
+
+        #region Old
+        //public struct FramePanelStruct
+        //{
+        //    public string name;
+        //    public string package;
+        //    public string type;
+        //    public string dockType;
+        //    public List<FramePanelStruct> content;
+        //}
+
+        ///// <summary>
+        ///// 递归加载页面结构
+        ///// </summary>
+        //void LoadPanelStruct(List<FramePanelStruct> targetList, params string[] path)
+        //{
+        //    foreach (string page in mainFrameData.GetOneElementsAllContent(path))
+        //    {
+        //        FramePanelStruct t = new FramePanelStruct()
+        //        {
+        //            name = page,
+        //            package = mainFrameData.GetContent(ToolsCenter.ConnectArray(path, page, "Package")),
+        //            type = mainFrameData.GetContent(ToolsCenter.ConnectArray(path, page, "Type")),
+        //            dockType = mainFrameData.GetContent(ToolsCenter.ConnectArray(path, page, "DockType")),
+        //        };
+        //        if (mainFrameData.HasElement(ToolsCenter.ConnectArray(path, page, "Content")))
+        //        {
+        //            t.content = new List<FramePanelStruct>();
+        //            LoadPanelStruct(t.content, ToolsCenter.ConnectArray(path, page, "Content"));
+        //        }
+        //        else
+        //        {
+        //            t.content = null;
+        //        }
+        //        targetList.Add(t);
+        //    }
+        //}
         #endregion
     }
 }

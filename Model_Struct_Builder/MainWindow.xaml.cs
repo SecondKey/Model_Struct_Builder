@@ -20,6 +20,7 @@ using Xceed.Wpf.AvalonDock;
 using Xceed.Wpf.AvalonDock.Controls;
 using Xceed.Wpf.AvalonDock.Converters;
 using Xceed.Wpf.AvalonDock.Layout;
+using Xceed.Wpf.AvalonDock.Layout.Serialization;
 
 namespace Model_Struct_Builder
 {
@@ -32,6 +33,19 @@ namespace Model_Struct_Builder
         {
             InitializeComponent();
             MsgCenter.RegistSelf(this, AllAppMsg.AllPanelStructLoadComplete, StartLoadPanel<MsgBase>);
+
+            MsgCenter.RegistSelf(this, AllAppMsg.LoadLayout, (msg) =>
+            {
+                MsgVar<string> tmpMsg = (MsgVar<string>)msg;
+                LoadLayout(tmpMsg.parameter);
+            });
+            MsgCenter.RegistSelf(this, AllAppMsg.SaveLayout, (msg) =>
+            {
+                MsgVar<string> tmpMsg = (MsgVar<string>)msg;
+                SaveLayout(tmpMsg.parameter);
+            });
+
+            Closing += (sender, e) => { if (!string.IsNullOrEmpty(FrameController.GetInstence().frameName)) { SaveLayout("Last"); } };
         }
 
         /// <summary>
@@ -41,64 +55,86 @@ namespace Model_Struct_Builder
         void StartLoadPanel<T>(MsgBase msg)
         {
             Menu_View.IsEnabled = true;//加载页面布局后，启用布局菜单项
-
-            Menu_View_Window.Items.Clear();//清空原本窗口菜单
-            ViewModelLocator.instence.Main.PageActionList.Clear();//清空原本窗口显示列表
-
-            LoadMenu(Menu_View_Window, FrameController.GetInstence().PanelStruct);//加载菜单项
-            LoadPanel();//加载页面
+            ViewModelLocator.instence.Main.WindowActionList.Clear();//清空原本窗口显示列表
+            LoadMenu();//加载菜单项
+            MsgCenter.SendMsg(new MsgBase(AllAppMsg.MenuLoadComplete));
         }
 
         /// <summary>
-        /// 递归加载菜单
+        /// 加载菜单
         /// </summary>
         /// <param name="item">父级菜单项</param>
         /// <param name="panelStruct">菜单项列表</param>
-        void LoadMenu(MenuItem item, List<FramePanelStruct> panelStruct)
+        void LoadMenu()
         {
-            foreach (FramePanelStruct tmp in panelStruct)
+            Menu_View_Window.Items.Clear();//清空原本窗口菜单
+
+            foreach (var kv in FrameController.GetInstence().AllPage)
             {
-                if (tmp.content != null)//如果该菜单项还有包含的菜单，递归加载子菜单项
+                if (kv.Value.link != null)
                 {
                     MenuItem i = new MenuItem();//新建菜单项i
-                    BindingOperations.SetBinding(i, MenuItem.HeaderProperty, new Binding()//绑定菜单项的Header
+                    BindingOperations.SetBinding(i, MenuItem.HeaderProperty, new Binding()
                     {
-                        Path = new PropertyPath("Frame.FrameDataText[Page_" + tmp.name + "]")
-                    });
-                    LoadMenu(i, tmp.content);//递归加载i的子菜单项
-                    item.Items.Add(i);//将i添加到父级菜单项中
+                        Path = new PropertyPath("Frame.FrameDataText[Page_" + kv.Value.name + "]")
+                    });//绑定菜单项的Header
+                    foreach (string t in kv.Value.link)
+                    {
+                        i.Items.Add(CreateCheckableMenuItem(t));
+                    }
+                    Menu_View_Window.Items.Add(i);
                 }
-                else if (tmp.dockType == "Window")//如果菜单项布局类型是Window，为菜单项添加关闭打开页面的功能（Page类型默认不允许关闭，所以没有菜单项）
-                {
-                    MenuItem i = new MenuItem();//新建菜单项i
-                    BindingOperations.SetBinding(i, MenuItem.HeaderProperty, new Binding()//绑定菜单项的Header
-                    {
-                        Path = new PropertyPath("Frame.FrameDataText[Page_" + tmp.name + "]")
-                    });
-                    ViewModelLocator.instence.Main.PageActionList.Add(tmp.name, new MsgKVProperty<string, bool>(AllAppMsg.ShowHideWindow, tmp.name, true));//在窗口显示列表中新增一项
-                    BindingOperations.SetBinding(i, MenuItem.IsCheckedProperty, new Binding()//绑定IsChecked属性到窗口显示列表
-                    {
-                        Path = new PropertyPath("PageActionList[" + tmp.name + "].SenderP2Property"),
-                        Mode = BindingMode.TwoWay
-                    });
-                    i.IsCheckable = true;//指定菜单项是可选项
-                    item.Items.Add(i);//将i添加到父级菜单项中
-                }
+            }
+            Separator s = new Separator();
+            Menu_View_Window.Items.Add(s);
+            foreach (var kv in FrameController.GetInstence().AllWindow)
+            {
+                ViewModelLocator.instence.Main.WindowActionList.Add(kv.Key, new MsgKVProperty<string, bool>(AllAppMsg.ShowHideWindow, kv.Key, true));//在窗口显示列表中新增一项
+                Menu_View_Window.Items.Add(CreateCheckableMenuItem(kv.Key));
             }
         }
 
-        /// <summary>
-        /// 加载页面
-        /// BaseDockingPage是布局的根元素
-        /// </summary>
-        void LoadPanel()
+        MenuItem CreateCheckableMenuItem(string itemName)
         {
-            DockingManagerViewModel vm = new DockingManagerViewModel("BaseDocking", FrameController.GetInstence().PanelStruct);//创建DockingManagerViewModel实例
-            EmptyDockingManager BaseDocking = new EmptyDockingManager();
-            BaseDocking.DataContext = vm;//设置BaseDockingPage的ViewModel
-            WorkingArea.Children.Add(BaseDocking);
+            MenuItem i = new MenuItem();//新建菜单项i
+            BindingOperations.SetBinding(i, MenuItem.HeaderProperty, new Binding()
+            {
+                Path = new PropertyPath("Frame.FrameDataText[Page_" + itemName + "]")
+            });//绑定菜单项的Header
+            BindingOperations.SetBinding(i, MenuItem.IsCheckedProperty, new Binding()
+            {
+                Path = new PropertyPath("WindowActionList[" + itemName + "].SenderP2Property"),
+                Mode = BindingMode.TwoWay
+            });//绑定IsChecked属性到窗口显示列表
+            i.IsCheckable = true;//指定菜单项是可选项
+            return i;
         }
 
+        void LoadLayout(string LayoutName)
+        {
+            if (!string.IsNullOrEmpty(LayoutName))
+            {
+                MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadUserVisible, LayoutName));
+                foreach (var kv in ViewModelLocator.instence.Main.WindowActionList)
+                {
+                    kv.Value.SenderP2Property = true;
+                }
+
+                MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadUserVisible, LayoutName));
+                XmlLayoutSerializer serializer = new XmlLayoutSerializer(WorkingArea);//创建序列化器
+                serializer.Deserialize(FileFolder.LinkPath(AppController.GetInstence().appPath, "Frame", FrameController.GetInstence().frameName, "Layout") + LayoutName + ".xml");
+            }
+        }
+
+        void SaveLayout(string LayoutName)
+        {
+            if (!string.IsNullOrEmpty(LayoutName))
+            {
+                XmlLayoutSerializer serializer = new XmlLayoutSerializer(WorkingArea);//创建序列化器
+                serializer.Serialize(FileFolder.LinkPath(AppController.GetInstence().appPath, "Frame", FrameController.GetInstence().frameName, "Layout") + LayoutName + ".xml");//根据路径储存布局
+                MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.SaveUserVisible, LayoutName));
+            }
+        }
 
         #region OldLoadPanel
         //void StartLoadPanelStruct<T>(MsgBase msg)
@@ -205,6 +241,5 @@ namespace Model_Struct_Builder
         //    LoadPanel(layoutDocumentPane, layoutAnchorablePane, panelStruct);
         //}
         #endregion
-
     }
 }

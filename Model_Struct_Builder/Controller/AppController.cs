@@ -37,7 +37,6 @@ namespace Model_Struct_Builder
         {
             MsgCenter.RegistSelf(this, new Dictionary<AllAppMsg, Action<MsgBase>[]>
             {
-                { AllAppMsg.LoadApp,new Action<MsgBase>[]{ ControllerInitialize<MsgBase>, LoadAppData<MsgBase> } },
                 { AllAppMsg.AppLoadComplete,new Action<MsgBase>[]{ GetLanguage<MsgBase> } },
                 { AllAppMsg.ChangeLanguage,new Action<MsgBase>[]{ GetDataText<MsgBase> } },
             });
@@ -47,22 +46,15 @@ namespace Model_Struct_Builder
             if (instence == null)
             {
                 instence = new AppController();
-                MsgCenter.SendMsg(new MsgBase(AllAppMsg.LoadApp));
+                instence.LoadAppData();
+                FrameController.GetInstence();
             }
             return instence;
         }
         /// <summary>
-        /// 初始化所有控制器
-        /// </summary>
-        void ControllerInitialize<T>(MsgBase msg)
-        {
-            FrameController.GetInstence();
-        }
-
-        /// <summary>
         /// 加载应用程序数据
         /// </summary>
-        void LoadAppData<T>(MsgBase msg)
+        void LoadAppData()
         {
             mainAppData = new RWXml(appPath, "AppData.xml");
             foreach (var path in mainAppData.GetDoubleLayerElements("Load"))
@@ -115,39 +107,8 @@ namespace Model_Struct_Builder
         }
         #endregion
 
-        #region Layout
-        private string layout;
-        public string Layout
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(FrameController.GetInstence().frameName))
-                {
-                    return null;
-                }
-                if (string.IsNullOrEmpty(layout))
-                {
-                    if (FileFolder.HasFolder(appPath, "Frame", FrameController.GetInstence().frameName, "Layout", "Last"))
-                    {
-                        layout = "Last";
-                    }
-                    else
-                    {
-                        layout = "Common";
-                    }
-                }
-                return layout;
-            }
-            set
-            {
-                layout = value;
-            }
-        }
-        #endregion
 
         #endregion
         #endregion
-
-        public List<string> NowLoadPage = new List<string>();
     }
 }

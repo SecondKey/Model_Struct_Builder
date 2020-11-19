@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model_Struct_Builder.Interface
+namespace Model_Struct_Builder
 {
     /// <summary>
     /// 框架中特殊系统的接口

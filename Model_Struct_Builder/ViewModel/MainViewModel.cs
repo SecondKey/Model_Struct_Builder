@@ -15,37 +15,94 @@ namespace Model_Struct_Builder
         public MainViewModel()
         {
             viewModelName = "Main";
-            MsgCenter.RegistSelf(this, AllAppMsg.PanelChildLoadComplete, LoadPanelOver<MsgBase>);
+            MsgCenter.RegistSelf(this, AllAppMsg.MenuLoadComplete, (msg) => { LoadPanel(); });
         }
 
         #region View
-        ObservableDictionary<string, MsgKVProperty<string, bool>> pageActionList = new ObservableDictionary<string, MsgKVProperty<string, bool>>();
+        #region WindowActionList
+        ObservableDictionary<string, MsgKVProperty<string, bool>> windowActionList = new ObservableDictionary<string, MsgKVProperty<string, bool>>();
         /// <summary>
         /// 窗口显示列表，用于绑定窗口是否显示
         /// 两个string值一样，都是页面的name。第一个string用于字典查找value，第二个value用于MKVP发送消息的消息验证
         /// </summary>
-        public ObservableDictionary<string, MsgKVProperty<string, bool>> PageActionList
+        public ObservableDictionary<string, MsgKVProperty<string, bool>> WindowActionList
         {
-            get { return pageActionList; }
+            get { return windowActionList; }
             set
             {
-                pageActionList = value;
-                RaisePropertyChanged(() => PageActionList);
+                windowActionList = value;
+                RaisePropertyChanged(() => WindowActionList);
+            }
+        }
+        #endregion
+
+        #region AvalonBinding
+        /// <summary>
+        /// 详见Avalondock_MVVM （Files）
+        /// </summary>
+        ObservableCollection<LayoutPageViewModel> pages = new ObservableCollection<LayoutPageViewModel>();
+        ReadOnlyObservableCollection<LayoutPageViewModel> readonyPages = null;
+        public ReadOnlyObservableCollection<LayoutPageViewModel> Pages
+        {
+            get
+            {
+                if (readonyPages == null)
+                    readonyPages = new ReadOnlyObservableCollection<LayoutPageViewModel>(pages);
+                return readonyPages;
             }
         }
 
         /// <summary>
-        /// 页面加载完成
+        /// 详见Avalondock_MVVM （Tools）
         /// </summary>
-        /// <param name="msg">如果当前加载完成的页面是main</param>
-        void LoadPanelOver<T>(MsgBase msg)
+        ObservableCollection<LayoutWindowViewModel> windows = new ObservableCollection<LayoutWindowViewModel>();
+        ReadOnlyObservableCollection<LayoutWindowViewModel> readonyWindows = null;
+        public ReadOnlyObservableCollection<LayoutWindowViewModel> Windows
         {
-            MsgVar<string> tmpMsg = (MsgVar<string>)msg;
-            if (tmpMsg.parameter == "BaseDocking")
+            get
             {
-                Console.WriteLine(123);
+                if (readonyWindows == null)
+                    readonyWindows = new ReadOnlyObservableCollection<LayoutWindowViewModel>(windows);
+                return readonyWindows;
             }
         }
+
+        /// <summary>
+        /// 当前选择的页，详见Avalondock_MVVM ActiveDocument
+        /// </summary>
+        private LayoutPageViewModel _activeDocument;
+        public LayoutPageViewModel ActiveDocument
+        {
+            get { return _activeDocument; }
+            set
+            {
+                _activeDocument = value;
+                RaisePropertyChanged(() => ActiveDocument);
+                MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.AutoVisible, value.Name));
+                if (ActiveDocumentChanged != null)
+                    ActiveDocumentChanged(this, EventArgs.Empty);
+            }
+        }
+        public event EventHandler ActiveDocumentChanged;
+        #endregion
+
+        #region Load
+        public void LoadPanel()
+        {
+            foreach (var page in FrameController.GetInstence().AllPage)//创建VM时，添加LayoutItem
+            {
+                LayoutPageViewModel tmp = new LayoutPageViewModel(page.Value);
+                pages.Add(tmp);
+            }
+            foreach (var window in FrameController.GetInstence().AllWindow)
+            {
+                LayoutWindowViewModel tmp = new LayoutWindowViewModel(window.Value);
+                windows.Add(tmp);
+            }
+            MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadLayout, "Last"));
+        }
+
+        #endregion
         #endregion
 
         #region ChangeLanguage
@@ -68,7 +125,7 @@ namespace Model_Struct_Builder
             {
                 return new RelayCommand(() =>
                 {
-                    LoadLayoutMethod();
+                    DialogueWindowController.ShowLoadLayoutWindow();
                 });
             }
         }
@@ -79,15 +136,10 @@ namespace Model_Struct_Builder
         {
             get
             {
-                return new RelayCommand(() => { MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.SaveLayout, "Common")); });
-            }
-        }
-
-        public void LoadLayoutMethod()
-        {
-            foreach (var kv in PageActionList)
-            {
-                kv.Value.SenderP2Property = true;
+                return new RelayCommand(() =>
+                {
+                    DialogueWindowController.ShowSaveLayoutWindow();
+                });
             }
         }
         #endregion

@@ -26,40 +26,51 @@ namespace Model_Struct_Builder
         public LayoutPanel()
         {
             InitializeComponent();
-            Loaded += (sender, e) =>
+            DataContextChanged += (sender, e) =>
             {
-                if (AppController.GetInstence().NowLoadPage.Contains((DataContext as LayoutPanelViewModelBase).parentName))
-                {
-                    CreateContent();
-                }
-                else
-                {
-                    MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.PanelCreateComplete, (DataContext as LayoutPanelViewModelBase).viewModelName));
-
-                }
+                LayoutPanelViewModelBase localVM = DataContext as LayoutPanelViewModelBase;
+                Content = FrameController.GetInstence().GetFrameObject(localVM.PanelInfo.package, localVM.PanelInfo.type);
+                (Content as Control).DataContext = FrameController.GetInstence().GetFrameObject(localVM.PanelInfo.package, localVM.PanelInfo.type + "ViewModel", localVM.PanelInfo.name);
             };
         }
 
-        /// <summary>
-        /// 创建该页面内容
-        /// </summary>
-        void CreateContent()
-        {
-            LayoutPanelViewModelBase localVM = DataContext as LayoutPanelViewModelBase;
-            if (localVM.PanelInfo.type == "EmptyPanel")//如果当前页面是一个布局页面，创建一个EmptyDockingManager负责布局
-            {
-                DockingManagerViewModel vm = new DockingManagerViewModel(localVM.PanelInfo.name, localVM.PanelInfo.content);
-                EmptyDockingManager emptyDockingManager = new EmptyDockingManager();
-                emptyDockingManager.DataContext = vm;
-                Content = emptyDockingManager;
-            }
-            else//如果当前页面是包含具体控件，创建控件,并发送消息说明该页已经加载完成
-            {
-                Content = FrameController.GetInstence().GetFrameObject(localVM.PanelInfo.package, localVM.PanelInfo.type);
-                MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.PanelChildLoadComplete, localVM.PanelInfo.name));//页面作为一个元素加载完成，详见DockingManagerViewModel ElementLoadOver
-            }
-        }
+        #region Old
+        //public LayoutPanel()
+        //{
+        //    InitializeComponent();
+        //    Loaded += (sender, e) =>
+        //    {
+        //        if (AppController.GetInstence().NowLoadPage.Contains((DataContext as LayoutPanelViewModelBase).parentName))
+        //        {
+        //            CreateContent();
+        //        }
+        //        else
+        //        {
+        //            MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.PanelCreateComplete, (DataContext as LayoutPanelViewModelBase).viewModelName));
 
+        //        }
+        //    };
+        //}
+
+        ///// <summary>
+        ///// 创建该页面内容
+        ///// </summary>
+        //void CreateContent()
+        //{
+        //    LayoutPanelViewModelBase localVM = DataContext as LayoutPanelViewModelBase;
+        //    if (localVM.PanelInfo.type == "EmptyPanel")//如果当前页面是一个布局页面，创建一个EmptyDockingManager负责布局
+        //    {
+        //        DockingManagerViewModel vm = new DockingManagerViewModel(localVM.PanelInfo.name);
+        //        EmptyDockingManager emptyDockingManager = new EmptyDockingManager();
+        //        emptyDockingManager.DataContext = vm;
+        //        Content = emptyDockingManager;
+        //    }
+        //    else//如果当前页面是包含具体控件，创建控件,并发送消息说明该页已经加载完成
+        //    {
+        //        Content = FrameController.GetInstence().GetFrameObject(localVM.PanelInfo.package, localVM.PanelInfo.type);
+        //        MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.PanelChildLoadComplete, localVM.PanelInfo.name));//页面作为一个元素加载完成，详见DockingManagerViewModel ElementLoadOver
+        //    }
+        //}
 
         //private bool disposedValue;
         //protected virtual void Dispose(bool disposing)
@@ -86,5 +97,6 @@ namespace Model_Struct_Builder
         //    Dispose(disposing: true);
         //    GC.SuppressFinalize(this);
         //}
+        #endregion 
     }
 }

@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:avalon="http://schemas.xceed.com/wpf/xaml/avalondock"
-        xmlns:blib="clr-namespace:BasicLib;assembly=BasicLib"
         xmlns:local="clr-namespace:Model_Struct_Builder"
         mc:Ignorable="d"
+        Name="Main_Window"
         Title="MainWindow" Height="450" Width="800"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
 
@@ -28,7 +28,6 @@
                 </MenuItem>
                 <MenuItem Header="测试">
                     <MenuItem Header="加载框架" Command="{Binding LoadFrame}"/>
-                    <MenuItem Header="加载事件布局" Command="{Binding LoadEventLayout}"/>
                 </MenuItem>
             </Menu>
 
@@ -44,8 +43,7 @@
                 <Label HorizontalAlignment="Left" Content="{Binding App.AppDataText[Test]}"/>
             </StatusBar>
 
-            <Grid Name="WorkingArea"/>
-            <!--<local:EmptyDockingManager x:Name="BaseDockingPage"/>-->
+            <local:EmptyDockingManager x:Name="WorkingArea"/>
             <!--#region Old -->
 
             <!--<avalon:DockingManager>

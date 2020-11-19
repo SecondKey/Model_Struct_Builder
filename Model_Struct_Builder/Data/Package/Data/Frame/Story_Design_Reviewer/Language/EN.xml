@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EN>
+  <Page_Event>Event</Page_Event>
+  <Page_Event_Diagram>Diagram</Page_Event_Diagram>
+  <Page_Event_Node>Node</Page_Event_Node>
+
+  <Page_SimpleEvent>SimpleEvent</Page_SimpleEvent>
+  <Page_SimpleEvent_Diagram>Diagram</Page_SimpleEvent_Diagram>
+  <Page_SimpleEvent_Node>Node</Page_SimpleEvent_Node>
+
+  <Page_TestEvent1>TestEvent1</Page_TestEvent1>
+  <Page_TestEvent1_Diagram>Page_TestEvent1_Diagram</Page_TestEvent1_Diagram>
+
+  <Page_TestEvent2>Page_TestEvent2</Page_TestEvent2>
+  <Page_TestEvent2_Diagram>Page_TestEvent2_Diagram</Page_TestEvent2_Diagram>
+
+  <Page_Attribute>Attribute</Page_Attribute>
+
+
+
+  <!--基础的文本,直接显示在页面上-->
+  <CommonSystem_Time>时间</CommonSystem_Time>
+
+  <!--如果模板包含错误信息及提示，写在这里-->
+  <ErrorPage_Tab_Error>错误</ErrorPage_Tab_Error>
+  <ErrorPage_Tab_Conflict>冲突</ErrorPage_Tab_Conflict>
+  <ErrorPage_Tab_Prompt>提示</ErrorPage_Tab_Prompt>
+  <ErrorPage_Tab_TODO>代办</ErrorPage_Tab_TODO>
+
+  <ErrorText_ErrorPath>错误位置：</ErrorText_ErrorPath>
+
+  <Error_LostMotivation>
+    <ErrorText>角色行为缺少动机：</ErrorText>
+    <Element>角色：</Element>
+    <End>的行为缺少必要的动机！</End>
+  </Error_LostMotivation>
+</EN>

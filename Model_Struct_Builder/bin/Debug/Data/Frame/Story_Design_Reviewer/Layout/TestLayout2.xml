@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LayoutRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RootPanel Orientation="Horizontal">
+    <LayoutAnchorablePane Id="2f1dc5d3-51dd-4ff5-8cd8-d9463a263923" DockWidth="188" FloatingWidth="200" FloatingHeight="336" FloatingLeft="8" FloatingTop="315">
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="简单事件节点" IsSelected="True" ContentId="SimpleEvent_Node" FloatingLeft="88" FloatingTop="319" FloatingWidth="200" FloatingHeight="336" LastActivationTimeStamp="11/18/2020 00:35:06" />
+    </LayoutAnchorablePane>
+    <LayoutPanel Orientation="Horizontal">
+      <LayoutDocumentPaneGroup Orientation="Vertical">
+        <LayoutDocumentPane>
+          <LayoutDocument Title="事件" ContentId="Event" LastActivationTimeStamp="11/18/2020 00:35:02" />
+          <LayoutDocument Title="简单事件" IsSelected="True" IsLastFocusedDocument="True" ContentId="SimpleEvent" LastActivationTimeStamp="11/18/2020 00:35:10" />
+          <LayoutDocument Title="测试事件" ContentId="TestEvent1" LastActivationTimeStamp="11/18/2020 00:34:56" />
+          <LayoutDocument Title="测试事件" ContentId="TestEvent2" LastActivationTimeStamp="11/18/2020 00:34:57" />
+        </LayoutDocumentPane>
+        <LayoutDocumentPane Id="2d15611c-4968-4f1d-ad8f-5cf02a75f6ce" />
+      </LayoutDocumentPaneGroup>
+    </LayoutPanel>
+    <LayoutAnchorablePane Id="b81c2465-e384-4944-ad33-b825b59810f1" DockWidth="169" />
+  </RootPanel>
+  <TopSide />
+  <RightSide />
+  <LeftSide />
+  <BottomSide />
+  <FloatingWindows />
+  <Hidden>
+    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="属性" ContentId="Attribute" LastActivationTimeStamp="11/16/2020 08:22:56" PreviousContainerId="b81c2465-e384-4944-ad33-b825b59810f1" PreviousContainerIndex="0" />
+    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="事件节点" ContentId="Event_Node" FloatingLeft="397" FloatingTop="457" FloatingWidth="200" FloatingHeight="336" LastActivationTimeStamp="11/18/2020 00:35:02" PreviousContainerId="2d15611c-4968-4f1d-ad8f-5cf02a75f6ce" PreviousContainerIndex="0" />
+  </Hidden>
+  <UserVisible>
+    <Attribute>False</Attribute>
+    <Event_Node>True</Event_Node>
+    <SimpleEvent_Node>True</SimpleEvent_Node>
+  </UserVisible>
+</LayoutRoot>

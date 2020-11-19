@@ -27,80 +27,79 @@
     </Package>
   </Load>
 
-  <Page>
+  <Panel>
     <!--事件的页面-->
-    <Event>
-      <Package>App</Package>
-      <Type>EmptyPanel</Type>
-      <DockType>Page</DockType>
-      <Content>
-        <!--事件的关系图-->
-        <Event_Diagram>
-          <Package>BasicLib</Package>
-          <Type>DiagramWithRuler</Type>
-          <DockType>Page</DockType>
-        </Event_Diagram>
-        <!--事件的节点-->
-        <Event_Node>
-          <Package>BasicLib</Package>
-          <Type>NodeList</Type>
-          <DockType>Window</DockType>
-        </Event_Node>
-      </Content>
-    </Event>
-    
-    <SimpleEvent>
-      <Package>App</Package>
-      <Type>EmptyPanel</Type>
-      <DockType>Page</DockType>
-      <Content>
-        <!--简单事件的关系图-->
-        <SimpleEvent_Diagram>
-          <Package>BasicLib</Package>
-          <Type>StandardDiagram</Type>
-          <DockType>Page</DockType>
-        </SimpleEvent_Diagram>
-        <!--简单事件的节点-->
-        <SimpleEvent_Node>
-          <Package>BasicLib</Package>
-          <Type>NodeList</Type>
-          <DockType>Window</DockType>
-        </SimpleEvent_Node>
-      </Content>
-    </SimpleEvent>
+    <Page>
+      <Event>
+        <Package>BasicLib</Package>
+        <Type>StandardDiagram</Type>
+        <Link>
+          <Event_Node/>
+        </Link>
+      </Event>
 
-    <TestEvent1>
-      <Package>App</Package>
-      <Type>EmptyPanel</Type>
-      <DockType>Page</DockType>
-      <Content>
-        <TestEvent1_Diagram>
-          <Package>BasicLib</Package>
-          <Type>StandardDiagram</Type>
-          <DockType>Page</DockType>
-        </TestEvent1_Diagram>
-      </Content>
-    </TestEvent1>
+      <SimpleEvent>
+        <Package>BasicLib</Package>
+        <Type>StandardDiagram</Type>
+        <Link>
+          <SimpleEvent_Node/>
+        </Link>
+      </SimpleEvent>
 
-    <TestEvent2>
-      <Package>App</Package>
-      <Type>EmptyPanel</Type>
-      <DockType>Page</DockType>
-      <Content>
-        <TestEvent2_Diagram>
-          <Package>BasicLib</Package>
-          <Type>StandardDiagram</Type>
-          <DockType>Page</DockType>
-        </TestEvent2_Diagram>
-      </Content>
-    </TestEvent2>
+      <TestEvent1>
+        <Package>BasicLib</Package>
+        <Type>StandardDiagram</Type>
+      </TestEvent1>
+
+      <TestEvent2>
+        <Package>BasicLib</Package>
+        <Type>StandardDiagram</Type>
+      </TestEvent2>
+    </Page>
     <!--事件的属性-->
-    <Attribute>
-      <Package>BasicLib</Package>
-      <Type>NodeList</Type>
-      <DockType>Window</DockType>
-    </Attribute>
-  </Page>
+    <Window>
+      <!--属性，应用到全局-->
+      <Attribute>
+        <Package>BasicLib</Package>
+        <Type>NodeList</Type>
+      </Attribute>
+
+      <!--事件的节点-->
+      <Event_Node>
+        <Package>BasicLib</Package>
+        <Type>NodeList</Type>
+        <Link>
+          <Event/>
+        </Link>
+      </Event_Node>
+
+      <!--简单事件的节点-->
+      <SimpleEvent_Node>
+        <Package>BasicLib</Package>
+        <Type>NodeList</Type>
+        <Link>
+          <SimpleEvent/>
+        </Link>
+      </SimpleEvent_Node>
+    </Window>
+  </Panel>
+
+  <Parameters>
+    <Event_Node>
+
+    </Event_Node>
+    <SimpleEvent_Node>
+
+    </SimpleEvent_Node>
+  </Parameters>
+
+  <Node>
+
+  </Node>
+
+  <Link>
+
+  </Link>
 
   <!--模板的所有元素。
   元素是基本单位，应主要对应一种节点。
@@ -140,7 +139,6 @@
 
     </Place>
   </Element>
-
   <!--体系，体系可以作为属性添加的节点或者连接上，
     需要在体系中定义默认的inspect显示模式，
     在inspect中，体系的属性会显示在元素的基本属性中-->
@@ -159,8 +157,6 @@
 
     </Other>
   </Attribute>
-
-
   <!--模板的工作区域，分为页面和节点-->
   <WorkingArea>
 

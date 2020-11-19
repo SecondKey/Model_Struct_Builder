@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<JP>
+  <Test>测试</Test>
+
+  <Window_Name>MainWindow</Window_Name>
+
+  <Menu_File>File</Menu_File>
+  <Menu_File_New>New</Menu_File_New>
+  <Menu_File_Open>Open</Menu_File_Open>
+  <Menu_Edit>Edit</Menu_Edit>
+  <Menu_Project>Project</Menu_Project>
+  <Menu_View>View</Menu_View>
+  <Menu_View_Window>Window</Menu_View_Window>
+
+</JP>

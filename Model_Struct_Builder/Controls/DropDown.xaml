@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Model_Struct_Builder.DropDown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Model_Struct_Builder"
+             mc:Ignorable="d"  Height="25"
+             Name="input">
+    <StackPanel Orientation="Horizontal">
+        <TextBlock FontSize="15" MinWidth="30" VerticalAlignment="Center" Text="{Binding ElementName=input ,Path=InputName,Mode=TwoWay}"/>
+        <ComboBox Name="Front" FontSize="15" MinWidth="60" VerticalAlignment="Center" Background="White" Margin="10,0" Height="25"
+                  ItemsSource="{Binding ElementName=input,Path=InputList}" 
+                  SelectedItem="{Binding ElementName=input,Path=SelectedItem}"
+                  Width="{Binding ElementName=input,Path=InputAreaWidth}"/>
+    </StackPanel>
+</UserControl>

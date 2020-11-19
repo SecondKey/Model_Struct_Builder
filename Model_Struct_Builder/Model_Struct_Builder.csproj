@@ -84,11 +84,24 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\AppController.cs" />
+    <Compile Include="Controller\DialogueWindowController.cs" />
     <Compile Include="Controller\FrameController.cs" />
     <Compile Include="Controller\Tools\MsgProperty.cs" />
     <Compile Include="Controller\Tools\ObservableBool.cs" />
     <Compile Include="Controller\Tools\ObservableDictionary.cs" />
     <Compile Include="Controller\Tools\ToolsCenter.cs" />
+    <Compile Include="Controls\InputLine.xaml.cs">
+      <DependentUpon>InputLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InputDropDown.xaml.cs">
+      <DependentUpon>InputDropDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DropDown.xaml.cs">
+      <DependentUpon>DropDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\DialogueWindow.xaml.cs">
+      <DependentUpon>DialogueWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layout\LayoutPanel.xaml.cs">
       <DependentUpon>LayoutPanel.xaml</DependentUpon>
     </Compile>
@@ -96,12 +109,11 @@
       <DependentUpon>EmptyDockingManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interface\iFrameSystem.cs" />
-    <Compile Include="Layout\ViewModel\DockingManagerViewModel.cs" />
-    <Compile Include="Layout\Tools\LayoutInitializer.cs" />
+    <Compile Include="Layout\LayoutTools\LayoutInitializer.cs" />
     <Compile Include="Layout\ViewModel\LayoutPageViewModel.cs" />
     <Compile Include="Layout\ViewModel\LayoutPanelViewModelBase.cs" />
     <Compile Include="Layout\ViewModel\LayoutWindowViewModel.cs" />
-    <Compile Include="Layout\Tools\PanelStyleSelector.cs" />
+    <Compile Include="Layout\LayoutTools\PanelStyleSelector.cs" />
     <Compile Include="RAD\FileFolder.cs" />
     <Compile Include="RAD\FramePackage.cs" />
     <Compile Include="RAD\iRData.cs" />
@@ -109,11 +121,28 @@
     <Compile Include="RAD\RWXml.cs" />
     <Compile Include="RAD\RXml.cs" />
     <Compile Include="ResourcesDictionaryEvents.cs" />
-    <Compile Include="Layout\Tools\ActiveDocumentConverter.cs" />
+    <Compile Include="Layout\LayoutTools\ActiveDocumentConverter.cs" />
     <Compile Include="ViewModel\AppViewModelBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Window\ViewModel\DialogueWindowViewModel.cs" />
     <Page Include="AppDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InputLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InputDropDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DropDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\DialogueWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,10 +196,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BasicLib\BasicLib.csproj">
-      <Project>{063f4215-2d50-4d60-aec0-7a4a1ffc7283}</Project>
-      <Name>BasicLib</Name>
-    </ProjectReference>
     <ProjectReference Include="C:\Users\22782\Desktop\Xceed.Wpf.AvalonDock\Xceed.Wpf.AvalonDock.csproj">
       <Project>{db81988f-e0f2-45a0-a1fd-8c37f3d35244}</Project>
       <Name>Xceed.Wpf.AvalonDock</Name>

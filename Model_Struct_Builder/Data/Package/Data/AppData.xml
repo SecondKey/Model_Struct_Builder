@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppData>
+  <Informatino>
+  </Informatino>
+
+  <Settings>
+    <Language>CN</Language>
+  </Settings>
+
+  <Load>
+    <Language>
+      <EN>AppText_EN</EN>
+      <CN>AppText_CN</CN>
+      <JP>AppText_JP</JP>
+    </Language>
+  </Load>
+</AppData>

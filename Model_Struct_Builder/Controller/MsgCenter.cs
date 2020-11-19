@@ -37,6 +37,9 @@ namespace Model_Struct_Builder
 
         #region Frame
         #region Layout
+        AutoVisible,//自动显示或隐藏窗口
+        SaveUserVisible,
+        LoadUserVisible,
         ShowHideWindow,//显示或隐藏窗口
 
         SaveLayout,//保存布局，string 布局文件夹完整路径
@@ -45,11 +48,12 @@ namespace Model_Struct_Builder
 
         LoadFrame,//加载以一个框架 string 框架名称
         FrameLoadComplete,//框架加载完成
+        MenuLoadComplete,//菜单加载完成
         AllPanelStructLoadComplete,//页面结构加载完成
 
-        PanelCreateComplete,//一个页面加载完成
-        PanelLoadChild,//页面开始加载自己的内容
-        PanelChildLoadComplete,//一个页面加载完成 string，加载完成页面的名字
+        //PanelCreateComplete,//一个页面加载完成
+        //PanelLoadChild,//页面开始加载自己的内容
+        //PanelChildLoadComplete,//一个页面加载完成 string，加载完成页面的名字
 
 
         #endregion

@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Aga.Diagrams.Adorners.DragAdorner" Collapsed="true">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAEAAQQAAAAAAABABAAAAAAAAAAICAAA=</HashCode>
+      <FileName>Adorners\DragAdorner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Adorners.LinkAdorner" Collapsed="true">
+    <Position X="1.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEggAQAAAAAACAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Adorners\LinkAdorner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Adorners.MoveResizeAdorner" Collapsed="true">
+    <Position X="3.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adorners\MoveResizeAdorner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Adorners.RubberbandAdorner" Collapsed="true">
+    <Position X="6" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAgAQAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Adorners\RubberbandAdorner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Adorners.SelectionAdorner" Collapsed="true">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAADAAAAAAAAAAAAAAIAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adorners\SelectionAdorner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.DiagramItem" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAKAABAIAEAAAAAAQAAAAAABAAAQEMQAAACAAAgA=</HashCode>
+      <FileName>Controls\DiagramItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.DragThumb" Collapsed="true">
+    <Position X="16.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAIAAAAIAAAAA=</HashCode>
+      <FileName>Controls\DragThumb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.LinkBase" Collapsed="true">
+    <Position X="6.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACUAAAAIEkIAwAoAIAgEACAAwIABYwQAAAAQAAgAAgg=</HashCode>
+      <FileName>Controls\Links\LinkBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.LinkThumb" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAIAAAAIAAAAA=</HashCode>
+      <FileName>Controls\Links\LinkThumb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.RelinkControl" Collapsed="true">
+    <Position X="14.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Links\RelinkControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.SegmentLink" Collapsed="true">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAEBAAAAAAAAAAAAAAgAAAAAEABAAAAA=</HashCode>
+      <FileName>Controls\Links\SegmentLink.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.Node" Collapsed="true">
+    <Position X="8.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAkIAQCgABAAAAAAAABAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Controls\Node\Node.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.EllipsePort" Collapsed="true">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Ports\EllipsePort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.PortBase" Collapsed="true">
+    <Position X="2.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAACQAABCAABAAAUABAAAAAAAAGSAAAgIEICAA=</HashCode>
+      <FileName>Controls\Ports\PortBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.RectPort" Collapsed="true">
+    <Position X="1.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Ports\RectPort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Controls.SelectionFrame" Collapsed="true">
+    <Position X="12.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\SelectionFrame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.DiagramScrollView" Collapsed="true">
+    <Position X="12.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAgJAEAAAAAAAAAAAAIAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>DiagramScrollView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.DiagramView" Collapsed="true">
+    <Position X="14.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CsAkBAQQASAEDAAEMaAABAABABAAABAAJQAYICAKUBA=</HashCode>
+      <FileName>DiagramView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.LinkInfo" Collapsed="true">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAABAAAAAACAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>LinkInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Selection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAAAAAQAADBAAIAAABAQAgBAAAIAAAAAAAADQAAA=</HashCode>
+      <FileName>Selection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Aga.Diagrams.DebuggingConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Util\DebuggingConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Aga.Diagrams.GeometryHelper" Collapsed="true">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAACAAAAAgAgAABECAAAEACAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\GeometryHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.VisualHelper" Collapsed="true">
+    <Position X="14.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\VisualHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aga.Diagrams.Tools.InputTool" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAQAEAAABABAAAAIAQAAIAKAAA=</HashCode>
+      <FileName>Tools\InputTool.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Aga.Diagrams.Tools.LinkTool" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIgAAAAAARAAAABCgQAIAAAAAEABABAAAABAQAAADAA=</HashCode>
+      <FileName>Tools\LinkTool.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Aga.Diagrams.Tools.MoveResizeTool" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgCAAAAASAAEAAAAQAAQAABAABBAAAAAQBQAAAACAA=</HashCode>
+      <FileName>Tools\MoveResizeTool.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Aga.Diagrams.Controls.ILink" Collapsed="true">
+    <Position X="16.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAAAAAAAAACAAAAAAAgAAAAAQAAAAAAA=</HashCode>
+      <FileName>Controls\Links\ILink.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Aga.Diagrams.Controls.INode" Collapsed="true">
+    <Position X="14.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Node\INode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Aga.Diagrams.Controls.IPort" Collapsed="true">
+    <Position X="16.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAACAAAAAAEAAAAAAAAAAACAAAAAAIAAA=</HashCode>
+      <FileName>Controls\Ports\IPort.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Aga.Diagrams.IDiagramController" Collapsed="true">
+    <Position X="11" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDiagramController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Aga.Diagrams.Tools.IDragDropTool" Collapsed="true">
+    <Position X="12.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAQAAAAEAA=</HashCode>
+      <FileName>Tools\IDragDropTool.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Aga.Diagrams.Tools.IInputTool" Collapsed="true">
+    <Position X="14.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAIAAAAAAKAAA=</HashCode>
+      <FileName>Tools\IInputTool.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Aga.Diagrams.Tools.ILinkTool" Collapsed="true">
+    <Position X="11" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgAAAAAABAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\ILinkTool.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Aga.Diagrams.Tools.IMoveResizeTool" Collapsed="true">
+    <Position X="12.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\IMoveResizeTool.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Aga.Diagrams.Controls.LinkThumbKind" Collapsed="true">
+    <Position X="12.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Links\LinkThumbKind.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Aga.Diagrams.DragThumbKinds" Collapsed="true">
+    <Position X="11" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAIAAAAABAAAAAQAAAAAAAIAAAACACAAAEIAEA=</HashCode>
+      <FileName>Controls\DragThumbKinds.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

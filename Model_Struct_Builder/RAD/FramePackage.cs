@@ -47,7 +47,14 @@ namespace Model_Struct_Builder.RAD
         public Control GetElement(string elementName)
         {
             Type t = targetDll.GetType(name + "." + elementName);//获取组件的类型
+            var test = targetDll.GetTypes();
             return (Control)Activator.CreateInstance(t);//根据类型实例化对象
+        }
+
+        public object GetElement(string elementName, string parameter)
+        {
+            Type t = targetDll.GetType(name + "." + elementName);//获取组件的类型
+            return (object)Activator.CreateInstance(t, parameter);//根据类型实例化对象
         }
     }
 }

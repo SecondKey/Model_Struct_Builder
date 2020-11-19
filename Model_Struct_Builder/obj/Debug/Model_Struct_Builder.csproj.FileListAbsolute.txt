@@ -1,14 +1,11 @@
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Model_Struct_Builder.exe.config
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Model_Struct_Builder.exe
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Model_Struct_Builder.pdb
-D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Aga.Diagrams.dll
-D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\BasicLib.dll
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Xceed.Wpf.AvalonDock.dll
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Expression.dll
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
-D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\BasicLib.pdb
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Model_Struct_Builder.csprojAssemblyReference.cache
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\MainWindow.g.cs
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\App.g.cs
@@ -35,8 +32,6 @@ D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\GalaSoft.
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\App.baml
-D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\AppDictionary.g.cs
-D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\AppDictionary.baml
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\AppData.xml
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Language\CN.xml
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\Data\Language\EN.xml
@@ -62,3 +57,13 @@ D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\ro\Xceed.
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Window\DialogueWindow.g.cs
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Window\DialogueWindow.baml
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\AppDictionary.g.cs
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\AppDictionary.baml
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Controls\InputDropDown.g.cs
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Controls\InputLine.g.cs
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Controls\InputLine.baml
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Controls\InputDropDown.baml
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Controls\DropDown.g.cs
+D:\OfficialProject\Model_Struct_Builder\Model_Struct_Builder\obj\Debug\Controls\DropDown.baml

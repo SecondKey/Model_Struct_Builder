@@ -1,0 +1,10 @@
+﻿<Window x:Class="Model_Struct_Builder.DialogueWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Model_Struct_Builder"
+             mc:Ignorable="d" Name="dialogueWindow" Window.SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <StackPanel Name="MainPanel" Orientation="Vertical" Margin="20" HorizontalAlignment="Center">
+    </StackPanel>
+</Window>
