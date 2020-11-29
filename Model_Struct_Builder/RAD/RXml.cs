@@ -48,7 +48,7 @@ namespace Model_Struct_Builder
             {
                 e = e.Element(parameters[i]);
             }
-            return ToolsCenter.FormattingString(e.Attribute(parameters[parameters.Length - 1]).Value);
+            return e.Attribute(parameters[parameters.Length - 1]).Value.FormattingString();
         }
 
         public string GetContent(params string[] parameters)
@@ -58,10 +58,10 @@ namespace Model_Struct_Builder
             {
                 e = e.Element(parameters[i]);
             }
-            return ToolsCenter.FormattingString(e.Value.ToString());
+            return e.Value.ToString().FormattingString();
         }
 
-        public Dictionary<string, string> GetOneElementsAllProperty(params string[] parameters)
+        public Dictionary<string, string> GetOneElementAllProperty(params string[] parameters)
         {
             Dictionary<string, string> tmp = new Dictionary<string, string>();
             XElement e = targetXml.Root;
@@ -71,7 +71,7 @@ namespace Model_Struct_Builder
             }
             foreach (var property in e.Attributes())
             {
-                tmp.Add(ToolsCenter.FormattingString(property.Name.ToString()), ToolsCenter.FormattingString(property.Value));
+                tmp.Add(property.Name.ToString().FormattingString(), property.Value.FormattingString());
             }
             return tmp;
         }
@@ -90,12 +90,12 @@ namespace Model_Struct_Builder
                 {
                     continue;
                 }
-                tmp.Add(ToolsCenter.FormattingString(property.Name.ToString()), ToolsCenter.FormattingString(property.Value));
+                tmp.Add(property.Name.ToString().FormattingString(), property.Value.FormattingString());
             }
             return tmp;
         }
 
-        public List<string> GetOneElementsAllContent(params string[] parameters)
+        public List<string> GetOneElementAllContent(params string[] parameters)
         {
             List<string> tmp = new List<string>();
             XElement e = targetXml.Root;
@@ -105,7 +105,7 @@ namespace Model_Struct_Builder
             }
             foreach (var property in e.Elements())
             {
-                tmp.Add(ToolsCenter.FormattingString(property.Name.ToString()));
+                tmp.Add(property.Name.ToString().FormattingString());
             }
             return tmp;
         }
@@ -123,9 +123,9 @@ namespace Model_Struct_Builder
                 Dictionary<string, string> tmp1 = new Dictionary<string, string>();
                 foreach (var p1 in property.Elements())
                 {
-                    tmp1.Add(ToolsCenter.FormattingString(p1.Name.ToString()), ToolsCenter.FormattingString(p1.Value));
+                    tmp1.Add(p1.Name.ToString().FormattingString(), p1.Value.FormattingString());
                 }
-                tmp.Add(ToolsCenter.FormattingString(property.Name.ToString()), tmp1);
+                tmp.Add(property.Name.ToString().FormattingString(), tmp1);
             }
             return tmp;
         }

@@ -27,8 +27,15 @@
     </Package>
   </Load>
 
+  <ControlInfo>
+    <BasicLib>
+      <PageNum>7</PageNum>
+      <Link>Event+Event_Node,SimpleEvent+SimpleEvent_Node</Link>
+    </BasicLib>
+  </ControlInfo>
+
   <Panel>
-    <!--事件的页面-->
+    <!--页面-->
     <Page>
       <Event>
         <Package>BasicLib</Package>
@@ -56,7 +63,7 @@
         <Type>StandardDiagram</Type>
       </TestEvent2>
     </Page>
-    <!--事件的属性-->
+    <!--窗口-->
     <Window>
       <!--属性，应用到全局-->
       <Attribute>
@@ -82,24 +89,72 @@
         </Link>
       </SimpleEvent_Node>
     </Window>
+    <!--拖放工具-->
+    <DragDropHelper>
+      <Event-Event_Node>
+        <Source>Event</Source>
+        <Target>Event_Node</Target>
+        <Package>BasicLib</Package>
+        <Helper>ItemsControlDragHelper</Helper>
+      </Event-Event_Node>
+      <SimpleEvent-SimpleEvent_Node>
+        <Source>SimpleEvent</Source>
+        <Target>SimpleEvent_Node</Target>
+        <Package>BasicLib</Package>
+        <Helper>ItemsControlDragHelper</Helper>
+      </SimpleEvent-SimpleEvent_Node>
+    </DragDropHelper>
   </Panel>
 
   <Parameters>
     <Event_Node>
-
+      <EventNode/>
+      <SimpleEventNode/>
+      <SpecialEventNode/>
     </Event_Node>
     <SimpleEvent_Node>
-
+      <RoleNode/>
     </SimpleEvent_Node>
+    <Attribute>
+
+    </Attribute>
   </Parameters>
 
   <Node>
+    <EventNode>
+      <Type>CommonNode</Type>
+      <NodeType>Basic</NodeType>
+    </EventNode>
 
+    <SimpleEventNode>
+      <Type>CommonNode</Type>
+      <NodeType>Basic</NodeType>
+    </SimpleEventNode>
+
+    <SpecialEventNode>
+      <Type>CommonNode</Type>
+      <NodeType>Basic</NodeType>
+    </SpecialEventNode>
+
+    <RoleNode>
+      <Type>CommonNode</Type>
+      <NodeType>Custom</NodeType>
+      <Style>
+        <Geometry>M 0,0.25 L 0.5 0 L 1,0.25 L 0.5,0.5 Z</Geometry>
+      </Style>
+      <Parameters></Parameters>
+    </RoleNode>
   </Node>
 
   <Link>
 
   </Link>
+
+
+
+
+
+
 
   <!--模板的所有元素。
   元素是基本单位，应主要对应一种节点。

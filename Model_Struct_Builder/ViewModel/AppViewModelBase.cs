@@ -19,6 +19,11 @@ namespace Model_Struct_Builder
 
         }
 
+        public AppViewModelBase(string name)
+        {
+            viewModelName = name;
+        }
+
         public AppController App
         {
             get { return AppController.GetInstence(); }

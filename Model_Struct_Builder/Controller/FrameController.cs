@@ -5,9 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Model_Struct_Builder
 {
+    #region FrameStruct
     public struct PanelInfo
     {
         public string name;
@@ -16,7 +19,14 @@ namespace Model_Struct_Builder
         public List<string> link;
     }
 
-
+    public struct DragHelperStruct
+    {
+        public string source;
+        public string target;
+        public string package;
+        public string helper;
+    }
+    #endregion 
     public class FrameController : ObservableObject
     {
         #region Parameters
@@ -24,6 +34,14 @@ namespace Model_Struct_Builder
         /// 模板的核心数据
         /// </summary>
         RXml mainFrameData;
+        public RXml MainFrameData
+        {
+            get { return mainFrameData; }
+        }
+        /// <summary>
+        /// 当前选择的模板
+        /// </summary>
+        public string frameName;
         /// <summary>
         /// 模板的全部数据
         /// </summary>
@@ -36,12 +54,6 @@ namespace Model_Struct_Builder
         /// 模板要加载的系统
         /// </summary>
         Dictionary<string, iFrameSystem> allSystem = new Dictionary<string, iFrameSystem>();
-
-        /// <summary>
-        /// 当前选择的模板
-        /// </summary>
-        public string frameName;
-
         #endregion 
 
         #region 单例
@@ -82,7 +94,8 @@ namespace Model_Struct_Builder
 
             foreach (var package in mainFrameData.GetAllElementContent("Load", "Package"))
             {
-                allPackage.Add(package.Value, new FramePackage(package.Key));
+                FramePackage p = new FramePackage(package.Value);
+                allPackage.Add(package.Key, p);
             }
 
             MsgCenter.SendMsg(new MsgBase(AllAppMsg.FrameLoadComplete));
@@ -137,19 +150,37 @@ namespace Model_Struct_Builder
         }
         #endregion
 
-        #region PanelStruct
-        private Dictionary<string, PanelInfo> allPage = new Dictionary<string, PanelInfo>();
+        #region Panel
+        /// <summary>
+        /// 框架中所有的页面信息
+        /// </summary>
         public Dictionary<string, PanelInfo> AllPage { get { return allPage; } }
+        private Dictionary<string, PanelInfo> allPage = new Dictionary<string, PanelInfo>();
 
-        private Dictionary<string, PanelInfo> allWindow = new Dictionary<string, PanelInfo>();
+        /// <summary>
+        /// 框架中所有的窗口信息
+        /// </summary>
         public Dictionary<string, PanelInfo> AllWindow { get { return allWindow; } }
+        private Dictionary<string, PanelInfo> allWindow = new Dictionary<string, PanelInfo>();
+
+        /// <summary>
+        /// 所有拖拽工具的信息
+        /// </summary>
+        public Dictionary<string, DragHelperStruct> AllDragHelperStruct { get { return allDragHelperStruct; } }
+        Dictionary<string, DragHelperStruct> allDragHelperStruct = new Dictionary<string, DragHelperStruct>();
+
+        /// <summary>
+        /// 所有拖拽工具
+        /// </summary>
+        public Dictionary<string, iDragHelper> AllDragHelper { get { return allDragHelper; } }
+        Dictionary<string, iDragHelper> allDragHelper = new Dictionary<string, iDragHelper>();
 
         /// <summary>
         /// 开始加载页面结构
         /// </summary>
         void StartLoadPanelStruct<T>(MsgBase msg)
         {
-            foreach (string page in mainFrameData.GetOneElementsAllContent("Panel", "Page"))
+            foreach (string page in mainFrameData.GetOneElementAllContent("Panel", "Page"))//添加所有的
             {
                 PanelInfo tmpPage = new PanelInfo()
                 {
@@ -160,7 +191,7 @@ namespace Model_Struct_Builder
                 if (mainFrameData.HasElement("Panel", "Page", page, "Link"))
                 {
                     tmpPage.link = new List<string>();
-                    foreach (string l in mainFrameData.GetOneElementsAllContent("Panel", "Page", page, "Link"))
+                    foreach (string l in mainFrameData.GetOneElementAllContent("Panel", "Page", page, "Link"))
                     {
                         tmpPage.link.Add(l);
                     }
@@ -171,7 +202,7 @@ namespace Model_Struct_Builder
                 }
                 allPage.Add(page, tmpPage);
             }
-            foreach (string window in mainFrameData.GetOneElementsAllContent("Panel", "Window"))
+            foreach (string window in mainFrameData.GetOneElementAllContent("Panel", "Window"))
             {
                 PanelInfo tmpWindow = new PanelInfo()
                 {
@@ -182,7 +213,7 @@ namespace Model_Struct_Builder
                 if (mainFrameData.HasElement("Panel", "Window", window, "Link"))
                 {
                     tmpWindow.link = new List<string>();
-                    foreach (string l in mainFrameData.GetOneElementsAllContent("Panel", "Window", window, "Link"))
+                    foreach (string l in mainFrameData.GetOneElementAllContent("Panel", "Window", window, "Link"))
                     {
                         tmpWindow.link.Add(l);
                     }
@@ -193,9 +224,57 @@ namespace Model_Struct_Builder
                 }
                 allWindow.Add(window, tmpWindow);
             }
+            foreach (string helper in MainFrameData.GetOneElementAllContent("Panel", "DragDropHelper"))
+            {
+                DragHelperStruct tmpHelper = new DragHelperStruct()
+                {
+                    source = mainFrameData.GetContent("Panel", "DragDropHelper", helper, "Source"),
+                    target = mainFrameData.GetContent("Panel", "DragDropHelper", helper, "Target"),
+                    package = mainFrameData.GetContent("Panel", "DragDropHelper", helper, "Package"),
+                    helper = mainFrameData.GetContent("Panel", "DragDropHelper", helper, "Helper"),
+                };
+                allDragHelperStruct.Add(helper, tmpHelper);
+            }
             MsgCenter.SendMsg(new MsgBase(AllAppMsg.AllPanelStructLoadComplete));
         }
 
+        public void PackageElementRegistSelf(string name, Control element)
+        {
+            if (allPage.ContainsKey(name))
+            {
+                allPackage[mainFrameData.GetContent("Panel", "Page", name, "Package")].Controller.GetPanel(name);
+            }
+            else
+            {
+                allPackage[mainFrameData.GetContent("Panel", "Window", name, "Package")].Controller.GetPanel(name);
+            }
+        }
+
+        public Control GetPanel(Control layoutPanel, string package, string name, string property)
+        {
+            Control panel = allPackage[package].Controller.GetPanel(name);
+            if (allPage.ContainsKey(name))
+            {
+                foreach (string t in allPage[name].link)
+                {
+                    if (allPage.ContainsKey(t))
+                    {
+                        //ItemsControl c = allPanel[l[1]].FindName("DragElement") as ItemsControl;
+                        //UIElement u = allPanel[l[0]].FindName("DropElement") as UIElement;
+                        //allDragHelper.Add(new ItemsControlDragHelper(c, u));
+                    }
+                    else if (AllWindow.ContainsKey(t))
+                    {
+
+                    }
+                }
+            }
+            else
+            {
+
+            }
+            return panel;
+        }
         #endregion
         #endregion
 

@@ -51,7 +51,6 @@ namespace Model_Struct_Builder
                 return readonyPages;
             }
         }
-
         /// <summary>
         /// Ïê¼ûAvalondock_MVVM £¨Tools£©
         /// </summary>
@@ -167,5 +166,7 @@ namespace Model_Struct_Builder
             }
         }
         #endregion
+
+        
     }
 }

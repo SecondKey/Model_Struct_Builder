@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Model_Struct_Builder;
+
+namespace BasicLib
+{
+    /// <summary>
+    /// StandardDiagram.xaml 的交互逻辑
+    /// </summary>
+    public partial class StandardDiagram : DiagramScrollView
+    {
+        public StandardDiagram()
+        {
+            InitializeComponent();
+            DataContextChanged += (sender, e) =>
+            {
+                if (e.NewValue is StandardDiagramViewModel)
+                {
+                    FrameController.GetInstence().PackageElementRegistSelf((e.NewValue as AppViewModelBase).viewModelName, this);
+                }
+            };
+        }
+    }
+}

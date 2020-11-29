@@ -9,16 +9,16 @@ namespace Model_Struct_Builder
     /// <summary>
     /// 杂七杂八的工具类
     /// </summary>
-    public class ToolsCenter
+    public static class ToolsCenter
     {
         /// <summary>
         /// 删除一个字符串中所有的制表符等
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public static string FormattingString(string t)
+        public static string FormattingString(this string t)
         {
-            return t.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "");
+            return t.Replace("\n", "").Replace("\t", "").Replace("\r", "");
         }
 
         /// <summary>
@@ -28,12 +28,19 @@ namespace Model_Struct_Builder
         /// <param name="array">原始的数组</param>
         /// <param name="other">需要连接的数据</param>
         /// <returns></returns>
-        public static T[] ConnectArray<T>(T[] array, params T[] other)
+        public static T[] ConnectArray<T>(this T[] array, params T[] other)
         {
             T[] tmp = new T[array.Length + other.Length];
             array.CopyTo(tmp, 0);
             other.CopyTo(tmp, array.Length);
             return tmp;
+        }
+
+        public static void RemoveRange<T>(this ICollection<T> source, Func<T, bool> predicate)
+        {
+            var arr = source.Where(p => predicate(p)).ToArray();
+            foreach (var t in arr)
+                source.Remove(t);
         }
     }
 }

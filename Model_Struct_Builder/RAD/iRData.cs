@@ -25,7 +25,7 @@ namespace Model_Struct_Builder
         /// <summary>
         /// 获取一个元素中所有的属性
         /// </summary>
-        Dictionary<string, string> GetOneElementsAllProperty(params string[] parameters);
+        Dictionary<string, string> GetOneElementAllProperty(params string[] parameters);
 
         /// <summary>
         /// 获取所有元素的内容
@@ -35,7 +35,7 @@ namespace Model_Struct_Builder
         /// <summary>
         /// 获取一个元素中所有的内容
         /// </summary>
-        List<string> GetOneElementsAllContent(params string[] parameters);
+        List<string> GetOneElementAllContent(params string[] parameters);
 
         /// <summary>
         /// 获取一个元素中所有元素的全部属性

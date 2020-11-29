@@ -99,6 +99,10 @@
     <Compile Include="Controls\DropDown.xaml.cs">
       <DependentUpon>DropDown.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interface\Package\iDragHelper.cs" />
+    <Compile Include="Interface\Package\iPackageController.cs" />
+    <Compile Include="Interface\Package\iPackageElement.cs" />
+    <Compile Include="Model\AppModelBase.cs" />
     <Compile Include="Window\DialogueWindow.xaml.cs">
       <DependentUpon>DialogueWindow.xaml</DependentUpon>
     </Compile>
@@ -108,7 +112,7 @@
     <Compile Include="Layout\EmptyDockingManager.xaml.cs">
       <DependentUpon>EmptyDockingManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interface\iFrameSystem.cs" />
+    <Compile Include="Interface\Package\iFrameSystem.cs" />
     <Compile Include="Layout\LayoutTools\LayoutInitializer.cs" />
     <Compile Include="Layout\ViewModel\LayoutPageViewModel.cs" />
     <Compile Include="Layout\ViewModel\LayoutPanelViewModelBase.cs" />
@@ -223,7 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Frame\Story_Design_Reviewer\Layout\" />
-    <Folder Include="Data\Frame\Story_Design_Reviewer\Package\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\Frame\Story_Design_Reviewer\Language\EN.xml">
@@ -231,15 +234,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\Package\Aga.Diagrams.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Package\BasicLib.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Package\BasicLib.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Data\Package\Aga.Diagrams.dll" />
+    <None Include="Data\Package\BasicLib.dll" />
+    <None Include="Data\Package\BasicLib.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

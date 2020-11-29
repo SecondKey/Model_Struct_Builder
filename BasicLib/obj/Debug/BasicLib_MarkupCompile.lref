@@ -1,9 +1,19 @@
-﻿
+﻿D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\GeneratedInternalTypeHelper.g.cs
 
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Window\ContentInspect.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Node\CommonNode.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Page\DiagramWithRuler.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Window\NodeList.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Page\StandardDiagram.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Node\View\CommonNode.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Page\View\DiagramWithRuler.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Page\View\StandardDiagram.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\test.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\DiagramView.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\EllipsePort.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\generic.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\LinkBase.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\Node.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\RectPort.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\RelinkControl.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\SelectionFrame.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\Shared.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\UserControl1.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Window\View\ContentInspect.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Window\View\NodeList.xaml;;
 
