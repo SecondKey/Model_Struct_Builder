@@ -35,8 +35,12 @@ namespace BasicLib
         private DragDropAdorner _adorner;
         private DragEventHandler _dragOver, _dragEnter, _dragLeave;
 
-        public ItemsControlDragHelper(ItemsControl source, UIElement dragScope)
+        public ItemsControlDragHelper(params object[] parameters)
         {
+
+            ItemsControl source = (parameters[0] as Control).FindName("DragElement") as ItemsControl;
+            UIElement dragScope = (parameters[1] as Control).FindName("DropElement") as UIElement;
+
             if (source == null)
                 throw new ArgumentNullException("source");
 

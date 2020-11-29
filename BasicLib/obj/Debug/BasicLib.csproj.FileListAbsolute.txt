@@ -1,11 +1,6 @@
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.csprojAssemblyReference.cache
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Node\View\CommonNode.g.cs
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Page\View\DiagramWithRuler.g.cs
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Page\View\StandardDiagram.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\test.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\UserControl1.g.cs
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Window\View\ContentInspect.g.cs
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Window\View\NodeList.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib_MarkupCompile.cache
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib_MarkupCompile.lref
@@ -44,9 +39,6 @@ D:\OfficialProject\Model_Struct_Builder\BasicLib\bin\Debug\ro\Xceed.Wpf.AvalonDo
 D:\OfficialProject\Model_Struct_Builder\BasicLib\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 D:\OfficialProject\Model_Struct_Builder\BasicLib\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 D:\OfficialProject\Model_Struct_Builder\BasicLib\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Node\View\CommonNode.baml
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Page\View\DiagramWithRuler.baml
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Page\View\StandardDiagram.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\test.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\DiagramView.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\EllipsePort.baml
@@ -58,8 +50,6 @@ D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\RelinkControl.
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\SelectionFrame.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\Shared.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\UserControl1.baml
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Window\View\ContentInspect.baml
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Window\View\NodeList.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.g.resources
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.Properties.Resources.resources
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.csproj.GenerateResource.cache
@@ -67,3 +57,13 @@ D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.csproj.CoreC
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.csproj.CopyComplete
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.dll
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.pdb
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Node\View\CommonNode.g.cs
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Page\View\DiagramWithRuler.g.cs
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Page\View\StandardDiagram.g.cs
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Window\View\ContentInspect.g.cs
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Window\View\NodeList.g.cs
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Node\View\CommonNode.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Page\View\DiagramWithRuler.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Page\View\StandardDiagram.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Window\View\ContentInspect.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Controls\Window\View\NodeList.baml

@@ -29,8 +29,7 @@ namespace Model_Struct_Builder
             DataContextChanged += (sender, e) =>
             {
                 LayoutPanelViewModelBase localVM = DataContext as LayoutPanelViewModelBase;
-                Content = FrameController.GetInstence().GetFrameObject(localVM.PanelInfo.package, localVM.PanelInfo.type);
-                (Content as Control).DataContext = FrameController.GetInstence().GetFrameObject(localVM.PanelInfo.package, localVM.PanelInfo.type + "ViewModel", localVM.PanelInfo.name);
+                Content = FrameController.GetInstence().GetPanel(localVM.PanelInfo.name);
             };
         }
 

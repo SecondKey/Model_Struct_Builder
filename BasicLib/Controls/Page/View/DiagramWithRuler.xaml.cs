@@ -24,13 +24,6 @@ namespace BasicLib
         public DiagramWithRuler()
         {
             InitializeComponent();
-            DataContextChanged += (sender, e) =>
-            {
-                if (e.NewValue is DiagramWithRulerViewModel)
-                {
-                    FrameController.GetInstence().PackageElementRegistSelf((e.NewValue as AppViewModelBase).viewModelName, this);
-                }
-            };
         }
     }
 }

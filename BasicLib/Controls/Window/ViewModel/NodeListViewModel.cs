@@ -7,7 +7,7 @@ using Model_Struct_Builder;
 
 namespace BasicLib
 {
-    class NodeListViewModel : AppViewModelBase, iPackageViewModel
+    class NodeListViewModel : AppViewModelBase
     {
         public NodeListViewModel(string parameter)
         {

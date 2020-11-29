@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace BasicLib
 {
-    abstract class DiagramViewModelBase : AppViewModelBase, iPackageViewModel
+    abstract class DiagramViewModelBase : AppViewModelBase
     {
         public DiagramViewModelBase(string parameter)
         {

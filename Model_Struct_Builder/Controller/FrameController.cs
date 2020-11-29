@@ -11,6 +11,12 @@ using System.Windows.Controls;
 namespace Model_Struct_Builder
 {
     #region FrameStruct
+    public enum PanelType
+    {
+        Page,
+        Window,
+    }
+
     public struct PanelInfo
     {
         public string name;
@@ -156,19 +162,55 @@ namespace Model_Struct_Builder
         /// </summary>
         public Dictionary<string, PanelInfo> AllPage { get { return allPage; } }
         private Dictionary<string, PanelInfo> allPage = new Dictionary<string, PanelInfo>();
-
         /// <summary>
         /// 框架中所有的窗口信息
         /// </summary>
         public Dictionary<string, PanelInfo> AllWindow { get { return allWindow; } }
         private Dictionary<string, PanelInfo> allWindow = new Dictionary<string, PanelInfo>();
+        /// <summary>
+        /// 获取一个面板的面板信息，无论它是页面还是窗口
+        /// </summary>
+        /// <param name="name">面板的名称</param>
+        /// <returns></returns>
+        PanelInfo GetPanelInfo(string name)
+        {
+            if (allPage.ContainsKey(name))
+            {
+                return allPage[name];
+            }
+            else
+            {
+                return AllWindow[name];
+            }
+        }
+        /// <summary>
+        /// 获取一个页面的类型
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        PanelType GetPanelType(string name)
+        {
+            if (allPage.ContainsKey(name))
+            {
+                return PanelType.Page;
+            }
+            else
+            {
+                return PanelType.Window;
+            }
+        }
 
+
+        /// <summary>
+        ///  已经加载的全部面板
+        /// </summary>
+        public Dictionary<string, Control> AllPanel { get { return allPanel; } }
+        Dictionary<string, Control> allPanel = new Dictionary<string, Control>();
         /// <summary>
         /// 所有拖拽工具的信息
         /// </summary>
         public Dictionary<string, DragHelperStruct> AllDragHelperStruct { get { return allDragHelperStruct; } }
         Dictionary<string, DragHelperStruct> allDragHelperStruct = new Dictionary<string, DragHelperStruct>();
-
         /// <summary>
         /// 所有拖拽工具
         /// </summary>
@@ -180,7 +222,8 @@ namespace Model_Struct_Builder
         /// </summary>
         void StartLoadPanelStruct<T>(MsgBase msg)
         {
-            foreach (string page in mainFrameData.GetOneElementAllContent("Panel", "Page"))//添加所有的
+            //读取所有的页面属性
+            foreach (string page in mainFrameData.GetOneElementAllContent("Panel", "Page"))
             {
                 PanelInfo tmpPage = new PanelInfo()
                 {
@@ -202,6 +245,7 @@ namespace Model_Struct_Builder
                 }
                 allPage.Add(page, tmpPage);
             }
+            //读取所有的窗口属性
             foreach (string window in mainFrameData.GetOneElementAllContent("Panel", "Window"))
             {
                 PanelInfo tmpWindow = new PanelInfo()
@@ -224,6 +268,7 @@ namespace Model_Struct_Builder
                 }
                 allWindow.Add(window, tmpWindow);
             }
+            //读取所有的拖拽属性
             foreach (string helper in MainFrameData.GetOneElementAllContent("Panel", "DragDropHelper"))
             {
                 DragHelperStruct tmpHelper = new DragHelperStruct()
@@ -235,50 +280,103 @@ namespace Model_Struct_Builder
                 };
                 allDragHelperStruct.Add(helper, tmpHelper);
             }
-            MsgCenter.SendMsg(new MsgBase(AllAppMsg.AllPanelStructLoadComplete));
+            MsgCenter.SendMsg(new MsgBase(AllAppMsg.AllPanelStructLoadComplete));//框架加载结束
         }
 
-        public void PackageElementRegistSelf(string name, Control element)
+        //public void PackageElementRegistSelf(string name, Control element)
+        //{
+        //    if (allPage.ContainsKey(name))
+        //    {
+        //        allPackage[mainFrameData.GetContent("Panel", "Page", name, "Package")].Controller.GetPanel(name);
+        //    }
+        //    else
+        //    {
+        //        allPackage[mainFrameData.GetContent("Panel", "Window", name, "Package")].Controller.GetPanel(name);
+        //    }
+        //}
+
+        /// <summary>
+        /// 获取一个页面
+        /// 如果页面已经加载完成，则直接返回该页面
+        /// 如果该页面没有加载，则创建一个页面
+        /// 每当获取一个页面时，检查该页面是否是一个包含了拖拽功能的
+        /// </summary>
+        /// <param name="layoutPanel"></param>
+        /// <param name="package"></param>
+        /// <param name="name"></param>
+        /// <param name="property"></param>
+        /// <returns></returns>
+        public Control GetPanel(string name)
         {
-            if (allPage.ContainsKey(name))
+            if (allPanel.ContainsKey(name))
             {
-                allPackage[mainFrameData.GetContent("Panel", "Page", name, "Package")].Controller.GetPanel(name);
+                return allPanel[name];
             }
             else
             {
-                allPackage[mainFrameData.GetContent("Panel", "Window", name, "Package")].Controller.GetPanel(name);
+                return CreatePanel(name);
             }
+
         }
 
-        public Control GetPanel(Control layoutPanel, string package, string name, string property)
+        /// <summary>
+        /// 创建一个页面
+        /// 从框架中加载一个页面
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        Control CreatePanel(string name)
         {
-            Control panel = allPackage[package].Controller.GetPanel(name);
-            if (allPage.ContainsKey(name))
+            PanelInfo p = GetPanelInfo(name);
+            Control panel = allPackage[p.package].GetElement(p.type);
+            panel.DataContext = allPackage[p.package].GetElement(p.type + "ViewModel", p.name);
+            allPanel.Add(name, panel);
+
+            if (p.link != null)
             {
-                foreach (string t in allPage[name].link)
+                switch (GetPanelType(name))
                 {
-                    if (allPage.ContainsKey(t))
-                    {
-                        //ItemsControl c = allPanel[l[1]].FindName("DragElement") as ItemsControl;
-                        //UIElement u = allPanel[l[0]].FindName("DropElement") as UIElement;
-                        //allDragHelper.Add(new ItemsControlDragHelper(c, u));
-                    }
-                    else if (AllWindow.ContainsKey(t))
-                    {
-
-                    }
+                    case PanelType.Page:
+                        foreach (string t in p.link)
+                        {
+                            if (allPanel.ContainsKey(t))
+                            {
+                                if (allDragHelper.ContainsKey(t + "To" + name))
+                                {
+                                    allDragHelper[t + "To" + name] = allPackage[allDragHelperStruct[t + "To" + name].package].GetElement(allDragHelperStruct[t + "To" + name].helper, allPanel[t], panel) as iDragHelper;
+                                }
+                                else
+                                {
+                                    allDragHelper.Add(t + "To" + name, allPackage[allDragHelperStruct[t + "To" + name].package].GetElement(allDragHelperStruct[t + "To" + name].helper, allPanel[t], panel) as iDragHelper);
+                                }
+                            }
+                        }
+                        break;
+                    case PanelType.Window:
+                        foreach (string t in p.link)
+                        {
+                            if (allPanel.ContainsKey(t))
+                            {
+                                if (allDragHelper.ContainsKey(name + "To" + t))
+                                {
+                                    allDragHelper[name + "To" + t] = allPackage[allDragHelperStruct[name + "To" + t].package].GetElement(allDragHelperStruct[name + "To" + t].helper, panel, allPanel[t]) as iDragHelper;
+                                }
+                                else
+                                {
+                                    allDragHelper.Add(name + "To" + t, allPackage[allDragHelperStruct[name + "To" + t].package].GetElement(allDragHelperStruct[name + "To" + t].helper, panel, allPanel[t]) as iDragHelper);
+                                }
+                            }
+                        }
+                        break;
                 }
-            }
-            else
-            {
-
             }
             return panel;
         }
         #endregion
         #endregion
 
-        #region DebugTools
+        #region DebugTool
         //void StartShowStruct<T>(MsgBase msg)
         //{
         //    //ShowStruct(PanelStruct, "");

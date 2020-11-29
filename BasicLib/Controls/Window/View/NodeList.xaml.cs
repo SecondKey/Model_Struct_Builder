@@ -29,7 +29,6 @@ namespace BasicLib
                 if (e.NewValue is NodeListViewModel)
                 {
                     AddNode();
-                    FrameController.GetInstence().PackageElementRegistSelf((e.NewValue as AppViewModelBase).viewModelName, this);
                 }
             };
         }

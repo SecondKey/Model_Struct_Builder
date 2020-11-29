@@ -35,7 +35,7 @@
   </ControlInfo>
 
   <Panel>
-    <!--事件的页面-->
+    <!--页面-->
     <Page>
       <Event>
         <Package>BasicLib</Package>
@@ -63,7 +63,7 @@
         <Type>StandardDiagram</Type>
       </TestEvent2>
     </Page>
-    <!--事件的属性-->
+    <!--窗口-->
     <Window>
       <!--属性，应用到全局-->
       <Attribute>
@@ -89,6 +89,21 @@
         </Link>
       </SimpleEvent_Node>
     </Window>
+    <!--拖放工具-->
+    <DragDropHelper>
+      <Event_NodeToEvent>
+        <Source>Event</Source>
+        <Target>Event_Node</Target>
+        <Package>BasicLib</Package>
+        <Helper>ItemsControlDragHelper</Helper>
+      </Event_NodeToEvent>
+      <SimpleEvent_NodeToSimpleEvent>
+        <Source>SimpleEvent</Source>
+        <Target>SimpleEvent_Node</Target>
+        <Package>BasicLib</Package>
+        <Helper>ItemsControlDragHelper</Helper>
+      </SimpleEvent_NodeToSimpleEvent>
+    </DragDropHelper>
   </Panel>
 
   <Parameters>
@@ -134,6 +149,12 @@
   <Link>
 
   </Link>
+
+
+
+
+
+
 
   <!--模板的所有元素。
   元素是基本单位，应主要对应一种节点。

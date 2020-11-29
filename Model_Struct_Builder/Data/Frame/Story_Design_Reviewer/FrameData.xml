@@ -91,18 +91,18 @@
     </Window>
     <!--拖放工具-->
     <DragDropHelper>
-      <Event-Event_Node>
+      <Event_NodeToEvent>
         <Source>Event</Source>
         <Target>Event_Node</Target>
         <Package>BasicLib</Package>
         <Helper>ItemsControlDragHelper</Helper>
-      </Event-Event_Node>
-      <SimpleEvent-SimpleEvent_Node>
+      </Event_NodeToEvent>
+      <SimpleEvent_NodeToSimpleEvent>
         <Source>SimpleEvent</Source>
         <Target>SimpleEvent_Node</Target>
         <Package>BasicLib</Package>
         <Helper>ItemsControlDragHelper</Helper>
-      </SimpleEvent-SimpleEvent_Node>
+      </SimpleEvent_NodeToSimpleEvent>
     </DragDropHelper>
   </Panel>
 

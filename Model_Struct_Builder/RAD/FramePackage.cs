@@ -22,10 +22,6 @@ namespace Model_Struct_Builder.RAD
         /// 包名，后有.dll
         /// </summary>
         string name;
-        /// <summary>
-        /// 该包的控制器
-        /// </summary>
-        public iPackageController Controller { get; set; }
 
         public FramePackage(string name)
         {
@@ -54,16 +50,11 @@ namespace Model_Struct_Builder.RAD
             return Activator.CreateInstance(t) as Control;//根据类型实例化对象
         }
 
-        public AppViewModelBase GetElement(string elementName, string parameter)
+        public object GetElement(string elementName, params object[] parameters)
         {
             Type t = targetDll.GetType(name + "." + elementName);//获取组件的类型
-            return Activator.CreateInstance(t, parameter) as AppViewModelBase;//根据类型实例化对象
-        }
-
-        public iPackageController GetController(string elementName, string parameter)
-        {
-            Type t = targetDll.GetType(name + "." + elementName);//获取组件的类型
-            return Activator.CreateInstance(t, parameter) as iPackageController;//根据类型实例化对象
+            object j = Activator.CreateInstance(t, parameters) as object;
+            return j;//根据类型实例化对象
         }
     }
 }

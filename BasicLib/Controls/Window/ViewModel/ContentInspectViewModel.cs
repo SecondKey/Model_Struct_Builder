@@ -7,7 +7,7 @@ using Model_Struct_Builder;
 
 namespace BasicLib
 {
-    class ContentInspectViewModel : AppViewModelBase, iPackageViewModel
+    class ContentInspectViewModel : AppViewModelBase
     {
         public ContentInspectViewModel(string parameter)
         {

@@ -24,13 +24,6 @@ namespace BasicLib
         public StandardDiagram()
         {
             InitializeComponent();
-            DataContextChanged += (sender, e) =>
-            {
-                if (e.NewValue is StandardDiagramViewModel)
-                {
-                    FrameController.GetInstence().PackageElementRegistSelf((e.NewValue as AppViewModelBase).viewModelName, this);
-                }
-            };
         }
     }
 }
