@@ -32,7 +32,7 @@ namespace Model_Struct_Builder
         public MainWindow()
         {
             InitializeComponent();
-            MsgCenter.RegistSelf(this, AllAppMsg.AllPanelStructLoadComplete, StartLoadPanel<MsgBase>);
+            MsgCenter.RegistSelf(this, AllAppMsg.PanelCreateComplete, StartLoadPanel<MsgBase>);
 
             MsgCenter.RegistSelf(this, AllAppMsg.LoadLayout, (msg) =>
             {
@@ -69,14 +69,14 @@ namespace Model_Struct_Builder
         {
             Menu_View_Window.Items.Clear();//清空原本窗口菜单
 
-            foreach (var kv in FrameController.GetInstence().AllPage)
+            foreach (var kv in FrameController.GetInstence().AllPanelInfo)
             {
-                if (kv.Value.link != null)
+                if (kv.Value.panelType == PanelType.Page && kv.Value.link.Count != 0)
                 {
                     MenuItem i = new MenuItem();//新建菜单项i
                     BindingOperations.SetBinding(i, MenuItem.HeaderProperty, new Binding()
                     {
-                        Path = new PropertyPath("Frame.FrameDataText[Page_" + kv.Value.name + "]")
+                        Path = new PropertyPath("Frame.FrameDataText[Page_" + kv.Key + "]")
                     });//绑定菜单项的Header
                     foreach (string t in kv.Value.link)
                     {
@@ -87,10 +87,13 @@ namespace Model_Struct_Builder
             }
             Separator s = new Separator();
             Menu_View_Window.Items.Add(s);
-            foreach (var kv in FrameController.GetInstence().AllWindow)
+            foreach (var kv in FrameController.GetInstence().AllPanelInfo)
             {
-                ViewModelLocator.instence.Main.WindowActionList.Add(kv.Key, new MsgKVProperty<string, bool>(AllAppMsg.ShowHideWindow, kv.Key, true));//在窗口显示列表中新增一项
-                Menu_View_Window.Items.Add(CreateCheckableMenuItem(kv.Key));
+                if (kv.Value.panelType == PanelType.Window)
+                {
+                    ViewModelLocator.instence.Main.WindowActionList.Add(kv.Key, true);//在窗口显示列表中新增一项
+                    Menu_View_Window.Items.Add(CreateCheckableMenuItem(kv.Key));
+                }
             }
         }
 
@@ -103,7 +106,7 @@ namespace Model_Struct_Builder
             });//绑定菜单项的Header
             BindingOperations.SetBinding(i, MenuItem.IsCheckedProperty, new Binding()
             {
-                Path = new PropertyPath("WindowActionList[" + itemName + "].SenderP2Property"),
+                Path = new PropertyPath("WindowActionList[" + itemName + "]"),
                 Mode = BindingMode.TwoWay
             });//绑定IsChecked属性到窗口显示列表
             i.IsCheckable = true;//指定菜单项是可选项
@@ -114,15 +117,19 @@ namespace Model_Struct_Builder
         {
             if (!string.IsNullOrEmpty(LayoutName))
             {
-                MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadUserVisible, LayoutName));
-                foreach (var kv in ViewModelLocator.instence.Main.WindowActionList)
+                using (AppController.GetInstence().LoadLayoutState.SetScope())
                 {
-                    kv.Value.SenderP2Property = true;
-                }
+                    MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadUserVisible, LayoutName));
+                    List<string> tmp = new List<string>(ViewModelLocator.instence.Main.WindowActionList.Keys);
+                    foreach (string t in tmp)
+                    {
+                        ViewModelLocator.instence.Main.WindowActionList[t] = true;
+                    }
 
-                MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadUserVisible, LayoutName));
-                XmlLayoutSerializer serializer = new XmlLayoutSerializer(WorkingArea);//创建序列化器
-                serializer.Deserialize(FileFolder.LinkPath(AppController.GetInstence().appPath, "Frame", FrameController.GetInstence().frameName, "Layout") + LayoutName + ".xml");
+                    MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadUserVisible, LayoutName));
+                    XmlLayoutSerializer serializer = new XmlLayoutSerializer(WorkingArea);//创建序列化器
+                    serializer.Deserialize(FileFolder.LinkPath(AppController.GetInstence().appPath, "Frame", FrameController.GetInstence().frameName, "Layout") + LayoutName + ".xml");
+                }
             }
         }
 

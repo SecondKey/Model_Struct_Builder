@@ -12,6 +12,12 @@
       <CN/>
       <EN/>
     </Language>
+    <PanelFeature>
+      <AcceptDropFeature>
+        <Package>BasicLib</Package>
+        <FeatureName>AcceptDropFeature</FeatureName>
+      </AcceptDropFeature>
+    </PanelFeature>
   </FrameInfo>
 
   <Load>
@@ -27,84 +33,101 @@
     </Package>
   </Load>
 
-  <ControlInfo>
-    <BasicLib>
-      <PageNum>7</PageNum>
-      <Link>Event+Event_Node,SimpleEvent+SimpleEvent_Node</Link>
-    </BasicLib>
-  </ControlInfo>
-
   <Panel>
     <!--页面-->
-    <Page>
-      <Event>
-        <Package>BasicLib</Package>
-        <Type>StandardDiagram</Type>
-        <Link>
-          <Event_Node/>
-        </Link>
-      </Event>
+    <Event>
+      <PanelType>Page</PanelType>
+      <Package>BasicLib</Package>
+      <Type>DiagramWithRuler</Type>
+      <Feature>
+        <AcceptDrop>
+          <Sources>
+            <Event_Node/>
+          </Sources>
+          <Types>
+            <EventNode/>
+            <SimpleEventNode/>
+          </Types>
+        </AcceptDrop>
+      </Feature>
+      <Link>
+        <Event_Node/>
+      </Link>
+    </Event>
 
-      <SimpleEvent>
-        <Package>BasicLib</Package>
-        <Type>StandardDiagram</Type>
-        <Link>
-          <SimpleEvent_Node/>
-        </Link>
-      </SimpleEvent>
+    <SimpleEvent>
+      <PanelType>Page</PanelType>
+      <Package>BasicLib</Package>
+      <Type>StandardDiagram</Type>
 
-      <TestEvent1>
-        <Package>BasicLib</Package>
-        <Type>StandardDiagram</Type>
-      </TestEvent1>
+      <Feature>
+        <DiagramGroup>
+          <AcceptDrop>
+            <Sources>
+              <SimpleEvent_Node/>
+            </Sources>
+            <Types>
+              <RoleNode/>
+            </Types>
+          </AcceptDrop>
+        </DiagramGroup>
+      </Feature>
 
-      <TestEvent2>
-        <Package>BasicLib</Package>
-        <Type>StandardDiagram</Type>
-      </TestEvent2>
-    </Page>
+      <Link>
+        <SimpleEvent_Node/>
+      </Link>
+    </SimpleEvent>
+
+    <TestEvent1>
+      <PanelType>Page</PanelType>
+      <Package>BasicLib</Package>
+      <Type>StandardDiagram</Type>
+      <Link></Link>
+      <Feature></Feature>
+    </TestEvent1>
+
+    <TestEvent2>
+      <PanelType>Page</PanelType>
+      <Package>BasicLib</Package>
+      <Type>StandardDiagram</Type>
+      <Link></Link>
+      <Feature></Feature>
+    </TestEvent2>
     <!--窗口-->
-    <Window>
-      <!--属性，应用到全局-->
-      <Attribute>
-        <Package>BasicLib</Package>
-        <Type>NodeList</Type>
-      </Attribute>
+    <!--属性，应用到全局-->
+    <Attribute>
+      <PanelType>Window</PanelType>
+      <Package>BasicLib</Package>
+      <Type>NodeList</Type>
+      <Link></Link>
+      <Feature></Feature>
+    </Attribute>
 
-      <!--事件的节点-->
-      <Event_Node>
-        <Package>BasicLib</Package>
-        <Type>NodeList</Type>
-        <Link>
-          <Event/>
-        </Link>
-      </Event_Node>
+    <!--事件的节点-->
+    <Event_Node>
+      <PanelType>Window</PanelType>
+      <Package>BasicLib</Package>
+      <Type>NodeList</Type>
+      <Link>
+        <Event/>
+      </Link>
+      <Feature></Feature>
+    </Event_Node>
 
-      <!--简单事件的节点-->
-      <SimpleEvent_Node>
-        <Package>BasicLib</Package>
-        <Type>NodeList</Type>
-        <Link>
-          <SimpleEvent/>
-        </Link>
-      </SimpleEvent_Node>
-    </Window>
-    <!--拖放工具-->
-    <DragDropHelper>
-      <Event_NodeToEvent>
-        <Source>Event</Source>
-        <Target>Event_Node</Target>
-        <Package>BasicLib</Package>
-        <Helper>ItemsControlDragHelper</Helper>
-      </Event_NodeToEvent>
-      <SimpleEvent_NodeToSimpleEvent>
-        <Source>SimpleEvent</Source>
-        <Target>SimpleEvent_Node</Target>
-        <Package>BasicLib</Package>
-        <Helper>ItemsControlDragHelper</Helper>
-      </SimpleEvent_NodeToSimpleEvent>
-    </DragDropHelper>
+    <!--简单事件的节点-->
+    <SimpleEvent_Node>
+      <PanelType>Window</PanelType>
+      <Package>BasicLib</Package>
+      <Type>NodeList</Type>
+      <Link>
+        <SimpleEvent/>
+      </Link>
+      <Feature></Feature>
+    </SimpleEvent_Node>
   </Panel>
+
+
+
 
   <Parameters>
     <Event_Node>
@@ -140,7 +163,7 @@
       <Type>CommonNode</Type>
       <NodeType>Custom</NodeType>
       <Style>
-        <Geometry>M 0,0.25 L 0.5 0 L 1,0.25 L 0.5,0.5 Z</Geometry>
+        <Geometry>M--0,0.25--L--0.5--0--L--1,0.25--L--0.5,0.5--Z</Geometry>
       </Style>
       <Parameters></Parameters>
     </RoleNode>
@@ -301,3 +324,27 @@
   </WorkingArea>
 
 </FrameData>
+<!--
+  <ControlInfo>
+    <BasicLib>
+      <PageNum>7</PageNum>
+      <Link>Event+Event_Node,SimpleEvent+SimpleEvent_Node</Link>
+    </BasicLib>
+  </ControlInfo>
+  
+   拖放工具
+  <DragDropHelper>
+    <Event_NodeToEvent>
+      <Source>Event</Source>
+      <Target>Event_Node</Target>
+      <Package>BasicLib</Package>
+      <Helper>ItemsControlDragHelper</Helper>
+    </Event_NodeToEvent>
+    <SimpleEvent_NodeToSimpleEvent>
+      <Source>SimpleEvent</Source>
+      <Target>SimpleEvent_Node</Target>
+      <Package>BasicLib</Package>
+      <Helper>ItemsControlDragHelper</Helper>
+    </SimpleEvent_NodeToSimpleEvent>
+  </DragDropHelper>
+  -->

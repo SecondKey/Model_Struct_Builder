@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-16540863156
+16-1990902824
 
-70-2004631540
+80695136014
 123-737602602
-Controls\Node\View\CommonNode.xaml;Controls\Page\View\DiagramWithRuler.xaml;Controls\Page\View\StandardDiagram.xaml;test.xaml;Themes\DiagramView.xaml;Themes\EllipsePort.xaml;Themes\generic.xaml;Themes\LinkBase.xaml;Themes\Node.xaml;Themes\RectPort.xaml;Themes\RelinkControl.xaml;Themes\SelectionFrame.xaml;Themes\Shared.xaml;UserControl1.xaml;Controls\Window\View\ContentInspect.xaml;Controls\Window\View\NodeList.xaml;
+View\Node\CommonNode.xaml;View\Page\DiagramWithRuler.xaml;View\Page\StandardDiagram.xaml;test.xaml;Themes\DiagramView.xaml;Themes\EllipsePort.xaml;Themes\generic.xaml;Themes\LinkBase.xaml;Themes\Node.xaml;Themes\RectPort.xaml;Themes\RelinkControl.xaml;Themes\SelectionFrame.xaml;Themes\Shared.xaml;UserControl1.xaml;View\Window\ContentInspect.xaml;View\Window\NodeList.xaml;
 
-False
+True
 

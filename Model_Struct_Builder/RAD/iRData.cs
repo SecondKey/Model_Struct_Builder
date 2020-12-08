@@ -38,7 +38,7 @@ namespace Model_Struct_Builder
         List<string> GetOneElementAllContent(params string[] parameters);
 
         /// <summary>
-        /// 获取一个元素中所有元素的全部属性
+        /// 获取一个元素中所有元素的全部内容
         /// </summary>
         Dictionary<string, Dictionary<string, string>> GetDoubleLayerElements(params string[] parameters);
 

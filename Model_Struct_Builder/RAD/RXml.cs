@@ -86,10 +86,6 @@ namespace Model_Struct_Builder
             }
             foreach (var property in e.Elements())
             {
-                if (property.Name.ToString() == "Content")
-                {
-                    continue;
-                }
                 tmp.Add(property.Name.ToString().FormattingString(), property.Value.FormattingString());
             }
             return tmp;

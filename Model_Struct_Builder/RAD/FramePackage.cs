@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace Model_Struct_Builder.RAD
+namespace Model_Struct_Builder
 {
     /// <summary>
     /// DLL包加载器

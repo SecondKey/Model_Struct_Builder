@@ -86,6 +86,7 @@
     <Compile Include="Controller\AppController.cs" />
     <Compile Include="Controller\DialogueWindowController.cs" />
     <Compile Include="Controller\FrameController.cs" />
+    <Compile Include="Controller\Tools\BoolScope.cs" />
     <Compile Include="Controller\Tools\MsgProperty.cs" />
     <Compile Include="Controller\Tools\ObservableBool.cs" />
     <Compile Include="Controller\Tools\ObservableDictionary.cs" />
@@ -100,8 +101,10 @@
       <DependentUpon>DropDown.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interface\Package\iDragHelper.cs" />
+    <Compile Include="Interface\Package\iElementProperty.cs" />
     <Compile Include="Interface\Package\iPackageController.cs" />
-    <Compile Include="Interface\Package\iPackageElement.cs" />
+    <Compile Include="Interface\Package\iFrameElement.cs" />
+    <Compile Include="Interface\Package\iPanelFeature.cs" />
     <Compile Include="Model\AppModelBase.cs" />
     <Compile Include="Window\DialogueWindow.xaml.cs">
       <DependentUpon>DialogueWindow.xaml</DependentUpon>

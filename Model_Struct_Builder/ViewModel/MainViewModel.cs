@@ -20,12 +20,27 @@ namespace Model_Struct_Builder
 
         #region View
         #region WindowActionList
-        ObservableDictionary<string, MsgKVProperty<string, bool>> windowActionList = new ObservableDictionary<string, MsgKVProperty<string, bool>>();
+        //ObservableDictionary<string, MsgKVProperty<string, bool>> windowActionList = new ObservableDictionary<string, MsgKVProperty<string, bool>>();
+        ///// <summary>
+        ///// 窗口显示列表，用于绑定窗口是否显示
+        ///// 两个string值一样，都是页面的name。第一个string用于字典查找value，第二个value用于MKVP发送消息的消息验证
+        ///// </summary>
+        //public ObservableDictionary<string, MsgKVProperty<string, bool>> WindowActionList
+        //{
+        //    get { return windowActionList; }
+        //    set
+        //    {
+        //        windowActionList = value;
+        //        RaisePropertyChanged(() => WindowActionList);
+        //    }
+        //}
+
+        ObservableDictionary<string, bool> windowActionList = new ObservableDictionary<string, bool>();
         /// <summary>
         /// 窗口显示列表，用于绑定窗口是否显示
         /// 两个string值一样，都是页面的name。第一个string用于字典查找value，第二个value用于MKVP发送消息的消息验证
         /// </summary>
-        public ObservableDictionary<string, MsgKVProperty<string, bool>> WindowActionList
+        public ObservableDictionary<string, bool> WindowActionList
         {
             get { return windowActionList; }
             set
@@ -77,9 +92,8 @@ namespace Model_Struct_Builder
             {
                 _activeDocument = value;
                 RaisePropertyChanged(() => ActiveDocument);
-                MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.AutoVisible, value.Name));
                 if (ActiveDocumentChanged != null)
-                    ActiveDocumentChanged(this, EventArgs.Empty);
+                    ActiveDocumentChanged(this, new VarEventArgs<PanelInfo>(value.PanelInfo));
             }
         }
         public event EventHandler ActiveDocumentChanged;
@@ -88,15 +102,19 @@ namespace Model_Struct_Builder
         #region Load
         public void LoadPanel()
         {
-            foreach (var page in FrameController.GetInstence().AllPage)//创建VM时，添加LayoutItem
+            foreach (var panel in FrameController.GetInstence().AllPanelInfo)//创建VM时，添加LayoutItem
             {
-                LayoutPageViewModel tmp = new LayoutPageViewModel(page.Value);
-                pages.Add(tmp);
-            }
-            foreach (var window in FrameController.GetInstence().AllWindow)
-            {
-                LayoutWindowViewModel tmp = new LayoutWindowViewModel(window.Value);
-                windows.Add(tmp);
+                switch (panel.Value.panelType)
+                {
+                    case PanelType.Page:
+                        LayoutPageViewModel tmpPage = new LayoutPageViewModel(panel.Value);
+                        pages.Add(tmpPage);
+                        break;
+                    case PanelType.Window:
+                        LayoutWindowViewModel tmpWindow = new LayoutWindowViewModel(panel.Value);
+                        windows.Add(tmpWindow);
+                        break;
+                }
             }
             MsgCenter.SendMsg(new MsgVar<string>(AllAppMsg.LoadLayout, "Last"));
         }
@@ -167,6 +185,6 @@ namespace Model_Struct_Builder
         }
         #endregion
 
-        
+
     }
 }

@@ -71,11 +71,18 @@
     <Compile Include="AgaDiagram\Controls\Links\LinkThumbKind.cs" />
     <Compile Include="AgaDiagram\Controls\Links\RelinkControl.cs" />
     <Compile Include="AgaDiagram\Controls\Links\SegmentLink.cs" />
-    <Compile Include="Model\Base\DiagramNodeBase.cs" />
-    <Compile Include="Model\Interface\iDiagramElement.cs" />
-    <Compile Include="Controls\Node\View\iNode.cs" />
-    <Compile Include="Controls\Node\View\iPortElement.cs" />
-    <Compile Include="Controls\Node\View\Node.cs" />
+    <Compile Include="Feature\Group\DiagramFeatureGroup.cs" />
+    <Compile Include="Feature\iPanelFeatureProperty.cs" />
+    <Compile Include="Feature\Property\Selected\MouseSelectFeature.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\Link\Interface\iLinkModel.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\Link\Interface\iShowInfoLink.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\Node\FreeDiagramNode.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\DiagramEP.cs" />
+    <Compile Include="ViewModel\PackageViewModelBase.cs" />
+    <Compile Include="ViewModel\Page\DiagramViewModelBase.cs" />
+    <Compile Include="View\Node\iNode.cs" />
+    <Compile Include="View\Node\iPortElement.cs" />
+    <Compile Include="View\Node\Node.cs" />
     <Compile Include="AgaDiagram\Controls\SelectionFrame.cs" />
     <Compile Include="AgaDiagram\LinkInfo.cs" />
     <Compile Include="AgaDiagram\Util\DebuggingConverter.cs" />
@@ -83,68 +90,71 @@
     <Compile Include="AgaDiagram\Util\VisualHelper.cs" />
     <Compile Include="DiagramItem.cs" />
     <Compile Include="Controller\BasicLibController.cs" />
-    <Compile Include="Controls\Link\Model\LinkModelBase.cs" />
-    <Compile Include="Model\Base\ElementModelBase.cs" />
-    <Compile Include="Controls\Ports\EllipsePort.cs" />
-    <Compile Include="Controls\Ports\IPort.cs" />
-    <Compile Include="Controls\Ports\PortBase.cs" />
-    <Compile Include="Controls\Ports\RectPort.cs" />
-    <Compile Include="Controls\Node\ViewModel\CommonNodeViewModel.cs" />
-    <Compile Include="Controls\Node\ViewModel\DiagramNodeViewModelBase.cs" />
-    <Compile Include="Controls\Node\ViewModel\NodeViewModelBase.cs" />
-    <Compile Include="Controls\Node\View\CommonNode.xaml.cs">
+    <Compile Include="Model\ElementProperty\DiagramProperty\Link\Interface\LinkModelBase.cs" />
+    <Compile Include="View\Ports\EllipsePort.cs" />
+    <Compile Include="View\Ports\IPort.cs" />
+    <Compile Include="View\Ports\PortBase.cs" />
+    <Compile Include="View\Ports\RectPort.cs" />
+    <Compile Include="ViewModel\Node\CommonNodeViewModel.cs" />
+    <Compile Include="ViewModel\Node\DiagramNodeViewModelBase.cs" />
+    <Compile Include="ViewModel\Node\NodeViewModelBase.cs" />
+    <Compile Include="View\Node\CommonNode.xaml.cs">
       <DependentUpon>CommonNode.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Base\PageModelBase.cs" />
-    <Compile Include="Controls\Page\ViewModel\DiagramViewModelBase.cs" />
-    <Compile Include="Controls\Page\ViewModel\DiagramWithRulerViewModel.cs" />
-    <Compile Include="Controls\Page\ViewModel\StandardDiagramViewModel.cs" />
-    <Compile Include="Controls\Page\View\DiagramScrollView.cs" />
-    <Compile Include="Controls\Page\View\DiagramView.cs" />
-    <Compile Include="Controls\Page\View\DiagramWithRuler.xaml.cs">
+    <Compile Include="ViewModel\Page\DiagramWithRulerViewModel.cs" />
+    <Compile Include="ViewModel\Page\StandardDiagramViewModel.cs" />
+    <Compile Include="View\Page\DiagramScrollView.cs" />
+    <Compile Include="View\Page\DiagramView.cs" />
+    <Compile Include="View\Page\DiagramWithRuler.xaml.cs">
       <DependentUpon>DiagramWithRuler.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Page\View\StandardDiagram.xaml.cs">
+    <Compile Include="View\Page\StandardDiagram.xaml.cs">
       <DependentUpon>StandardDiagram.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Page\View\ViewElement\Adorners\DragAdorner.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Adorners\LinkAdorner.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Adorners\MoveResizeAdorner.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Adorners\RubberbandAdorner.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Adorners\SelectionAdorner.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Controller\DiagramController.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Controller\DiagramWithRulerController.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Controller\ShapeBase.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Controller\DiagramControllerBase.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\InputTool\InputTool.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Interface\iDiagramController.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Interface\iDragDropTool.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Interface\iInputTool.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Interface\iLinkTool.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Interface\iMoveResizeTool.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\LinkTool\LinkTool.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\MoveResizeTool\MoveResizeTool.cs" />
-    <Compile Include="Controls\Page\View\ViewElement\Selection\Selection.cs" />
+    <Compile Include="View\Page\Adorners\DragAdorner.cs" />
+    <Compile Include="View\Page\Adorners\LinkAdorner.cs" />
+    <Compile Include="View\Page\Adorners\MoveResizeAdorner.cs" />
+    <Compile Include="Feature\Property\Selected\RubberbandAdorner.cs" />
+    <Compile Include="View\Page\Adorners\SelectionAdorner.cs" />
+    <Compile Include="View\Page\ViewElement\Controller\DiagramController.cs" />
+    <Compile Include="View\Page\ViewElement\Controller\DiagramWithRulerController.cs" />
+    <Compile Include="View\Page\ViewElement\Controller\ShapeBase.cs" />
+    <Compile Include="View\Page\ViewElement\Controller\DiagramControllerBase.cs" />
+    <Compile Include="View\Page\ViewElement\InputTool\InputTool.cs" />
+    <Compile Include="View\Page\ViewElement\Interface\iDiagramController.cs" />
+    <Compile Include="View\Page\ViewElement\Interface\iDragDropTool.cs" />
+    <Compile Include="View\Page\ViewElement\Interface\iInputTool.cs" />
+    <Compile Include="View\Page\ViewElement\Interface\iLinkTool.cs" />
+    <Compile Include="View\Page\ViewElement\Interface\iMoveResizeTool.cs" />
+    <Compile Include="View\Page\ViewElement\LinkTool\LinkTool.cs" />
+    <Compile Include="View\Page\ViewElement\MoveResizeTool\MoveResizeTool.cs" />
+    <Compile Include="View\Page\ViewElement\Selection\Selection.cs" />
+    <Compile Include="Feature\Property\DragDrop\AcceptDropFeature.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\Node\Interface\iLinkNode.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\Node\Interface\iNodeModel.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\Node\Interface\iPositionNode.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\Node\Interface\NodeModelBase.cs" />
+    <Compile Include="Model\FrameElementBase.cs" />
     <Compile Include="test.xaml.cs">
       <DependentUpon>test.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Window\ViewModel\ContentInspectViewModel.cs" />
-    <Compile Include="Controls\Window\ViewModel\NodeListViewModel.cs" />
-    <Compile Include="Controls\Window\View\ContentInspect.xaml.cs">
+    <Compile Include="ViewModel\Window\ContentInspectViewModel.cs" />
+    <Compile Include="ViewModel\Window\NodeListViewModel.cs" />
+    <Compile Include="View\Window\ContentInspect.xaml.cs">
       <DependentUpon>ContentInspect.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Window\View\NodeList.xaml.cs">
+    <Compile Include="View\Window\NodeList.xaml.cs">
       <DependentUpon>NodeList.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\Node\View\CommonNode.xaml">
+    <Page Include="View\Node\CommonNode.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="Controls\Page\View\DiagramWithRuler.xaml">
+    <Page Include="View\Page\DiagramWithRuler.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="Controls\Page\View\StandardDiagram.xaml">
+    <Page Include="View\Page\StandardDiagram.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
@@ -194,17 +204,17 @@
     </Page>
     <Compile Include="Tools\CustomMoveResizeTool.cs" />
     <Compile Include="Tools\DragDropAdorner.cs" />
-    <Compile Include="Tools\ItemsControlDragHelper.cs" />
+    <Compile Include="Feature\Property\DragDrop\ItemsControlDragHelper.cs" />
     <Compile Include="Tools\UpdateScope.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Controls\Window\View\ContentInspect.xaml">
+    <Page Include="View\Window\ContentInspect.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="Controls\Window\View\NodeList.xaml">
+    <Page Include="View\Window\NodeList.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
@@ -241,8 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AgaDiagram\Controls\Node\" />
-    <Folder Include="Controls\Link\Relation\" />
-    <Folder Include="Controls\Page\View\ViewElement\DragDropTool\" />
+    <Folder Include="Feature\Property\Link\" />
+    <Folder Include="Feature\Property\Node\" />
+    <Folder Include="Model\ElementProperty\DiagramProperty\Link\Relation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

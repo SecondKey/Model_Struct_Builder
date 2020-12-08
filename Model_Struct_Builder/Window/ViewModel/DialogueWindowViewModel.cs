@@ -62,7 +62,6 @@ namespace Model_Struct_Builder
                     {
                         MsgCenter.SendMsg(new MsgVar<Dictionary<string, object>>(callbackMsg, callBackValues));//发送-加载框架--Test
                     }
-                    Console.WriteLine(CallBackValues["Value"]);
                 });
             }
         }

@@ -7,11 +7,14 @@ using System.Windows.Controls;
 
 namespace Model_Struct_Builder
 {
+    /// <summary>
+    /// 被废弃
+    /// </summary>
     public interface iPackageController
     {
         #region Parameters
         Dictionary<string, Control> AllPanel { get; }
-        Dictionary<string, iPackageElement> AllElement { get; set; }
+        Dictionary<string, iFrameElement> AllElement { get; set; }
         #endregion
 
 

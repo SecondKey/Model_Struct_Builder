@@ -18,7 +18,7 @@ namespace Model_Struct_Builder
         /// <returns></returns>
         public static string FormattingString(this string t)
         {
-            return t.Replace("\n", "").Replace("\t", "").Replace("\r", "");
+            return t.Replace("\n", "").Replace("\t", "").Replace("\r", "").Replace(" ", "").Replace("--", " ");
         }
 
         /// <summary>
@@ -36,6 +36,12 @@ namespace Model_Struct_Builder
             return tmp;
         }
 
+        /// <summary>
+        /// 从ICollection中移除一个范围
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
         public static void RemoveRange<T>(this ICollection<T> source, Func<T, bool> predicate)
         {
             var arr = source.Where(p => predicate(p)).ToArray();

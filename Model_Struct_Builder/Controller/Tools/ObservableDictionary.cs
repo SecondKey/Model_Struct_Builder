@@ -17,7 +17,7 @@ namespace Model_Struct_Builder
             : base()
         { }
 
-        
+
         private int _index;
         public event NotifyCollectionChangedEventHandler CollectionChanged;
         public event PropertyChangedEventHandler PropertyChanged;

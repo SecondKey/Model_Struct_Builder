@@ -1,8 +1,8 @@
-﻿D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Node\View\CommonNode.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Page\View\DiagramWithRuler.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Page\View\StandardDiagram.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Node\CommonNode.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Page\DiagramWithRuler.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Page\StandardDiagram.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\test.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\DiagramView.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\EllipsePort.xaml;;
@@ -14,6 +14,6 @@ FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\RelinkControl.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\SelectionFrame.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\Shared.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\UserControl1.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Window\View\ContentInspect.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Controls\Window\View\NodeList.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Window\ContentInspect.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Window\NodeList.xaml;;
 

@@ -18,11 +18,10 @@ namespace Model_Struct_Builder
         ShowDebugText,
         #endregion
 
-        #region App
-
-        #region Load
-        LoadApp,//加载应用程序数据
+        #region RunningOrder
         AppLoadComplete,//加载应用程序数据完成
+
+        PanelCreateComplete,//页面创建完成
         #endregion
 
         #region Settings
@@ -30,17 +29,13 @@ namespace Model_Struct_Builder
         #endregion
 
         #region ToolsAndOthers
-        TestVMTVMsg,
         ViewModelToView,//viewModel通过消息控制view执行方法，详见MsgCenter_VMTV
         #endregion 
-        #endregion
 
         #region Frame
         #region Layout
-        AutoVisible,//自动显示或隐藏窗口
-        SaveUserVisible,
-        LoadUserVisible,
-        ShowHideWindow,//显示或隐藏窗口
+        SaveUserVisible,//保存窗口的显示或隐藏
+        LoadUserVisible,//加载窗口的显示或隐藏
 
         SaveLayout,//保存布局，string 布局文件夹完整路径
         LoadLayout,//读取布局，string 布局文件夹完整路径
@@ -50,12 +45,6 @@ namespace Model_Struct_Builder
         FrameLoadComplete,//框架加载完成
         MenuLoadComplete,//菜单加载完成
         AllPanelStructLoadComplete,//页面结构加载完成
-
-        //PanelCreateComplete,//一个页面加载完成
-        //PanelLoadChild,//页面开始加载自己的内容
-        //PanelChildLoadComplete,//一个页面加载完成 string，加载完成页面的名字
-
-
         #endregion
 
         #region Project
@@ -82,7 +71,7 @@ namespace Model_Struct_Builder
     /// <summary>
     /// 消息中心
     /// </summary>
-    class MsgCenter
+    public class MsgCenter
     {
         /// <summary>
         /// 发送消息
@@ -186,4 +175,17 @@ namespace Model_Struct_Builder
             this.p1 = p1;
         }
     }
+
+
+    #region EventArgs
+    public class VarEventArgs<T> : EventArgs
+    {
+        public T parameter;
+
+        public VarEventArgs(T parameter)
+        {
+            this.parameter = parameter;
+        }
+    }
+    #endregion 
 }
