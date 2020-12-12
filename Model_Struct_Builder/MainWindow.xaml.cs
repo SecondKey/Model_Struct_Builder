@@ -32,14 +32,14 @@ namespace Model_Struct_Builder
         public MainWindow()
         {
             InitializeComponent();
-            MsgCenter.RegistSelf(this, AllAppMsg.PanelCreateComplete, StartLoadPanel<MsgBase>);
+            this.RegistSelf(AllAppMsg.PanelCreateComplete, StartLoadPanel<MsgBase>);
 
-            MsgCenter.RegistSelf(this, AllAppMsg.LoadLayout, (msg) =>
+            this.RegistSelf(AllAppMsg.LoadLayout, (msg) =>
             {
                 MsgVar<string> tmpMsg = (MsgVar<string>)msg;
                 LoadLayout(tmpMsg.parameter);
             });
-            MsgCenter.RegistSelf(this, AllAppMsg.SaveLayout, (msg) =>
+            this.RegistSelf( AllAppMsg.SaveLayout, (msg) =>
             {
                 MsgVar<string> tmpMsg = (MsgVar<string>)msg;
                 SaveLayout(tmpMsg.parameter);

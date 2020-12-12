@@ -2,23 +2,23 @@
 <LayoutRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <RootPanel Orientation="Horizontal">
     <LayoutAnchorablePane Id="b5621346-e493-4258-b081-c3f223a33c9d" DockWidth="136" FloatingWidth="315" FloatingHeight="336" FloatingLeft="-9" FloatingTop="415" />
-    <LayoutAnchorablePaneGroup Orientation="Vertical" DockWidth="161">
-      <LayoutAnchorablePane Id="272bb897-900a-4f2c-8f2c-b8e3e758cba4" DockWidth="161" DockHeight="1.36938355334867*" FloatingWidth="200" FloatingHeight="336" FloatingLeft="8" FloatingTop="315">
-        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="事件节点" IsSelected="True" ContentId="Event_Node" FloatingLeft="8" FloatingTop="315" FloatingWidth="200" FloatingHeight="336" LastActivationTimeStamp="12/03/2020 22:33:52" />
+    <LayoutAnchorablePaneGroup Orientation="Vertical" DockWidth="171">
+      <LayoutAnchorablePane Id="272bb897-900a-4f2c-8f2c-b8e3e758cba4" DockWidth="171" DockHeight="1.36938355334867*" FloatingWidth="200" FloatingHeight="336" FloatingLeft="8" FloatingTop="315">
+        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="事件节点" IsSelected="True" ContentId="Event_Node" FloatingLeft="8" FloatingTop="315" FloatingWidth="200" FloatingHeight="336" LastActivationTimeStamp="12/12/2020 14:52:46" />
       </LayoutAnchorablePane>
     </LayoutAnchorablePaneGroup>
     <LayoutPanel Orientation="Horizontal">
       <LayoutDocumentPaneGroup Orientation="Horizontal">
         <LayoutDocumentPane Id="922e2bdd-6990-4d77-aba0-06d90a38c32f" DockWidth="1.12380936017866*">
-          <LayoutDocument Title="简单事件" ContentId="SimpleEvent" FloatingLeft="300" FloatingTop="76" FloatingWidth="433" FloatingHeight="336" LastActivationTimeStamp="12/03/2020 22:33:51" />
-          <LayoutDocument Title="事件" IsSelected="True" IsLastFocusedDocument="True" ContentId="Event" LastActivationTimeStamp="12/03/2020 22:33:52" />
+          <LayoutDocument Title="事件" IsSelected="True" IsLastFocusedDocument="True" ContentId="Event" LastActivationTimeStamp="12/12/2020 14:52:44" />
+          <LayoutDocument Title="简单事件" ContentId="SimpleEvent" FloatingLeft="300" FloatingTop="76" FloatingWidth="433" FloatingHeight="336" LastActivationTimeStamp="12/10/2020 13:44:04" />
           <LayoutDocument Title="测试事件" ContentId="TestEvent1" LastActivationTimeStamp="12/03/2020 22:33:26" />
           <LayoutDocument Title="测试事件" ContentId="TestEvent2" LastActivationTimeStamp="12/03/2020 22:33:02" />
         </LayoutDocumentPane>
       </LayoutDocumentPaneGroup>
     </LayoutPanel>
     <LayoutAnchorablePane Id="815fbd83-a41a-427b-90b8-5f87d7a13af9" DockWidth="174" FloatingWidth="315" FloatingHeight="336" FloatingLeft="747" FloatingTop="446">
-      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="属性" IsSelected="True" IsLastFocusedDocument="True" ContentId="Attribute" FloatingLeft="747" FloatingTop="446" FloatingWidth="315" FloatingHeight="336" LastActivationTimeStamp="12/03/2020 22:33:21" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="属性" IsSelected="True" IsLastFocusedDocument="True" ContentId="Attribute" FloatingLeft="747" FloatingTop="446" FloatingWidth="315" FloatingHeight="336" LastActivationTimeStamp="12/12/2020 14:01:48" />
     </LayoutAnchorablePane>
   </RootPanel>
   <TopSide />
@@ -27,7 +27,7 @@
   <BottomSide />
   <FloatingWindows />
   <Hidden>
-    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="简单事件节点" ContentId="SimpleEvent_Node" FloatingLeft="-9" FloatingTop="415" FloatingWidth="315" FloatingHeight="336" LastActivationTimeStamp="12/03/2020 22:33:51" PreviousContainerId="b5621346-e493-4258-b081-c3f223a33c9d" PreviousContainerIndex="0" />
+    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="简单事件节点" IsSelected="True" ContentId="SimpleEvent_Node" FloatingLeft="-9" FloatingTop="415" FloatingWidth="315" FloatingHeight="336" LastActivationTimeStamp="12/12/2020 14:52:44" PreviousContainerId="b5621346-e493-4258-b081-c3f223a33c9d" PreviousContainerIndex="0" />
   </Hidden>
   <UserVisible>
     <Attribute>True</Attribute>

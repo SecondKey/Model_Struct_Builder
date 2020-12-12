@@ -8,9 +8,9 @@ using Model_Struct_Builder;
 
 namespace BasicLib
 {
-    class ContentInspectViewModel : PackageViewModelBase
+    class ContentInspectViewModel : WindowViewModelBase
     {
-        public ContentInspectViewModel(FrameworkElement view, string name) : base(view, name)
+        public ContentInspectViewModel(string name) : base(name)
         {
         }
     }

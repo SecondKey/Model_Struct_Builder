@@ -8,7 +8,7 @@
     <ControlTemplate x:Key="SelectionTemplate">
         <Border x:Name="Border" BorderBrush="LightGreen" BorderThickness="2"/>
         <ControlTemplate.Triggers>
-            <DataTrigger Value="True" Binding="{Binding IsPrimarySelection}">
+            <DataTrigger Value="True" Binding="{Binding AllFeature[ItemSelected].IsMain}">
                 <Setter TargetName="Border" Property="BorderBrush" Value="Magenta"/>
             </DataTrigger>
         </ControlTemplate.Triggers>
@@ -17,7 +17,7 @@
     <ControlTemplate x:Key="ThumbRectTemplate">
         <Border x:Name="Border" BorderBrush="Black" BorderThickness="1" Background="LightGreen"/>
         <ControlTemplate.Triggers>
-            <DataTrigger Value="True" Binding="{Binding IsPrimarySelection}">
+            <DataTrigger Value="True" Binding="{Binding AllFeature[ItemSelected].IsMain}">
                 <Setter TargetName="Border" Property="Background" Value="Magenta"/>
             </DataTrigger>
         </ControlTemplate.Triggers>
@@ -28,7 +28,7 @@
             <Path x:Name="Border" Stroke="LightGreen" StrokeThickness="2" Data="M 0,0 0,1" Stretch="Fill" />
         </Grid>
         <ControlTemplate.Triggers>
-            <DataTrigger Value="True" Binding="{Binding IsPrimarySelection}">
+            <DataTrigger Value="True" Binding="{Binding AllFeature[ItemSelected].IsMain}">
                 <Setter TargetName="Border" Property="Stroke" Value="Magenta"/>
             </DataTrigger>
         </ControlTemplate.Triggers>
@@ -39,7 +39,7 @@
             <Path x:Name="Border" Stroke="LightGreen" StrokeThickness="2" Data="M 0,0 1,0" Stretch="Fill" />
         </Grid>
         <ControlTemplate.Triggers>
-            <DataTrigger Value="True" Binding="{Binding IsPrimarySelection}">
+            <DataTrigger Value="True" Binding="{Binding AllFeature[ItemSelected].IsMain}">
                 <Setter TargetName="Border" Property="Stroke" Value="Magenta"/>
             </DataTrigger>
         </ControlTemplate.Triggers>

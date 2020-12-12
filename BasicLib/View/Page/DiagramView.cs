@@ -13,14 +13,11 @@ namespace BasicLib
     /// <summary>
     /// 图的View
     /// </summary>
-    public class DiagramView : Canvas
+    public class DiagramView : Canvas, iView
     {
-
-
         static DiagramView()
         {
-            FrameworkElement.DefaultStyleKeyProperty.OverrideMetadata(
-                typeof(DiagramView), new FrameworkPropertyMetadata(typeof(DiagramView)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(DiagramView), new FrameworkPropertyMetadata(typeof(DiagramView)));
         }
 
         #region DependencyProperty
@@ -119,15 +116,26 @@ namespace BasicLib
                 view.LayoutTransform = new ScaleTransform(zoom, zoom);
         }
         #endregion
-
         #endregion
 
-        #region DiagramElement
-        /// <summary>
-        /// 控制器
-        /// </summary>
-        public iDiagramController Controller { get; set; }
+        public Dictionary<string, iFeature> AllFeature { get { return (DataContext as PackageViewModelBase).AllFeature; } }
 
+        /// <summary>
+        /// 是否正在拖动
+        /// </summary>
+        public virtual bool IsDragging
+        {
+            get
+            {
+                if (AllFeature.ContainsKey("AddAdorner") && (AllFeature["AddAdorner"] as AddAdornerFeature).GetPublicAdorner("Drag") != null)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        #region DiagramItems
         /// <summary>
         /// 所有的流程图元素
         /// </summary>
@@ -135,59 +143,17 @@ namespace BasicLib
         {
             get { return Children.OfType<DiagramItem>(); }
         }
-
-        /// <summary>
-        /// 拖动装饰器
-        /// </summary>
-        private Adorner _dragAdorner;
-        /// <summary>
-        /// 拖动装饰器
-        /// </summary>
-        public Adorner DragAdorner
-        {
-            get { return _dragAdorner; }
-            set
-            {
-                if (_dragAdorner != value)
-                {
-                    var adornerLayer = AdornerLayer.GetAdornerLayer(this);
-                    if (_dragAdorner != null)
-                        adornerLayer.Remove(_dragAdorner);
-                    _dragAdorner = value;
-                    if (_dragAdorner != null)
-                        adornerLayer.Add(_dragAdorner);
-                }
-            }
-        }
-        /// <summary>
-        /// 是否正在拖动
-        /// </summary>
-        public bool IsDragging { get { return DragAdorner != null; } }
-
         #endregion
 
         public DiagramView()
         {
             _gridPen = CreateGridPen();
-            BindCommands();
             Focusable = true;
-
-            this.LayoutUpdated += new EventHandler(DiagramView_LayoutUpdated);
-        }
-
-        /// <summary>
-        /// 绑定命令
-        /// </summary>
-        private void BindCommands()
-        {
-            CommandBindings.Add(new CommandBinding(ApplicationCommands.Cut, ExecuteCommand, CanExecuteCommand));
-            CommandBindings.Add(new CommandBinding(ApplicationCommands.Copy, ExecuteCommand, CanExecuteCommand));
-            CommandBindings.Add(new CommandBinding(ApplicationCommands.Paste, ExecuteCommand, CanExecuteCommand));
-            CommandBindings.Add(new CommandBinding(ApplicationCommands.Delete, ExecuteCommand, CanExecuteCommand));
         }
 
 
-        #region 笔刷
+
+        #region 网格
         /// <summary>
         /// 用于绘制网格的笔刷
         /// </summary>
@@ -200,9 +166,21 @@ namespace BasicLib
         {
             return new Pen(Brushes.LightGray, (1 / Zoom));
         }
-        #endregion
 
-        #region 重写父类方法
+        /// <summary>
+        /// 绘制网格
+        /// </summary>
+        /// <param name="dc"></param>
+        /// <param name="rect"></param>
+        protected virtual void DrawGrid(DrawingContext dc, Rect rect)
+        {
+            //using .5 forces wpf to draw a single pixel line
+            for (var i = 0.5; i < rect.Height; i += GridCellSize.Height)
+                dc.DrawLine(_gridPen, new Point(0, i), new Point(rect.Width, i));
+            for (var i = 0.5; i < rect.Width; i += GridCellSize.Width)
+                dc.DrawLine(_gridPen, new Point(i, 0), new Point(i, rect.Height));
+        }
+        #endregion
 
         /// <summary>
         /// 测量排列子元素需要的大小
@@ -226,18 +204,7 @@ namespace BasicLib
                 DrawGrid(dc, rect);
         }
 
-        #endregion
 
-        /// <summary>
-        /// 更新布局（通知所有元素更新布局）
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void DiagramView_LayoutUpdated(object sender, EventArgs e)
-        {
-            foreach (var n in this.Children.OfType<Node>())
-                n.UpdatePosition();
-        }
         /// <summary>
         /// 查找所有元素中第一个与传入匹配的元素
         /// </summary>
@@ -248,50 +215,37 @@ namespace BasicLib
             return Items.FirstOrDefault(p => p.ModelElement == modelElement);
         }
 
-        /// <summary>
-        /// 绘制网格
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="rect"></param>
-        protected virtual void DrawGrid(DrawingContext dc, Rect rect)
-        {
-            //using .5 forces wpf to draw a single pixel line
-            for (var i = 0.5; i < rect.Height; i += GridCellSize.Height)
-                dc.DrawLine(_gridPen, new Point(0, i), new Point(rect.Width, i));
-            for (var i = 0.5; i < rect.Width; i += GridCellSize.Width)
-                dc.DrawLine(_gridPen, new Point(i, 0), new Point(i, rect.Height));
-        }
-
-
-
-        /// <summary>
-        /// 执行方法
-        /// 如果有控制器，则控制器执行操作，
-        /// 如果操作时删除，清空选择
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ExecuteCommand(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (Controller != null)
-                Controller.ExecuteCommand(e.Command, e.Parameter);
-            if (e.Command == ApplicationCommands.Delete)
-                Selection.Clear();
-        }
-
-        /// <summary>
-        /// 是否可以执行方法，使用指定控制器的方法
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CanExecuteCommand(object sender, CanExecuteRoutedEventArgs e)
-        {
-            if (Controller != null)
-                e.CanExecute = Controller.CanExecuteCommand(e.Command, e.Parameter);
-        }
 
 
         #region old
+        //CommandBindings.Add(new CommandBinding(ApplicationCommands.Delete, ExecuteCommand, CanExecuteCommand));
+
+        ///// <summary>
+        ///// 执行方法
+        ///// 如果有控制器，则控制器执行操作，
+        ///// 如果操作时删除，清空选择
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void ExecuteCommand(object sender, ExecutedRoutedEventArgs e)
+        //{
+        //    //if (Controller != null)
+        //    //    Controller.ExecuteCommand(e.Command, e.Parameter);
+        //    //if (e.Command == ApplicationCommands.Delete)
+        //    //    Selection.Clear();
+        //}
+
+        ///// <summary>
+        ///// 是否可以执行方法，使用指定控制器的方法
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void CanExecuteCommand(object sender, CanExecuteRoutedEventArgs e)
+        //{
+        //    //if (Controller != null)
+        //    //    e.CanExecute = Controller.CanExecuteCommand(e.Command, e.Parameter);
+        //}
+
 
         /// <summary>
         /// 输入工具
@@ -319,6 +273,32 @@ namespace BasicLib
         /// </summary>
         public Selection Selection { get; private set; }
 
+
+
+
+
+        //#region Drag
+
+
+        //#endregion 
+
+
+        //this.LayoutUpdated += new EventHandler(DiagramView_LayoutUpdated);
+        ///// <summary>
+        ///// 更新布局（通知所有元素更新布局）
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //void DiagramView_LayoutUpdated(object sender, EventArgs e)
+        //{
+        //    foreach (var kv in allItems)
+        //    {
+        //        foreach (DiagramItem control in kv.Value.Values)
+        //        {
+        //            control.UpdatePosition();
+        //        }
+        //    }
+        //}
 
 
         //_gridPen = CreateGridPen();

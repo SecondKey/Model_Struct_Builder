@@ -1,5 +1,4 @@
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.csprojAssemblyReference.cache
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\test.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\UserControl1.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib_MarkupCompile.cache
@@ -39,7 +38,6 @@ D:\OfficialProject\Model_Struct_Builder\BasicLib\bin\Debug\ro\Xceed.Wpf.AvalonDo
 D:\OfficialProject\Model_Struct_Builder\BasicLib\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 D:\OfficialProject\Model_Struct_Builder\BasicLib\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 D:\OfficialProject\Model_Struct_Builder\BasicLib\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\test.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\DiagramView.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\EllipsePort.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\generic.baml
@@ -47,7 +45,6 @@ D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\LinkBase.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\Node.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\RectPort.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\RelinkControl.baml
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\SelectionFrame.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\Shared.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\UserControl1.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.g.resources
@@ -57,13 +54,15 @@ D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.csproj.CoreC
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.csproj.CopyComplete
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.dll
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\BasicLib.pdb
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Node\CommonNode.g.cs
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Page\DiagramWithRuler.g.cs
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Page\StandardDiagram.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Window\ContentInspect.g.cs
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Window\NodeList.g.cs
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Node\CommonNode.baml
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Page\DiagramWithRuler.baml
-D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Page\StandardDiagram.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Window\ContentInspect.baml
 D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Window\NodeList.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Page\Diagram\DiagramWithRuler.g.cs
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Page\Diagram\StandardDiagram.g.cs
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Page\Diagram\DiagramWithRuler.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\View\Page\Diagram\StandardDiagram.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\Selection\SelectionFrame.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\Selection\MoveAdornerElement.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\Selection\ResizeAdornerElement.baml
+D:\OfficialProject\Model_Struct_Builder\BasicLib\obj\Debug\Themes\Selection\SelectionAdornerElement.baml

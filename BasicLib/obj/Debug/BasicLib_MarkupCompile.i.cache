@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-16-1990902824
+17-777016145
 
-80695136014
+93-754662098
 123-737602602
-View\Node\CommonNode.xaml;View\Page\DiagramWithRuler.xaml;View\Page\StandardDiagram.xaml;test.xaml;Themes\DiagramView.xaml;Themes\EllipsePort.xaml;Themes\generic.xaml;Themes\LinkBase.xaml;Themes\Node.xaml;Themes\RectPort.xaml;Themes\RelinkControl.xaml;Themes\SelectionFrame.xaml;Themes\Shared.xaml;UserControl1.xaml;View\Window\ContentInspect.xaml;View\Window\NodeList.xaml;
+Themes\Selection\MoveAdornerElement.xaml;Themes\Selection\ResizeAdornerElement.xaml;Themes\Selection\SelectionAdornerElement.xaml;View\Page\Diagram\DiagramWithRuler.xaml;View\Page\Diagram\StandardDiagram.xaml;Themes\DiagramView.xaml;Themes\EllipsePort.xaml;Themes\generic.xaml;Themes\LinkBase.xaml;Themes\Node.xaml;Themes\RectPort.xaml;Themes\RelinkControl.xaml;Themes\Selection\SelectionFrame.xaml;Themes\Shared.xaml;UserControl1.xaml;View\Window\ContentInspect.xaml;View\Window\NodeList.xaml;
 
-True
+False
 

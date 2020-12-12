@@ -11,28 +11,39 @@ using System.Windows.Shapes;
 
 namespace BasicLib
 {
-    public enum CommonNodeType
+    public enum CommonNodeRenderType
     {
         Basic,
         Custom
     }
-    class CommonNodeViewModel : DiagramNodeViewModelBase
+    class CommonNodeViewModel : NodeViewModelBase
     {
-        public CommonNodeViewModel(string parameter) : base(parameter)
+        CommonNodeRenderType renderType;
+
+        public CommonNodeViewModel(string nodeType) : base(nodeType)
         {
-            nodeType = (CommonNodeType)Enum.Parse(typeof(CommonNodeType), Frame.MainFrameData.GetContent("Node", parameter, "NodeType"));
-            switch (nodeType)
+            renderType = (CommonNodeRenderType)Enum.Parse(typeof(CommonNodeRenderType), Frame.MainFrameData.GetContent("Node", nodeType, "RenderType"));
+            BindingGetNodeFun();
+        }
+
+        public CommonNodeViewModel(NodeModelBase model) : base(model)
+        {
+            renderType = (CommonNodeRenderType)Enum.Parse(typeof(CommonNodeRenderType), Frame.MainFrameData.GetContent("Node", model.nodeType, "RenderType"));
+            BindingGetNodeFun();
+        }
+
+        void BindingGetNodeFun()
+        {
+            switch (renderType)
             {
-                case CommonNodeType.Basic:
+                case CommonNodeRenderType.Basic:
                     GetNode = GetBasicNode;
                     break;
-                case CommonNodeType.Custom:
+                case CommonNodeRenderType.Custom:
                     GetNode = GetCustomNode;
                     break;
             }
         }
-
-        CommonNodeType nodeType;
 
         /// <summary>
         /// 节点的文本
@@ -47,11 +58,22 @@ namespace BasicLib
                 RaisePropertyChanged(() => Text);
             }
         }
+
         #region GetNode
-        public override FrameworkElement GetCommonNode()
+        public override DiagramItem GetCompleteNode()
         {
+            FrameworkElement element = GetNode();
             CommonNode node = new CommonNode();
+            node.Content = element;
+            node.DataContext = this;
+            view = node;
+            CreateFeature();
             return node;
+        }
+
+        protected override FrameworkElement GetCommonNode()
+        {
+            return null;
         }
 
         public FrameworkElement GetBasicNode()
@@ -65,9 +87,7 @@ namespace BasicLib
             {
                 Path = new PropertyPath("NodeName")
             });
-
             var ui = new Border();
-            ui.Tag = CommonNodeType.Basic;
             ui.BorderBrush = Brushes.Black;
             ui.BorderThickness = new Thickness(0.5);
             ui.Background = Brushes.Lime;
@@ -77,8 +97,6 @@ namespace BasicLib
 
         public FrameworkElement GetCustomNode()
         {
-            CommonNode node = new CommonNode();
-
             var textBlock = new TextBlock()
             {
                 VerticalAlignment = VerticalAlignment.Center,
@@ -98,11 +116,19 @@ namespace BasicLib
             ui.Stretch = Stretch.Uniform;
 
             var grid = new Grid();
-            grid.Tag = CommonNodeType.Custom;
             grid.Children.Add(ui);
             grid.Children.Add(textBlock);
             return grid;
         }
+        #endregion
+
+        #region Wait
+        //public CommonNodeViewModel(string type, NodeModelBase model) : base(type)
+        //{
+        //    //model = NodeModelBase.GetNodeModel();
+        //    viewType = (CommonNodeViewType)Enum.Parse(typeof(CommonNodeViewType), Frame.MainFrameData.GetContent("Node", type, "ViewType"));
+        //    BindingGetNodeFun();
+        //}
         #endregion
     }
 }

@@ -71,7 +71,7 @@ namespace Model_Struct_Builder
     /// <summary>
     /// 消息中心
     /// </summary>
-    public class MsgCenter
+    public static class MsgCenter
     {
         /// <summary>
         /// 发送消息
@@ -87,7 +87,7 @@ namespace Model_Struct_Builder
         /// <param name="target">"this"</param>
         /// <param name="msg">对应接收的消息</param>
         /// <param name="action">受到消息后执行方法</param>
-        public static void RegistSelf(object target, AllAppMsg msg, Action<MsgBase> action)
+        public static void RegistSelf(this object target, AllAppMsg msg, Action<MsgBase> action)
         {
             Messenger.Default.Register(target, msg, action);
         }
@@ -97,7 +97,7 @@ namespace Model_Struct_Builder
         /// </summary>
         /// <param name="target">"this"</param>
         /// <param name="list">消息列表，以及每个消息对应的操作列表</param>
-        public static void RegistSelf(object target, Dictionary<AllAppMsg, Action<MsgBase>[]> list)
+        public static void RegistSelf(this object target, Dictionary<AllAppMsg, Action<MsgBase>[]> list)
         {
             foreach (var kv in list)
             {
@@ -113,7 +113,7 @@ namespace Model_Struct_Builder
         /// </summary>
         /// <param name="target">"this"</param>
         /// <param name="msg">消息</param>
-        public static void UnRegistSelf(object target, AllAppMsg msg)
+        public static void UnRegistSelf(this object target, AllAppMsg msg)
         {
             Messenger.Default.Unregister<MsgBase>(target, msg);
         }

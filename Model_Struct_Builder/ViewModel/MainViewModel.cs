@@ -15,7 +15,7 @@ namespace Model_Struct_Builder
         public MainViewModel()
         {
             viewModelName = "Main";
-            MsgCenter.RegistSelf(this, AllAppMsg.MenuLoadComplete, (msg) => { LoadPanel(); });
+            this.RegistSelf(AllAppMsg.MenuLoadComplete, (msg) => { LoadPanel(); });
         }
 
         #region View

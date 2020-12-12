@@ -9,6 +9,7 @@ using System.Windows.Controls;
 
 namespace BasicLib
 {
+
     /// <summary>
     /// 移动调整 工具类
     /// </summary>
@@ -43,7 +44,7 @@ namespace BasicLib
         /// <summary>
         /// 指定的控制器
         /// </summary>
-        protected iDiagramController Controller { get { return View.Controller; } }
+        protected iDiagramController Controller { get { return null; } }
         /// <summary>
         /// 初始点
         /// </summary>
@@ -66,18 +67,18 @@ namespace BasicLib
             DragKind = kind;
             if (kind == DragThumbKinds.Center)
             {
-                if (!item.CanMove || !IsMovable(item))
+                if ( !IsMovable(item))
                     return;
                 if (!View.Selection.Contains(item))
                     View.Selection.Set(item);
-                DragItems = View.Selection.Where(p => p.CanMove && IsMovable(p)).ToArray();
+                //DragItems = View.Selection.Where(p => p.CanMove && IsMovable(p)).ToArray();
             }
             else
             {
                 DragItems = new DiagramItem[] { item };
             }
             InitialBounds = DragItems.Select(p => p.Bounds).ToArray();
-            View.DragAdorner = CreateAdorner();
+            //View.DragAdorner = CreateAdorner();
         }
 
         /// <summary>

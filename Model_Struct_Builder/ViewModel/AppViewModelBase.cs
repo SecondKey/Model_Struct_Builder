@@ -19,9 +19,9 @@ namespace Model_Struct_Builder
 
         }
 
-        public AppViewModelBase(string name)
+        public AppViewModelBase(string VMName)
         {
-            viewModelName = name;
+            viewModelName = VMName;
         }
 
         public AppController App

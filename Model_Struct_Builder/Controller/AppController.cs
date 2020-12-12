@@ -132,7 +132,7 @@ namespace Model_Struct_Builder
         /// <summary>
         /// 程序是否正在加载布局
         /// </summary>
-        public BoolScope LoadLayoutState = new BoolScope(false);
+        public BoolState LoadLayoutState = new BoolState(false);
         #endregion
     }
 }

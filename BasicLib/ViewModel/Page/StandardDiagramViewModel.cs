@@ -8,9 +8,9 @@ using Model_Struct_Builder;
 
 namespace BasicLib
 {
-    class StandardDiagramViewModel : DiagramViewModelBase
+    class StandardDiagramViewModel : PageViewModelBase
     {
-        public StandardDiagramViewModel(FrameworkElement view, string name) : base(view, name)
+        public StandardDiagramViewModel(string name) : base(name)
         {
         }
     }

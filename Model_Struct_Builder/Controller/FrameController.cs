@@ -212,8 +212,8 @@ namespace Model_Struct_Builder
         Control CreatePanel(PanelInfo info)
         {
             Control panel = allPackage[info.package].GetElement(info.type);
-            panel.DataContext = allPackage[info.package].GetElement(info.type + "ViewModel", panel, info.name);
             allPanel.Add(info.name, panel);
+            panel.DataContext = allPackage[info.package].GetElement(info.type + "ViewModel", info.name);
             return panel;
         }
         #endregion

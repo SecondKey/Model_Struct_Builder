@@ -9,9 +9,9 @@ using System.Windows;
 
 namespace BasicLib
 {
-    public class DiagramWithRulerViewModel : PackageViewModelBase
+    public class DiagramWithRulerViewModel : PageViewModelBase
     {
-        public DiagramWithRulerViewModel(FrameworkElement view, string name) : base(view, name)
+        public DiagramWithRulerViewModel(string name) : base(name)
         {
         }
     }

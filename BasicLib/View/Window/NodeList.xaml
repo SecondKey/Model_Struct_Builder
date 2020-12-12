@@ -37,7 +37,7 @@
         </StackPanel>
     </ScrollViewer>-->
     <Border BorderBrush="Black" BorderThickness="1">
-        <ItemsControl x:Name="DragElement">
+        <ItemsControl x:Name="Collection">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center"/>

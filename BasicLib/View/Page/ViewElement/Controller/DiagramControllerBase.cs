@@ -114,8 +114,9 @@ namespace BasicLib
             foreach (var s in Shapes)
                 UpdateUIElement(s);
             foreach (var s in Shapes)
-                CreateLinks(s, (Node)View.FindItem(s));
+                CreateLinks(s, (NodeBase)View.FindItem(s));
         }
+
         /// <summary>
         /// 绑定事件
         /// </summary>
@@ -144,47 +145,47 @@ namespace BasicLib
         /// <param name="shape"></param>
         private void UpdateUIElement(ShapeBase shape)
         {
-            UpdateUIElement(shape, (Node)View.FindItem(shape));
+            UpdateUIElement(shape, (NodeBase)View.FindItem(shape));
         }
         /// <summary>
         /// 更新UI元素
         /// </summary>
         /// <param name="shape"></param>
         /// <param name="item"></param>
-        private void UpdateUIElement(ShapeBase shape, Node item)
+        private void UpdateUIElement(ShapeBase shape, NodeBase item)
         {
-            if (item == null)
-            {
-                item = new Node();
-                if (shape is RectangleShape)
-                {
-                    item.Ports.Add(new RectPort() { Visibility = Visibility.Hidden });
-                    var ui = new Border();
-                    ui.CornerRadius = new CornerRadius(15);
-                    ui.BorderBrush = new SolidColorBrush(Colors.Black);
-                    ui.BorderThickness = new Thickness(1);
-                    ui.Background = new SolidColorBrush(Colors.Yellow);
-                    item.Content = ui;
-                }
-                else
-                {
-                    item.Ports.Add(new EllipsePort() { Visibility = Visibility.Hidden });
-                    var ui = new Ellipse();
-                    ui.Fill = Brushes.Green;
-                    ui.Stroke = Brushes.Black;
-                    ui.StrokeThickness = 1;
-                    item.Content = ui;
-                }
-                item.ModelElement = shape;
+            //if (item == null)
+            //{
+            //    item = new Node();
+            //    if (shape is RectangleShape)
+            //    {
+            //        item.Ports.Add(new RectPort() { Visibility = Visibility.Hidden });
+            //        var ui = new Border();
+            //        ui.CornerRadius = new CornerRadius(15);
+            //        ui.BorderBrush = new SolidColorBrush(Colors.Black);
+            //        ui.BorderThickness = new Thickness(1);
+            //        ui.Background = new SolidColorBrush(Colors.Yellow);
+            //        item.Content = ui;
+            //    }
+            //    else
+            //    {
+            //        item.Ports.Add(new EllipsePort() { Visibility = Visibility.Hidden });
+            //        var ui = new Ellipse();
+            //        ui.Fill = Brushes.Green;
+            //        ui.Stroke = Brushes.Black;
+            //        ui.StrokeThickness = 1;
+            //        item.Content = ui;
+            //    }
+            //    item.ModelElement = shape;
 
-                View.Children.Add(item);
+            //    View.Children.Add(item);
 
-                //item.DataContext = shape;
-                //item.SetBinding(Canvas.LeftProperty, "Location.X");
-                //item.SetBinding(Canvas.TopProperty, "Location.Y");
-                //item.SetBinding(FrameworkElement.WidthProperty, "Size.Width");
-                //item.SetBinding(FrameworkElement.HeightProperty, "Size.Height");
-            }
+            //item.DataContext = shape;
+            //item.SetBinding(Canvas.LeftProperty, "Location.X");
+            //item.SetBinding(Canvas.TopProperty, "Location.Y");
+            //item.SetBinding(FrameworkElement.WidthProperty, "Size.Width");
+            //item.SetBinding(FrameworkElement.HeightProperty, "Size.Height");
+            //}
             item.Width = shape.Size.Width;
             item.Height = shape.Size.Height;
             item.SetValue(Canvas.LeftProperty, shape.Location.X);
@@ -195,20 +196,20 @@ namespace BasicLib
         /// </summary>
         /// <param name="shape"></param>
         /// <param name="item"></param>
-        private void CreateLinks(ShapeBase shape, Node item)
+        private void CreateLinks(ShapeBase shape, NodeBase item)
         {
-            foreach (var dest in shape.Links)
-            {
-                var destItem = (Node)View.FindItem(dest);
-                if (destItem != null)
-                {
-                    var link = new SegmentLink();
-                    link.EndCap = true;
-                    link.Source = item.Ports.First();
-                    link.Target = destItem.Ports.First();
-                    View.Children.Add(link);
-                }
-            }
+            //foreach (var dest in shape.Links)
+            //{
+            //    var destItem = (Node)View.FindItem(dest);
+            //    if (destItem != null)
+            //    {
+            //        var link = new SegmentLink();
+            //        link.EndCap = true;
+            //        link.Source = item.Ports.First();
+            //        link.Target = destItem.Ports.First();
+            //        View.Children.Add(link);
+            //    }
+            //}
         }
 
         #region IDiagramController Members 控制器接口成员函数
@@ -224,7 +225,7 @@ namespace BasicLib
             {
                 for (int i = 0; i < items.Length; i++)
                 {
-                    var item = items[i] as Node;
+                    var item = items[i] as NodeBase;
                     if (item != null)
                     {
                         var shape = item.ModelElement as ShapeBase;

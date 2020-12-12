@@ -40,15 +40,17 @@
       <Package>BasicLib</Package>
       <Type>DiagramWithRuler</Type>
       <Feature>
-        <AcceptDrop>
-          <Sources>
-            <Event_Node/>
-          </Sources>
-          <Types>
-            <EventNode/>
-            <SimpleEventNode/>
-          </Types>
-        </AcceptDrop>
+        <DiagramGroup>
+          <AcceptDrop>
+            <Sources>
+              <Event_Node/>
+            </Sources>
+            <Types>
+              <EventNode/>
+              <SimpleEventNode/>
+            </Types>
+          </AcceptDrop>
+        </DiagramGroup>
       </Feature>
       <Link>
         <Event_Node/>
@@ -126,9 +128,6 @@
     </SimpleEvent_Node>
   </Panel>
 
-
-
-
   <Parameters>
     <Event_Node>
       <EventNode/>
@@ -145,38 +144,48 @@
 
   <Node>
     <EventNode>
-      <Type>CommonNode</Type>
-      <NodeType>Basic</NodeType>
+      <ViewType>CommonNode</ViewType>
+      <RenderType>Basic</RenderType>
+      <ModelType>FreeDiagramNode</ModelType>
+      <Feature>
+        <CommonNodeGroup/>
+      </Feature>
     </EventNode>
 
     <SimpleEventNode>
-      <Type>CommonNode</Type>
-      <NodeType>Basic</NodeType>
+      <ViewType>CommonNode</ViewType>
+      <RenderType>Basic</RenderType>
+      <ModelType>FreeDiagramNode</ModelType>
+      <Feature>
+        <CommonNodeGroup/>
+      </Feature>
     </SimpleEventNode>
 
     <SpecialEventNode>
-      <Type>CommonNode</Type>
-      <NodeType>Basic</NodeType>
+      <ViewType>CommonNode</ViewType>
+      <RenderType>Basic</RenderType>
+      <ModelType>FreeDiagramNode</ModelType>
+      <Feature>
+        <CommonNodeGroup/>
+      </Feature>
     </SpecialEventNode>
 
     <RoleNode>
-      <Type>CommonNode</Type>
-      <NodeType>Custom</NodeType>
+      <ViewType>CommonNode</ViewType>
+      <RenderType>Custom</RenderType>
+      <ModelType>FreeDiagramNode</ModelType>
+      <Feature>
+        <CommonNodeGroup/>
+      </Feature>
       <Style>
         <Geometry>M--0,0.25--L--0.5--0--L--1,0.25--L--0.5,0.5--Z</Geometry>
       </Style>
-      <Parameters></Parameters>
     </RoleNode>
   </Node>
 
   <Link>
 
   </Link>
-
-
-
-
-
 
 
   <!--模板的所有元素。

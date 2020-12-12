@@ -63,59 +63,71 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgaDiagram\Controls\DragThumb.cs" />
-    <Compile Include="AgaDiagram\Controls\DragThumbKinds.cs" />
+    <Compile Include="Feature\Element\Property\Move\MoveAdornerElement.cs" />
+    <Compile Include="Feature\Element\Property\Resize\ItemResizeFeature.cs" />
+    <Compile Include="Feature\Element\Property\Resize\DragThumb.cs" />
     <Compile Include="AgaDiagram\Controls\Links\ILink.cs" />
     <Compile Include="AgaDiagram\Controls\Links\LinkBase.cs" />
     <Compile Include="AgaDiagram\Controls\Links\LinkThumb.cs" />
     <Compile Include="AgaDiagram\Controls\Links\LinkThumbKind.cs" />
-    <Compile Include="AgaDiagram\Controls\Links\RelinkControl.cs" />
+    <Compile Include="Feature\Element\Property\Resize\ResizeAdornerElement.cs" />
+    <Compile Include="Feature\Element\Property\Selection\RelinkControl.cs" />
     <Compile Include="AgaDiagram\Controls\Links\SegmentLink.cs" />
-    <Compile Include="Feature\Group\DiagramFeatureGroup.cs" />
-    <Compile Include="Feature\iPanelFeatureProperty.cs" />
-    <Compile Include="Feature\Property\Selected\MouseSelectFeature.cs" />
+    <Compile Include="Feature\Element\Group\CommonNodeGroup.cs" />
+    <Compile Include="Feature\Element\Property\Selection\ItemSelectedFeature.cs" />
+    <Compile Include="Feature\Element\Property\Selection\SelectionAdornerElement.cs" />
+    <Compile Include="Feature\FeatureBase.cs" />
+    <Compile Include="Feature\FeaturePropertyBase.cs" />
+    <Compile Include="Feature\iFeature.cs" />
+    <Compile Include="Feature\Page\Group\DiagramFeatureGroup.cs" />
+    <Compile Include="Feature\iFeatureProperty.cs" />
+    <Compile Include="Feature\General\Property\AddAdorner\AddAdornerFeature.cs" />
+    <Compile Include="Feature\Element\Property\Move\ItemMoveFeature.cs" />
+    <Compile Include="Feature\Page\Property\Node\NodeControlFeature.cs" />
+    <Compile Include="Feature\Page\Property\Select\MouseSelectFeature.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\LinkDiagramEP.cs" />
     <Compile Include="Model\ElementProperty\DiagramProperty\Link\Interface\iLinkModel.cs" />
     <Compile Include="Model\ElementProperty\DiagramProperty\Link\Interface\iShowInfoLink.cs" />
-    <Compile Include="Model\ElementProperty\DiagramProperty\Node\FreeDiagramNode.cs" />
-    <Compile Include="Model\ElementProperty\DiagramProperty\DiagramEP.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\Node\FreeDiagramNodeModel.cs" />
+    <Compile Include="Model\ElementProperty\DiagramProperty\NodeDiagramEP.cs" />
+    <Compile Include="PackageMsgCenter.cs" />
     <Compile Include="ViewModel\PackageViewModelBase.cs" />
-    <Compile Include="ViewModel\Page\DiagramViewModelBase.cs" />
-    <Compile Include="View\Node\iNode.cs" />
-    <Compile Include="View\Node\iPortElement.cs" />
-    <Compile Include="View\Node\Node.cs" />
-    <Compile Include="AgaDiagram\Controls\SelectionFrame.cs" />
+    <Compile Include="ViewModel\Page\PageViewModelBase.cs" />
+    <Compile Include="ViewModel\Window\WindowViewModelBase.cs" />
+    <Compile Include="View\Item\Node\CommonNode.cs" />
+    <Compile Include="View\Item\Node\iNode.cs" />
+    <Compile Include="View\Item\Node\iPortElement.cs" />
+    <Compile Include="View\Item\Node\NodeBase.cs" />
+    <Compile Include="Feature\Element\Property\Selection\SelectionFrame.cs" />
     <Compile Include="AgaDiagram\LinkInfo.cs" />
-    <Compile Include="AgaDiagram\Util\DebuggingConverter.cs" />
-    <Compile Include="AgaDiagram\Util\GeometryHelper.cs" />
-    <Compile Include="AgaDiagram\Util\VisualHelper.cs" />
-    <Compile Include="DiagramItem.cs" />
+    <Compile Include="Tools\DebuggingConverter.cs" />
+    <Compile Include="Tools\GeometryHelper.cs" />
+    <Compile Include="Tools\PackageTools.cs" />
+    <Compile Include="View\Item\DiagramItem.cs" />
     <Compile Include="Controller\BasicLibController.cs" />
     <Compile Include="Model\ElementProperty\DiagramProperty\Link\Interface\LinkModelBase.cs" />
-    <Compile Include="View\Ports\EllipsePort.cs" />
-    <Compile Include="View\Ports\IPort.cs" />
-    <Compile Include="View\Ports\PortBase.cs" />
-    <Compile Include="View\Ports\RectPort.cs" />
+    <Compile Include="View\Item\Ports\EllipsePort.cs" />
+    <Compile Include="View\Item\Ports\IPort.cs" />
+    <Compile Include="View\Item\Ports\PortBase.cs" />
+    <Compile Include="View\Item\Ports\RectPort.cs" />
     <Compile Include="ViewModel\Node\CommonNodeViewModel.cs" />
-    <Compile Include="ViewModel\Node\DiagramNodeViewModelBase.cs" />
     <Compile Include="ViewModel\Node\NodeViewModelBase.cs" />
-    <Compile Include="View\Node\CommonNode.xaml.cs">
-      <DependentUpon>CommonNode.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\Page\DiagramWithRulerViewModel.cs" />
     <Compile Include="ViewModel\Page\StandardDiagramViewModel.cs" />
-    <Compile Include="View\Page\DiagramScrollView.cs" />
+    <Compile Include="View\iView.cs" />
+    <Compile Include="View\Page\Diagram\DiagramScrollView.cs" />
     <Compile Include="View\Page\DiagramView.cs" />
-    <Compile Include="View\Page\DiagramWithRuler.xaml.cs">
+    <Compile Include="View\Page\Diagram\DiagramWithRuler.xaml.cs">
       <DependentUpon>DiagramWithRuler.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Page\StandardDiagram.xaml.cs">
+    <Compile Include="View\Page\Diagram\StandardDiagram.xaml.cs">
       <DependentUpon>StandardDiagram.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Page\Adorners\DragAdorner.cs" />
     <Compile Include="View\Page\Adorners\LinkAdorner.cs" />
     <Compile Include="View\Page\Adorners\MoveResizeAdorner.cs" />
-    <Compile Include="Feature\Property\Selected\RubberbandAdorner.cs" />
-    <Compile Include="View\Page\Adorners\SelectionAdorner.cs" />
+    <Compile Include="Feature\Page\Property\Select\RubberbandAdorner.cs" />
+    <Compile Include="Feature\General\Property\AddAdorner\SelectedAdorner.cs" />
     <Compile Include="View\Page\ViewElement\Controller\DiagramController.cs" />
     <Compile Include="View\Page\ViewElement\Controller\DiagramWithRulerController.cs" />
     <Compile Include="View\Page\ViewElement\Controller\ShapeBase.cs" />
@@ -129,15 +141,12 @@
     <Compile Include="View\Page\ViewElement\LinkTool\LinkTool.cs" />
     <Compile Include="View\Page\ViewElement\MoveResizeTool\MoveResizeTool.cs" />
     <Compile Include="View\Page\ViewElement\Selection\Selection.cs" />
-    <Compile Include="Feature\Property\DragDrop\AcceptDropFeature.cs" />
+    <Compile Include="Feature\Page\Property\DragDrop\AcceptDropFeature.cs" />
     <Compile Include="Model\ElementProperty\DiagramProperty\Node\Interface\iLinkNode.cs" />
     <Compile Include="Model\ElementProperty\DiagramProperty\Node\Interface\iNodeModel.cs" />
     <Compile Include="Model\ElementProperty\DiagramProperty\Node\Interface\iPositionNode.cs" />
     <Compile Include="Model\ElementProperty\DiagramProperty\Node\Interface\NodeModelBase.cs" />
     <Compile Include="Model\FrameElementBase.cs" />
-    <Compile Include="test.xaml.cs">
-      <DependentUpon>test.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\Window\ContentInspectViewModel.cs" />
     <Compile Include="ViewModel\Window\NodeListViewModel.cs" />
     <Compile Include="View\Window\ContentInspect.xaml.cs">
@@ -146,21 +155,25 @@
     <Compile Include="View\Window\NodeList.xaml.cs">
       <DependentUpon>NodeList.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Node\CommonNode.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="View\Page\DiagramWithRuler.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="View\Page\StandardDiagram.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="test.xaml">
+    <Page Include="Themes\Selection\MoveAdornerElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Selection\ResizeAdornerElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Selection\SelectionAdornerElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\Diagram\DiagramWithRuler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="View\Page\Diagram\StandardDiagram.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Themes\DiagramView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -190,7 +203,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\SelectionFrame.xaml">
+    <Page Include="Themes\Selection\SelectionFrame.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -204,7 +217,7 @@
     </Page>
     <Compile Include="Tools\CustomMoveResizeTool.cs" />
     <Compile Include="Tools\DragDropAdorner.cs" />
-    <Compile Include="Feature\Property\DragDrop\ItemsControlDragHelper.cs" />
+    <Compile Include="Feature\Page\Property\DragDrop\ItemsControlDragHelper.cs" />
     <Compile Include="Tools\UpdateScope.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
@@ -251,8 +264,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AgaDiagram\Controls\Node\" />
-    <Folder Include="Feature\Property\Link\" />
-    <Folder Include="Feature\Property\Node\" />
+    <Folder Include="Feature\General\Group\" />
+    <Folder Include="Feature\Page\Property\Link\" />
+    <Folder Include="Feature\Window\" />
     <Folder Include="Model\ElementProperty\DiagramProperty\Link\Relation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

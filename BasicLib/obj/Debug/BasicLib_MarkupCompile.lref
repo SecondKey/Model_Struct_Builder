@@ -1,9 +1,10 @@
 ﻿
 
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Node\CommonNode.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Page\DiagramWithRuler.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Page\StandardDiagram.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\test.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\Selection\MoveAdornerElement.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\Selection\ResizeAdornerElement.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\Selection\SelectionAdornerElement.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Page\Diagram\DiagramWithRuler.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Page\Diagram\StandardDiagram.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\DiagramView.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\EllipsePort.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\generic.xaml;;
@@ -11,7 +12,7 @@ FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\LinkBase.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\Node.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\RectPort.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\RelinkControl.xaml;;
-FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\SelectionFrame.xaml;;
+FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\Selection\SelectionFrame.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\Themes\Shared.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\UserControl1.xaml;;
 FD:\OfficialProject\Model_Struct_Builder\BasicLib\View\Window\ContentInspect.xaml;;

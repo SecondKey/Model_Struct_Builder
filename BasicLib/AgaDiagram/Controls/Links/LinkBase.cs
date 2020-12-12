@@ -246,15 +246,6 @@ namespace BasicLib
 			UpdatePath();
 		}
 
-		/// <summary>
-		/// 创建选择装饰器
-		/// </summary>
-		/// <returns></returns>
-		protected override Adorner CreateSelectionAdorner()
-		{
-			return new SelectionAdorner(this, new RelinkControl());
-		}
-
 		public abstract void UpdatePath();
 
 		#region INotifyPropertyChanged Members

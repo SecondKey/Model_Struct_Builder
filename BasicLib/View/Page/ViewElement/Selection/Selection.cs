@@ -60,8 +60,8 @@ namespace BasicLib
 			{
 				bool isPrimary = Count == 0;
 				_items.Add(item, null);
-				item.IsSelected = true;
-				item.IsPrimarySelection = isPrimary;
+				//item.IsSelected = true;
+				//item.IsPrimarySelection = isPrimary;
 				if (isPrimary)
 				{
 					_primary = item;
@@ -78,14 +78,14 @@ namespace BasicLib
 		{
 			if (_items.ContainsKey(item))
 			{
-				item.IsSelected = false;
+				//item.IsSelected = false;
 				_items.Remove(item);
 			}
 			if (_primary == item)
 			{
 				_primary = _items.Keys.FirstOrDefault();
 				if (_primary != null)
-					_primary.IsPrimarySelection = true;
+					//_primary.IsPrimarySelection = true;
 				OnPropertyChanged("Primary");
 			}
 			OnPropertyChanged("Items");
@@ -111,11 +111,11 @@ namespace BasicLib
 			foreach (var item in items)
 			{
 				_items.Add(item, null);//将节点添加到字典中
-				item.IsSelected = true;//设为被选中
+				//item.IsSelected = true;//设为被选中
 				if (isPrimary)//是否为主节点
 				{
 					_primary = item;
-					item.IsPrimarySelection = true;
+					//item.IsPrimarySelection = true;
 					isPrimary = false;
 				}
 			}
@@ -139,7 +139,7 @@ namespace BasicLib
 		private void DoClear()
 		{
 			foreach (var item in Items)
-				item.IsSelected = false;
+				//item.IsSelected = false;
 			_items.Clear();
 			_primary = null;
 		}

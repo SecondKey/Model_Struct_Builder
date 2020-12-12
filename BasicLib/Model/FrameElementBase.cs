@@ -13,7 +13,7 @@ namespace BasicLib.Model
         public int SerialNum { get; set; }
         public string ElementName { get; set; }
 
-        public Dictionary<string, iElementProperty> ElementProperty => throw new NotImplementedException();
+        public Dictionary<string, iElementProperty> ElementProperty { get; set; }
 
         public void LoadElement(params string[] parameters)
         {

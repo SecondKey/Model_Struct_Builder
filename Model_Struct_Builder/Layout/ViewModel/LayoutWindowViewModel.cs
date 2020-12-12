@@ -16,8 +16,8 @@ namespace Model_Struct_Builder
     {
         public LayoutWindowViewModel(PanelInfo targetStruct) : base(targetStruct)
         {
-            MsgCenter.RegistSelf(this, AllAppMsg.SaveUserVisible, SaveUserVisible<MsgBase>);
-            MsgCenter.RegistSelf(this, AllAppMsg.LoadUserVisible, LoadUserVisible<MsgBase>);
+            this.RegistSelf(AllAppMsg.SaveUserVisible, SaveUserVisible<MsgBase>);
+            this.RegistSelf(AllAppMsg.LoadUserVisible, LoadUserVisible<MsgBase>);
 
             ViewModelLocator.instence.Main.ActiveDocumentChanged += (sender, e) =>
             {
@@ -25,7 +25,6 @@ namespace Model_Struct_Builder
             };
             ViewModelLocator.instence.Main.WindowActionList.CollectionChanged += ChangeVisible;
         }
-
 
         #region AutoVisible
         /// <summary>
@@ -37,7 +36,7 @@ namespace Model_Struct_Builder
         /// 该值会在自动进行显示隐藏操作时设为true并在该次对IsVisible属性操作时设为false
         /// 用于指示IsVisible的在set过程中不修改userVisible，因为该次操作不是用户发起的
         /// </summary>
-        BoolScope autoVisible = new BoolScope(false);
+        BoolState autoVisible = new BoolState(false);
 
         /// <summary>
         /// 当切换了选定页面，自动对窗口进行一次显示隐藏操作

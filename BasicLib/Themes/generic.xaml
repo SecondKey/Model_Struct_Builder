@@ -7,10 +7,14 @@
         <ResourceDictionary Source="/BasicLib;component/Themes/DiagramView.xaml"/>
         <ResourceDictionary Source="/BasicLib;component/Themes/Node.xaml" />
         <ResourceDictionary Source="/BasicLib;component/Themes/LinkBase.xaml" />
-        <ResourceDictionary Source="/BasicLib;component/Themes/SelectionFrame.xaml" />
+        <ResourceDictionary Source="/BasicLib;component/Themes/Selection/SelectionFrame.xaml" />
         <ResourceDictionary Source="/BasicLib;component/Themes/RelinkControl.xaml" />
         <ResourceDictionary Source="/BasicLib;component/Themes/EllipsePort.xaml" />
         <ResourceDictionary Source="/BasicLib;component/Themes/RectPort.xaml" />
+
+        <ResourceDictionary Source="/BasicLib;component/Themes/Selection/MoveAdornerElement.xaml" />
+        <ResourceDictionary Source="/BasicLib;component/Themes/Selection/ResizeAdornerElement.xaml" />
+        <ResourceDictionary Source="/BasicLib;component/Themes/Selection/SelectionAdornerElement.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

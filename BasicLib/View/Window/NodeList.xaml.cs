@@ -33,19 +33,16 @@ namespace BasicLib
             };
         }
 
-
         void AddNode()
         {
             NodeListViewModel localVM = DataContext as NodeListViewModel;
             foreach (var vm in localVM.NodeList)
             {
-                var node = vm.GetNode();
-                node.DataContext = vm;
-                node.Tag = vm.viewModelName;
+                FrameworkElement node = vm.GetCompleteNode();
                 node.Width = 90;
                 node.Height = 45;
                 node.Margin = new Thickness(5);
-                DragElement.Items.Add(node);
+                Collection.Items.Add(node);
             }
         }
 

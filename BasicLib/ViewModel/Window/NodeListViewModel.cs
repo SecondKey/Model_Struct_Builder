@@ -8,20 +8,20 @@ using Model_Struct_Builder;
 
 namespace BasicLib
 {
-    class NodeListViewModel : PackageViewModelBase
+    class NodeListViewModel : WindowViewModelBase
     {
-        public NodeListViewModel(FrameworkElement view, string name) : base(view, name)
-        {
-            foreach (var t in Frame.MainFrameData.GetOneElementAllContent("Parameters", name))
-            {
-                nodeList.Add(NodeViewModelBase.GetNodeViewModel(t));
-            }
-        }
-
         private List<NodeViewModelBase> nodeList = new List<NodeViewModelBase>();
         public List<NodeViewModelBase> NodeList
         {
             get { return nodeList; }
+        }
+
+        public NodeListViewModel(string windowName) : base(windowName)
+        {
+            foreach (var t in Frame.MainFrameData.GetOneElementAllContent("Parameters", windowName))
+            {
+                nodeList.Add(NodeViewModelBase.GetNodeViewModel(t));
+            }
         }
     }
 }

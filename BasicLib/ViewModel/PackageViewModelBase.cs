@@ -9,59 +9,45 @@ using System.Windows.Controls;
 
 namespace BasicLib
 {
-    public class PackageViewModelBase : AppViewModelBase
+    public abstract class PackageViewModelBase : AppViewModelBase
     {
-        iFrameElement model;
-
-        FrameworkElement view;
-        public iFrameElement Model { get { return model; } }
-
-        #region build
-        Dictionary<string, iPanelFeature> allFeature = new Dictionary<string, iPanelFeature>();
-
-        public PackageViewModelBase(FrameworkElement view, string elementName)
+        public FrameworkElement view;
+        public iFrameElement model;
+        public iFrameElement Model
         {
-            MsgCenter.RegistSelf(this, AllAppMsg.PanelCreateComplete, (msg) => { CreateFeature(); });
-
-            viewModelName = elementName;
-            PanelInfo info = Frame.AllPanelInfo[elementName];
-            this.view = view;
-            foreach (string feature in info.feature)
+            get { return model; }
+            set
             {
-                allFeature.Add(feature, GetPanelFeature(feature, view, elementName));
+                model = value;
+                foreach (iFeature feature in AllFeature.Values)
+                {
+                    feature.ChangeModel(value);
+                }
             }
         }
 
-        iPanelFeature GetPanelFeature(string Featurename, FrameworkElement view, string elementName)
-        {
-            iPanelFeature feature;
-            switch (Featurename)
-            {
-                #region Property
-                case "AcceptDrop":
-                    feature = new AcceptDropFeature();
-                    break;
-                case "MouseSelect":
-                    feature = new MouseSelectFeature();
-                    break;
-                #endregion
+        public PackageViewModelBase(string VMName) : base(VMName) { }
+        public PackageViewModelBase(iFrameElement model) { this.model = model; }
 
-                #region Group
-                case "DiagramGroup":
-                    feature = new DiagramFeatureGroup();
-                    break;
-                #endregion
-                default:
-                    return null;
+        #region Feature
+        public Dictionary<string, iFeature> AllFeature = new Dictionary<string, iFeature>();
+
+        protected abstract iFeature GetFeature(string Featurename, string elementName);
+
+        protected void CreateFeature()
+        {
+            List<string> tmp = new List<string>(AllFeature.Keys);
+            foreach (string t in tmp)
+            {
+                AllFeature[t].CreateFeature(view, viewModelName);
             }
-            return feature;
         }
 
-        void CreateFeature()
+        public void ChangeModel(iFrameElement model)
         {
-            foreach (var kv in allFeature)
+            foreach (iFeature feature in AllFeature.Values)
             {
-                kv.Value.CreateFeature(view, viewModelName);
+                feature.ChangeModel(model);
             }
         }
         #endregion
